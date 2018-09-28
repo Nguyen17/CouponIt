@@ -6,12 +6,13 @@ import 'package:barcode_scan/barcode_scan.dart';
 
 void main() => runApp(new MyApp());
 
+
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Flutter Demo',
+      title: 'CouponIt',
       theme: new ThemeData(
         // This is the theme of your application.
         //
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         // counter didn't reset back to zero; the application is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: new MyHomePage(title: 'I Love anime'),
+      home: new MyHomePage(),
     );
   }
 }
@@ -47,7 +48,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+
   String barcode = "";
 
 
@@ -61,10 +62,34 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return new Scaffold(
+
       appBar: new AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: new Text(widget.title),
+        title: new Text("CouponIt"),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            title: Text("menu"),
+            icon: IconButton(
+              icon:Icon(Icons.more_horiz),
+                 onPressed: (){}
+            )),
+            
+           BottomNavigationBarItem(
+            title: Text("scan"),
+            icon: IconButton(
+              icon:Icon(Icons.fullscreen),
+                 onPressed: (){scan();}
+            )),
+                BottomNavigationBarItem(
+            title: Text("Friends"),
+            icon: IconButton(
+              icon:Icon(Icons.people),
+                 onPressed: (){}
+            )),
+        ]
       ),
       body: new Center(
         // Center is a layout widget. It takes a single child and positions it
@@ -85,23 +110,18 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new Text(
-              'You have pushed the button this many times:',
-            ),
-            new Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
+            Container(
+              child: Image.asset('assets/logos/couponlogo_1.jpg')
+            )
+
+        
           ],
         ),
       ),
-      floatingActionButton: new FloatingActionButton(
-        onPressed: scan,
-        tooltip: 'Increment',
-        child: new Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+  // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
 
 
    Future scan() async {
