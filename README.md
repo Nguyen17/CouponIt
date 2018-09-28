@@ -7,6 +7,22 @@
 ## Installation
 Since this is a flutter application. Please make sure you have flutter installed.
 Link to installation guide: [Flutter Installation](https://flutter.io/get-started/install/)
+### Running the Application
+- First clone this repo.
+
+   
+` git clone https://github.com/Nguyen17/CouponIt.git `
+
+<p> Notes: There will be 2 folders, <em>demo</em> and <em>app</em> .</p>
+
+ - After you clone the repo, **MAKE SURE TO DO THIS:**
+ 
+   
+ `flutter create demo` or `flutter create app` 
+
+- To run the app, go to root directory of either folder and type: 
+
+ `flutter run` 
 
 ## Git Fundamentals
  Git is vital to make changes to the codebase. If you don't know git yet, refer to the following links :penguin:
@@ -35,5 +51,4 @@ Before contributing to the rep it is recommended to be familiarize with the flut
 
 ## Contribution Guide
 <em>currently in writing :c</em>
-
 
