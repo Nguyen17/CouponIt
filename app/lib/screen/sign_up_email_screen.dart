@@ -53,7 +53,9 @@ class _SignUpEmailState extends State<SignUpEmail> {
 }
 
 /**
- * Sign Up Email Component Widgets
+ * Sign Up Email Components
+ * * contains
+ * * - emailTitle, emailMsg, emailFormField
  */
 
 Widget emailTitle = Positioned(

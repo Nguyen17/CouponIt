@@ -33,6 +33,8 @@ class LoginScreen extends StatelessWidget {
 
 /** 
  * Sign Up Email Components
+ *
+ * ================================= 
  */
 
 /** 
@@ -126,6 +128,11 @@ Widget loginButton = Container(
           print("Hello");
         },
         child: Text("Login", style: loginButtonStyle)));
+        
 
-/* TEXTSTYLE LOGIN */
+/**
+ * External components for styling
+ * 
+ * ==============================================
+ */
 TextStyle loginButtonStyle = TextStyle(color: Colors.white);

@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
  *  - use for defining page routes
  */
 import 'screen/login_screen.dart';
-import 'screen/sign_up_email.dart';
-import 'screen/sign_up_password.dart';
+import 'screen/sign_up_email_screen.dart';
+import 'screen/sign_up_password_screen.dart';
 
 void main(){
   runApp(App());
