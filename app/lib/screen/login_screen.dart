@@ -163,6 +163,11 @@ class _LoginScreen extends State<LoginScreen> {
   }
 }
 
+/** 
+ * Sign Up Email Components
+ *
+ * ================================= 
+ */
 
 /** 
  * LoginBg
