@@ -34,6 +34,7 @@ class _AppScreenState extends State<AppScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
         home: Scaffold(
       appBar: AppBar(title: Text("Coupon It")),
       bottomNavigationBar: BottomNavigationBar(items: [
