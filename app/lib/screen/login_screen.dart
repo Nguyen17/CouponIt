@@ -45,7 +45,7 @@ Widget loginBg = Positioned(
     child: Container(
   decoration: BoxDecoration(
       image: DecorationImage(
-          fit: BoxFit.fill, image: AssetImage('assets/images/bg3.jpg'))),
+          fit: BoxFit.fill, image: AssetImage('assets/images/bg2.jpg'))),
 ));
 
 /**
