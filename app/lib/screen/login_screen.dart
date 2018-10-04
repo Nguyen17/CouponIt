@@ -47,7 +47,7 @@ class _LoginScreen extends State<LoginScreen> {
         print('signed in: ${user.uid}');
         Navigator.of(
                 context) // route to home and remove routes (clear the stack)
-            .pushNamedAndRemoveUntil('/sign_up_email', (Route<dynamic> route) => false);
+            .pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
 
   }
 
