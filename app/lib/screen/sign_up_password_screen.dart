@@ -28,6 +28,7 @@ class _SignUpPasswordState extends State<SignUpPassword> {
 
   void validateSubmit() async {
     // if credentials are correct we will jump to the home page
+    print(_email+_password);
         FirebaseAuth.instance
             .createUserWithEmailAndPassword(email: _email, password: _password);
 
