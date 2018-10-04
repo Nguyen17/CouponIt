@@ -68,7 +68,7 @@ Widget loginScreenUI = Center(
         ])));
 
 Widget loginTitle = Container(
-    alignment: Alignment.centerLeft,
+    alignment: Alignment.center,
     margin: EdgeInsets.fromLTRB(5.0, 30.0, 20.0, 46.0),
     child: Text(
       "Coupon It",
@@ -76,7 +76,9 @@ Widget loginTitle = Container(
       style: TextStyle(
           fontFamily: "Cookie",
           fontSize: 64.0,
-          color: Color.fromRGBO(48, 232, 208, 1.0)),
+          color: 
+          // Color.fromRGBO(48, 232, 208, 1.0)),
+          Colors.white),
     ));
 
 Widget loginEmail = Container(
@@ -116,14 +118,21 @@ Widget loginButton = Container(
     decoration: BoxDecoration(
         gradient: LinearGradient(
             colors: [
-              Color.fromRGBO(212, 255, 183, 1.0),
-              Color.fromRGBO(218, 71, 223, 1.0),
+              Color.fromRGBO(233, 183, 255, 1.0),
+              Color.fromRGBO(193, 193, 255, 1.0),
+              Color.fromRGBO(144, 203, 255, 1.0),
+              Color.fromRGBO(91, 211, 255, 1.0),
+              Color.fromRGBO(44, 216, 250, 1.0),
+              
             ],
             begin: FractionalOffset.topLeft,
             end: FractionalOffset.bottomRight,
-            stops: [0.2, 0.8],
-            tileMode: TileMode.repeated)),
+            // stops: [0.2,0.2,0.2,0.2,0.2],
+            // tileMode: TileMode.mirror
+            
+            )),
     child: FlatButton(
+     
         onPressed: () {
           print("Hello");
         },
