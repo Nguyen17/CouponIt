@@ -34,7 +34,7 @@ class _SignUpPasswordState extends State<SignUpPassword> {
                                       fontWeight: FontWeight.w700,
                                       color: Colors.black)),
                               onPressed: () {
-                                Navigator.pushNamed(context, '/');
+                                Navigator.pushNamed(context, '/home');
                               })))
                 ]),
               ]),
