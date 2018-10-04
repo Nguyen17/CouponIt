@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "604175067217",
+    "firebase_url": "https://projectcouponit.firebaseio.com",
+    "project_id": "projectcouponit",
+    "storage_bucket": "projectcouponit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:604175067217:android:87a2bbef8f71bf28",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "604175067217-ubuj8ulqar9v7hegpkcakvegiqvmvve2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACy8ogusYkws_HJ5PlUqldnzWlMxGx3iU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
