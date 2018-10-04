@@ -52,7 +52,11 @@ Widget loginBg = Positioned(
  * 
  * LoginScreenUI
  * * This is the container that have title, email and password input fields
- * ! Needs to center the components
+ * ! LOGIN BUTTON NEED FIX
+ * ? On Succesfull login take user to '/home'
+ * ! The issue is with Navigator.pushedNamed(context, '/home')
+ * ! having trouble getting the context
+ * ! Last resort is to copy paste the whole code and no refactor
  */
 
 Widget loginScreenUI = Center(
@@ -134,7 +138,12 @@ Widget loginButton = Container(
     child: FlatButton(
      
         onPressed: () {
+
+          //? This print is for debug
           print("Hello");
+
+          // Todos: FIX THIS !! <3
+          // Navigator.pushNamed(context, '/home');
         },
         child: Text("Login", style: loginButtonStyle)));
         
