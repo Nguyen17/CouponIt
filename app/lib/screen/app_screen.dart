@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 /** 
  * Importing the Barcode Scan Module
  * * REFER TO DOCUMENTATION
@@ -89,3 +91,4 @@ class _AppScreenState extends State<AppScreen> {
     }
   }
 } // End of AppScreen CLASS
+

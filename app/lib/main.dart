@@ -10,15 +10,22 @@ import 'screen/login_screen.dart';
 import 'screen/sign_up_email_screen.dart';
 import 'screen/sign_up_password_screen.dart';
 import 'screen/app_screen.dart';
+
 void main(){
   runApp(App());
 }
 
+/**
+ * App 
+ * * This is the main file
+ * * - contains routes that store the location of pages
+ */
 
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "Coupon It",
       initialRoute: '/',
       routes:{
