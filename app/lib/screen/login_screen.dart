@@ -41,14 +41,11 @@ class _LoginScreen extends State<LoginScreen> {
   }
 
   void validateSubmit() async {
-
-        FirebaseUser user = await FirebaseAuth.instance
-            .signInWithEmailAndPassword(email: _email, password: _password);
-        print('signed in: ${user.uid}');
-        Navigator.of(
-                context) // route to home and remove routes (clear the stack)
-            .pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
-
+    FirebaseUser user = await FirebaseAuth.instance
+        .signInWithEmailAndPassword(email: _email, password: _password);
+    print('signed in: ${user.uid}');
+    Navigator.of(context) // route to home and remove routes (clear the stack)
+        .pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
   }
 
   @override
@@ -83,7 +80,6 @@ class _LoginScreen extends State<LoginScreen> {
                     padding: EdgeInsets.all(5.0),
                     width: 300.0,
                     height: 500.0,
-                                              
                     child: ListView(children: <Widget>[
                       Container(
                           alignment: Alignment.center,
@@ -99,7 +95,6 @@ class _LoginScreen extends State<LoginScreen> {
                                     Colors.white),
                           )),
                       Container(
-       
                           margin: EdgeInsets.fromLTRB(5.0, 44.0, 5.0, 10.0),
                           color: Colors.white,
                           // width: 290.0,
@@ -107,6 +102,9 @@ class _LoginScreen extends State<LoginScreen> {
                           child: ListTile(
                               leading: Icon(Icons.email),
                               title: TextFormField(
+                                validator: (value) => value.isEmpty
+                                    ? "Email can\'t be empty"
+                                    : null,
                                 onFieldSubmitted: (value) => _email = value,
                                 textAlign: TextAlign.center,
                                 decoration: InputDecoration(
@@ -115,17 +113,20 @@ class _LoginScreen extends State<LoginScreen> {
                                   border: InputBorder.none,
                                 ),
                               ))),
-                      Container(                        
+                      Container(
                           margin: EdgeInsets.fromLTRB(5.0, 16.0, 5.0, 20.0),
                           color: Colors.white,
-                           
+
                           // width: 290.0,
                           height: 51.0,
                           child: ListTile(
                               leading: Icon(Icons.lock_outline),
                               title: TextFormField(
-     
-                                onFieldSubmitted: (chicken) => _password = chicken,
+                                validator: (value) => value.isEmpty
+                                    ? "Password can\'t be empty"
+                                    : null,
+                                onFieldSubmitted: (chicken) =>
+                                    _password = chicken,
                                 textAlign: TextAlign.center,
                                 obscureText: true,
                                 decoration: InputDecoration(
@@ -138,7 +139,7 @@ class _LoginScreen extends State<LoginScreen> {
                           margin: EdgeInsets.fromLTRB(70.0, 20.0, 70.0, 20.0),
                           decoration: BoxDecoration(
                               gradient: LinearGradient(
-                            colors: [ 
+                            colors: [
                               Color.fromRGBO(233, 183, 255, 1.0),
                               Color.fromRGBO(193, 193, 255, 1.0),
                               Color.fromRGBO(144, 203, 255, 1.0),
@@ -150,15 +151,11 @@ class _LoginScreen extends State<LoginScreen> {
                             // stops: [0.2,0.2,0.2,0.2,0.2],
                             // tileMode: TileMode.mirror
                           )),
-
                           child: FlatButton(
-                              onPressed:(){
-                                print(_email+_password);
+                              onPressed: () {
+                                print(_email + _password);
                                 validateSubmit();
-                            
-
-                              }, 
-                              
+                              },
                               child: Text("Login", style: loginButtonStyle))),
                     ])))
           ])),
@@ -166,11 +163,6 @@ class _LoginScreen extends State<LoginScreen> {
   }
 }
 
-/** 
- * Sign Up Email Components
- *
- * ================================= 
- */
 
 /** 
  * LoginBg
