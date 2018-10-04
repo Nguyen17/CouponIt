@@ -9,7 +9,7 @@ class _SignUpPasswordState extends State<SignUpPassword> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-            home: Hero(
+        home: Hero(
             tag: 'hero',
             child: Scaffold(
                 body: Container(
@@ -23,7 +23,19 @@ class _SignUpPasswordState extends State<SignUpPassword> {
 
                   //* Done Button should return back to login screen
                   //! Might need to replace widget with full code
-                  doneButton
+                  Positioned(
+                      child: Container(
+                          margin: EdgeInsets.fromLTRB(243.0, 564.0, 0.0, 20.0),
+                          child: FlatButton(
+                              child: Text("Done",
+                                  style: TextStyle(
+                                      fontFamily: "Kotori",
+                                      fontSize: 32.0,
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.black)),
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/home');
+                              })))
                 ]),
               ]),
             ))));
@@ -75,15 +87,3 @@ Widget passwordInput = TextFormField(
       labelText: "password",
       fillColor: Colors.white),
 );
-
-Widget doneButton = Positioned(
-    child: Container(
-        margin: EdgeInsets.fromLTRB(243.0, 564.0, 0.0, 20.0),
-        child: FlatButton(
-            child: Text("Done",
-                style: TextStyle(
-                    fontFamily: "Kotori",
-                    fontSize: 32.0,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.black)),
-            onPressed: () {})));
