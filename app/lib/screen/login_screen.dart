@@ -59,7 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
               backgroundColor: Color.fromRGBO(218, 71, 223, 1.0),
               child: Icon(Icons.person_add),
               onPressed: () {
-                Navigator.pushNamed(context, '/sign_up');
+                Navigator.pushNamed(context, '/sign_up_email');
               }),
 
           //* Contains blurred background and main login ui
