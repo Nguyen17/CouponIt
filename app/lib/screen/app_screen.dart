@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 /** 
  * Importing the Barcode Scan Module
@@ -6,7 +7,6 @@ import 'package:flutter/material.dart';
  * * - https://pub.dartlang.org/packages/barcode_scan#-readme-tab-
  */
 import 'package:barcode_scan/barcode_scan.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 /** 
@@ -22,47 +22,57 @@ class AppScreen extends StatefulWidget {
 }
 
 class _AppScreenState extends State<AppScreen> {
-
   // This is a variables that holds the return value of the Scan method
   String barcode = '';
-  
+
   @override
   initState() {
     super.initState();
   }
 
+  sign_out() {
+    FirebaseAuth.instance.signOut().then((user) {
+      Navigator.of(context).pushNamed('/');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: false,
         home: Scaffold(
-      appBar: AppBar(title: Text("Coupon It")),
-      bottomNavigationBar: BottomNavigationBar(items: [
-        BottomNavigationBarItem(
-          title: Text("menu"),
-          icon: IconButton(icon: Icon(Icons.more_horiz), onPressed: () {}),
-        ),
-        BottomNavigationBarItem(
-          title: Text("scan"),
-          icon: IconButton(
-              icon: Icon(Icons.fullscreen),
+          appBar: AppBar(title: Text("Coupon It")),
+          bottomNavigationBar: BottomNavigationBar(items: [
+            BottomNavigationBarItem(
+              title: Text("menu"),
+              icon: IconButton(icon: Icon(Icons.more_horiz), onPressed: () {}),
+            ),
+            BottomNavigationBarItem(
+              title: Text("scan"),
+              icon: IconButton(
+                  icon: Icon(Icons.fullscreen),
 
-              // Todos: Implement scan
-              onPressed: () {
-                scan();
-        
+                  // Todos: Implement scan
+                  onPressed: () {
+                    scan();
+                  }),
+            ),
+            // BottomNavigationBarItem(
+            //   title: Text("friends"),
+            //   icon: IconButton(
+            //       icon: Icon(Icons.people),
+            //       onPressed: () {
+
+            //       }),
+            // ),
+            BottomNavigationBarItem(
+              title: Text("sign out"),
+              icon: IconButton(icon: Icon(Icons.input), onPressed: () {
+                sign_out();
               }),
-        ),
-        BottomNavigationBarItem(
-          title: Text("friends"),
-          icon: IconButton(
-              icon: Icon(Icons.people),
-              onPressed: () {
-                
-              }),
-        ),
-      ]),
-    ));
+            ),
+          ]),
+        ));
   }
 
 /**
