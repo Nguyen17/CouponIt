@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Flutter Plugins" type="FlutterPluginsLibraryType">
+    <CLASSES>
+      <root url="file://$USER_HOME$/Documents/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-0.5.20" />
+      <root url="file://$USER_HOME$/Documents/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_database-1.0.4" />
+      <root url="file://$USER_HOME$/Documents/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-0.2.5" />
+      <root url="file://$USER_HOME$/Documents/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/barcode_scan-0.0.7" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

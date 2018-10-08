@@ -24,6 +24,7 @@ dependencies:
   barcode_scan: ^0.0.3
   
   # FIREBASE DEPENDENCIES
+  google_sign_in: ^3.2.1
   firebase_core: any
   firebase_database: ^1.0.4
   firebase_auth: ^0.5.20

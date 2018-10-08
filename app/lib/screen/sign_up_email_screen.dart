@@ -28,7 +28,7 @@ class _SignUpEmailState extends State<SignUpEmail> {
                   emailMsg,
 
                   //* Contains the form field to input email
-                  emailFormField,
+                  emailFormField(),
 
                   //* NEXT component
                   //* - when a user clicks the next bottom 
@@ -80,12 +80,16 @@ Widget emailMsg = Positioned(
           color: Colors.black)),
 ));
 
-Widget emailFormField = Positioned(
+Widget emailFormField(){
+  return Positioned(
     child: Container(
         width: 290.0,
         margin: EdgeInsets.fromLTRB(45.0, 403.0, 0.0, 40.0),
-        child: Form(child: Column(children: <Widget>[passwordInput]))));
-Widget passwordInput = TextFormField(
+        child: Form(child: Column(children: <Widget>[emailInput()]))));
+}
+        
+Widget emailInput () {
+ return  TextFormField(
   decoration: InputDecoration(
       icon: Icon(
         Icons.lock_outline,
@@ -96,5 +100,6 @@ Widget passwordInput = TextFormField(
       labelText: "email",
       fillColor: Colors.white),
 );
+}
 
 

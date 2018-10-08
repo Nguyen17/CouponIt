@@ -10,6 +10,7 @@ import 'screen/login_screen.dart';
 import 'screen/sign_up_email_screen.dart';
 import 'screen/sign_up_password_screen.dart';
 import 'screen/app_screen.dart';
+import 'screen/sign_up_screen.dart';
 
 void main(){
   runApp(App());
@@ -30,6 +31,7 @@ class App extends StatelessWidget {
       initialRoute: '/',
       routes:{
         '/': (context) => LoginScreen(),
+        '/sign_up': (context) => SignUpScreen(),
         '/sign_up_email':(context) => SignUpEmail(),
         '/sign_up_password':  (context)=>SignUpPassword(),
         '/home': (context) => AppScreen()

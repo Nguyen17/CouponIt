@@ -27,7 +27,7 @@ class _SignUpPasswordState extends State<SignUpPassword> {
                       child: Container(
                           margin: EdgeInsets.fromLTRB(243.0, 564.0, 0.0, 20.0),
                           child: FlatButton(
-                              child: Text("Done",
+                              child: Text("Create Account",
                                   style: TextStyle(
                                       fontFamily: "Kotori",
                                       fontSize: 32.0,
