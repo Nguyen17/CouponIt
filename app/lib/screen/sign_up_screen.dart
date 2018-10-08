@@ -71,6 +71,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 color: Colors.black,
                               ),
                               title: TextFormField(
+                                keyboardType: TextInputType.emailAddress,
                                 decoration: InputDecoration(
                                     border: InputBorder.none,
                                     filled: true,
@@ -111,6 +112,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 color: Colors.black,
                               ),
                               title: TextFormField(
+                                  obscureText: true,
                                   decoration: InputDecoration(
                                       border: InputBorder.none,
                                       filled: true,
