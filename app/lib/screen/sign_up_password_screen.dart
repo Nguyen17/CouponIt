@@ -28,13 +28,22 @@ class _SignUpPasswordState extends State<SignUpPassword> {
 
   void validateSubmit() async {
     // if credentials are correct we will jump to the home page
-    print(_email+_password);
-        FirebaseAuth.instance
-            .createUserWithEmailAndPassword(email: _email, password: _password);
+    // print(_email+_password);
+        // FirebaseAuth.instance
+        //     .createUserWithEmailAndPassword(email: _email, password: _password);
 
+        // Navigator.of(
+        //         context) // route to home and remove routes (clear the stack)
+        //     .pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
+    FirebaseUser new_user = await FirebaseAuth.instance
+        .createUserWithEmailAndPassword(email: _email, password: _password)
+        .then((new_user) {
+      print("User email: ${new_user.email}");
         Navigator.of(
                 context) // route to home and remove routes (clear the stack)
-            .pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
+            .pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
+    });
+     
       }
   
 
@@ -76,8 +85,9 @@ class _SignUpPasswordState extends State<SignUpPassword> {
                           child: Form(
                               child: Column(children: <Widget>[
                             TextFormField(
+                              
                                validator: (value) => value.isEmpty
-                                    ? "Email can\'t be empty"
+                                    ? "Password can\'t be empty"
                                     : null,
                                 onFieldSubmitted: (value) => _password = value,   
                               decoration: InputDecoration(
@@ -98,7 +108,7 @@ class _SignUpPasswordState extends State<SignUpPassword> {
                       child: Container(
                           margin: EdgeInsets.fromLTRB(243.0, 564.0, 0.0, 20.0),
                           child: FlatButton(
-                              child: Text("Done",
+                              child: Text("Create Account",
                                   style: TextStyle(
                                       fontFamily: "Kotori",
                                       fontSize: 32.0,

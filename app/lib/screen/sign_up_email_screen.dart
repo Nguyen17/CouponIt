@@ -56,6 +56,7 @@ class _SignUpEmailState extends State<SignUpEmail> {
                           child: Form(
                               child: Column(children: <Widget>[
                             TextFormField(
+                              keyboardType: TextInputType.emailAddress,
                               validator: (value) => value.isEmpty
                                     ? "Email can\'t be empty"
                                     : null,
