@@ -60,8 +60,17 @@ class _LoginScreenDemoState extends State<LoginScreenDemo> {
             body:
                 //* Background color
                 Stack(children: <Widget>[
-          Container(color: Color.fromRGBO(255, 31, 105, 1.0)),
-          //  Container(color: Colors.white),
+          // Container(
+          //   // color: Color.fromRGBO(255, 31, 105, 1.0),
+          //   // decoration: BoxDecoration(
+             
+          //   //   image: DecorationImage(
+          //   //      fit: BoxFit.fill,
+          //   //     image:AssetImage("assets/images/bg4.jpg")
+          //   //   )
+          //   // ),
+          //   ),
+           Container(color: Color.fromRGBO(255, 31, 105, 1.0)),
           //* LOGO
           ListView(
             children: <Widget>[
@@ -71,7 +80,7 @@ class _LoginScreenDemoState extends State<LoginScreenDemo> {
                   children: <Widget>[
                     Container(
                         width: 221.0,
-                        height: 204.67,
+                        height: 175.67,
                         decoration: BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage(
@@ -81,16 +90,16 @@ class _LoginScreenDemoState extends State<LoginScreenDemo> {
 
               Container(
                   alignment: Alignment.center,
-                  margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 20.0),
+                  margin: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
                   child: Text(
                     "Coupon It",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontFamily: "Kotori",
-                        fontSize: 44.0,
+                        fontFamily: "Archivo",
+                        fontSize: 54.0,
                         color:
                             // Color.fromRGBO(48, 232, 208, 1.0)),
-                            Colors.white),
+                           Colors.white),
                   )),
 
               SizedBox(height: 40.0),
@@ -121,7 +130,7 @@ class _LoginScreenDemoState extends State<LoginScreenDemo> {
                                     onFieldSubmitted: (value) => _email = value,
                                     textAlign: TextAlign.center,
                                     decoration: InputDecoration(
-                                      filled: true,
+                                      filled: false,
                                       hintText: "email",
                                       hintStyle: TextStyle(fontSize: 11.0),
                                       border: InputBorder.none,
@@ -143,25 +152,26 @@ class _LoginScreenDemoState extends State<LoginScreenDemo> {
                                     textAlign: TextAlign.center,
                                     obscureText: true,
                                     decoration: InputDecoration(
-                                         filled: true,
+                                         filled: false,
                                       hintText: "password",
                                       hintStyle: TextStyle(fontSize: 11.0),
                                       border: InputBorder.none,
                                     ),
                                   ))),
                           Container(
+                            width: 123.0,
                             padding: EdgeInsets.all(0.0),
                               margin:
-                                  EdgeInsets.fromLTRB(70.0, 20.0, 70.0, 0.0),
+                                  EdgeInsets.fromLTRB(70.0, 30.0, 70.0, 0.0),
                               decoration: BoxDecoration(
                                 
                                   gradient: LinearGradient(
                                 colors: [
-                                  Color.fromRGBO(233, 183, 255, 1.0),
-                                  Color.fromRGBO(193, 193, 255, 1.0),
-                                  Color.fromRGBO(144, 203, 255, 1.0),
-                                  Color.fromRGBO(91, 211, 255, 1.0),
-                                  Color.fromRGBO(44, 216, 250, 1.0),
+                                  Color.fromRGBO(239, 243, 209, 1.0),
+                                  Color.fromRGBO(215, 241, 200, 1.0),
+                                  Color.fromRGBO(182, 240, 200, 1.0),
+                                  Color.fromRGBO(141, 238, 210, 1.0),
+                                  Color.fromRGBO(86, 235, 229, 1.0),
                                 ],
                                 begin: FractionalOffset.topLeft,
                                 end: FractionalOffset.bottomRight,
@@ -246,7 +256,8 @@ class _LoginScreenDemoState extends State<LoginScreenDemo> {
                                     //? This print is for debug
                                     print("Hello");    
                                   
-                                 sign_in_google();
+                                  sign_in_google();
+                                  Navigator.of(context).pushNamed('/home');
                                   },
                                   child:
                                   ListTile(
@@ -280,7 +291,7 @@ class _LoginScreenDemoState extends State<LoginScreenDemo> {
 }
 }
 
-TextStyle loginButtonStyle = TextStyle(color: Colors.white);
+TextStyle loginButtonStyle = TextStyle( color: Colors.white);
 
 Widget loginTitle = Container(
     alignment: Alignment.center,

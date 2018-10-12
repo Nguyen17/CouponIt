@@ -67,11 +67,15 @@ class _LoginScreenState extends State<LoginScreen> {
           //! Might need to replace the widgets with the full code
           //! in order to access form context
           body: Stack(children: <Widget>[
-            // Display Background image
+          
+       
             loginBg,
+              // Display Background image
+       
 
             // Display form UI
             Center(
+              
                 child: Form(
                     key: _formKey,
                     child: Container(
@@ -85,6 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                           //* Login Email info
                           Container(
+                            
                               margin: EdgeInsets.fromLTRB(5.0, 44.0, 5.0, 10.0),
                               color: Colors.white,
                               height: 51.0,

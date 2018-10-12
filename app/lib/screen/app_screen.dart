@@ -1,6 +1,19 @@
 import 'package:flutter/material.dart';
+
+/**
+ * Importing icons from Font Awesome
+ */
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+/**
+ * Importing Modules for Firebase
+ */
 import 'package:firebase_auth/firebase_auth.dart';
 
+/**
+ * Importing Google Modules
+ */
+import 'package:google_sign_in/google_sign_in.dart';
 /** 
  * Importing the Barcode Scan Module
  * * REFER TO DOCUMENTATION
@@ -16,6 +29,15 @@ import 'package:flutter/services.dart';
  *    - also needs to store http requests and responses
  */
 import 'dart:async';
+
+final GoogleSignIn _googleSignIn = GoogleSignIn();
+
+/** 
+ * EXTERNAL METHODS
+ */
+google_logout() {
+  _googleSignIn.signOut();
+}
 
 class AppScreen extends StatefulWidget {
   _AppScreenState createState() => _AppScreenState();
@@ -42,15 +64,33 @@ class _AppScreenState extends State<AppScreen> {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(title: Text("Coupon It")),
-          bottomNavigationBar: BottomNavigationBar(items: [
+          bottomNavigationBar: BottomNavigationBar(
+           
+            type: BottomNavigationBarType.shifting,
+            iconSize: 12.0, items: [
+            /** 
+             * Todo: CREATE 4-5 items of navigation
+             */
+      
             BottomNavigationBarItem(
-              title: Text("menu"),
-              icon: IconButton(icon: Icon(Icons.more_horiz), onPressed: () {}),
+              title: Text("search"),
+              icon: IconButton(
+                  color: Colors.black45,
+                  icon: Icon(FontAwesomeIcons.search),
+                  onPressed: () {}),
+            ),
+            BottomNavigationBarItem(
+              title: Text("saved deals"),
+              icon: IconButton(
+                  color: Colors.black45,
+                  icon: Icon(Icons.more_horiz),
+                  onPressed: () {}),
             ),
             BottomNavigationBarItem(
               title: Text("scan"),
               icon: IconButton(
-                  icon: Icon(Icons.fullscreen),
+                  color: Colors.black45,
+                  icon: Icon(FontAwesomeIcons.barcode),
 
                   // Todos: Implement scan
                   onPressed: () {
@@ -67,9 +107,13 @@ class _AppScreenState extends State<AppScreen> {
             // ),
             BottomNavigationBarItem(
               title: Text("sign out"),
-              icon: IconButton(icon: Icon(Icons.input), onPressed: () {
-                sign_out();
-              }),
+              icon: IconButton(
+                  color: Colors.black45,
+                  icon: Icon(Icons.input),
+                  onPressed: () {
+                    sign_out();
+                    google_logout();
+                  }),
             ),
           ]),
         ));
@@ -101,4 +145,3 @@ class _AppScreenState extends State<AppScreen> {
     }
   }
 } // End of AppScreen CLASS
-
