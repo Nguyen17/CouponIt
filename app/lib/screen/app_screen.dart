@@ -93,6 +93,8 @@ class _AppScreenState extends State<AppScreen> {
             ) ,
             backgroundColor: Color.fromRGBO(184, 52, 122, 1.0),
             bottom: TabBar(
+              indicatorColor: Color.fromRGBO(250, 241, 246, 1.0),
+              indicatorWeight: 6.0,
               tabs:[
                 Tab(text: "explore"),
                  Tab(text: "local deals"),
