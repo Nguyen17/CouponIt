@@ -62,15 +62,16 @@ class _LoginScreenDemoState extends State<LoginScreenDemo> {
                 Stack(children: <Widget>[
           // Container(
           //   // color: Color.fromRGBO(255, 31, 105, 1.0),
-          //   // decoration: BoxDecoration(
+          //   decoration: BoxDecoration(
              
-          //   //   image: DecorationImage(
-          //   //      fit: BoxFit.fill,
-          //   //     image:AssetImage("assets/images/bg4.jpg")
-          //   //   )
-          //   // ),
+          //     image: DecorationImage(
+          //        fit: BoxFit.fill,
+          //       image:AssetImage("assets/images/bg5.jpg")
+          //     )
           //   ),
-           Container(color: Color.fromRGBO(255, 31, 105, 1.0)),
+          //   ),
+           //Container(color: Color.fromRGBO(255, 31, 105, 1.0)),
+           Container(color: Color.fromRGBO(213, 32, 105, 1.0)),
           //* LOGO
           ListView(
             children: <Widget>[
@@ -84,7 +85,7 @@ class _LoginScreenDemoState extends State<LoginScreenDemo> {
                         decoration: BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage(
-                                  "assets/images/ic_couponitlogo.png")),
+                                  "assets/images/ic_couponitlogo_2.png")),
                         )),
                   ]),
 

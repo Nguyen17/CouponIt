@@ -16,6 +16,7 @@ class _SignUpEmailState extends State<SignUpEmail> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
         home: Hero(
             tag: 'hero',
             child: Scaffold(

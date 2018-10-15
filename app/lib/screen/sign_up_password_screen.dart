@@ -43,13 +43,13 @@ class _SignUpPasswordState extends State<SignUpPassword> {
                 context) // route to home and remove routes (clear the stack)
             .pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
     });
-     
-      }
-  
+            
+  }
 
-  @override
+  @override 
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
         home: Hero(
             tag: 'hero',
             child: Scaffold(
@@ -85,7 +85,7 @@ class _SignUpPasswordState extends State<SignUpPassword> {
                           child: Form(
                               child: Column(children: <Widget>[
                             TextFormField(
-                              
+                              obscureText: true,
                                validator: (value) => value.isEmpty
                                     ? "Password can\'t be empty"
                                     : null,
