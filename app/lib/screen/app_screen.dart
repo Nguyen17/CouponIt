@@ -146,13 +146,14 @@ class _AppScreenState extends State<AppScreen> {
             //       }),
             // ),
             BottomNavigationBarItem(
-              title: Text("sign out"),
+              title: Text("Profile"),
               icon: IconButton(
                   color: Colors.black45,
-                  icon: Icon(Icons.input),
+                  icon: Icon(Icons.account_box),
                   onPressed: () {
-                    sign_out();
-                    google_logout();
+                    Navigator.of(context).pushNamed('/profile');
+                    // sign_out();
+                    // google_logout();
                   }),
             ),
           ]),
