@@ -61,27 +61,64 @@ class _AppScreenState extends State<AppScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return SafeArea(
+      minimum: EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 0.0),
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          appBar: AppBar(title: Text("Coupon It")),
+        home: DefaultTabController(
+          length: 4,
+          child: Scaffold(
+          appBar: AppBar(
+            titleSpacing: 16.0,
+            leading: Image(
+              image: AssetImage("assets/images/ic_couponitlogo_2.png")
+            ),
+            actions: <Widget>[
+              Icon(Icons.shopping_cart)
+            ],
+            title: Container(
+              width: 400.0,
+              alignment: Alignment.center,
+              color: Colors.white,
+              child: ListTile(
+              leading: Icon(Icons.search),
+              title: TextFormField(
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: "search for coupons"
+                )
+              )
+            ),
+            ) ,
+            backgroundColor: Color.fromRGBO(184, 52, 122, 1.0),
+            bottom: TabBar(
+              tabs:[
+                Tab(text: "explore"),
+                 Tab(text: "local deals"),
+                  Tab(text: "friends"),
+                   Tab(text: "feed"),
+              
+              ]
+            ),
+            ),
           bottomNavigationBar: BottomNavigationBar(
            
-            type: BottomNavigationBarType.shifting,
-            iconSize: 12.0, items: [
+           fixedColor: Colors.black45, 
+            iconSize: 21.0, items: [
             /** 
              * Todo: CREATE 4-5 items of navigation
              */
       
+            // BottomNavigationBarItem(
+            //   title: Text("search"),
+            //   icon: IconButton(
+            //       color: Colors.black45,
+            //       icon: Icon(FontAwesomeIcons.search),
+            //       onPressed: () {}),
+            // ),
             BottomNavigationBarItem(
-              title: Text("search"),
-              icon: IconButton(
-                  color: Colors.black45,
-                  icon: Icon(FontAwesomeIcons.search),
-                  onPressed: () {}),
-            ),
-            BottomNavigationBarItem(
-              title: Text("saved deals"),
+              title: Text("menu"),
               icon: IconButton(
                   color: Colors.black45,
                   icon: Icon(Icons.more_horiz),
@@ -117,7 +154,10 @@ class _AppScreenState extends State<AppScreen> {
                   }),
             ),
           ]),
-        ));
+
+        )
+        ))
+    );
   }
 
 /**
