@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 /**
  * Importing icons from Font Awesome
  */
@@ -39,14 +38,18 @@ final GoogleSignIn _googleSignIn = GoogleSignIn();
 google_logout() {
   _googleSignIn.signOut();
 }
+
 class ProfileScreen extends StatelessWidget {
+  String username = "KrustyKrab";
+  int numberOfCoupons = 29;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: new Scaffold(
         appBar: new AppBar(
-          title: new Text("Nguyen17's Profile"),
+          title: new Text("$username's Profile"),
           backgroundColor: Color.fromRGBO(184, 52, 122, 1.0),
           actions: <Widget>[
             IconButton(
@@ -60,28 +63,27 @@ class ProfileScreen extends StatelessWidget {
             )
           ],
         ),
-        body: new SingleChildScrollView(
-          child: new Container(
-            padding: EdgeInsets.fromLTRB(0.0, 30.0, 0.0, 0.0),
-            child: new Center(
-              child: new Column(
-                children: <Widget>[
-                  new Icon(
-                    Icons.account_circle,
-                    size: 60.0,
-                  ),
-                  new Text(
-                    "Nguyen17",
-                    style: new TextStyle(
-                        fontSize: 20.0, fontWeight: FontWeight.bold),
-                  ),
-                  new Text(
-                    "63 Coupons",
-                    style: new TextStyle(fontStyle: FontStyle.italic),
-                  ),
-                  new CouponContainer(),
-                ],
-              ),
+        body: new Container(
+          padding: EdgeInsets.fromLTRB(0.0, 30.0, 0.0, 0.0),
+          child: new Center(
+            child: new Column(
+              children: <Widget>[
+                new Icon(
+                  Icons.account_circle,
+                  size: 60.0,
+                ),
+                new Text(
+                  "$username",
+                  style: new TextStyle(
+                      fontSize: 20.0, fontWeight: FontWeight.bold),
+                ),
+                new Text(
+                  numberOfCoupons.toString() + " Coupons",
+                  style: new TextStyle(fontStyle: FontStyle.italic),
+                ),
+                new Container(height: 10.0),
+                new CouponContainer(),
+              ],
             ),
           ),
         ),
@@ -117,7 +119,7 @@ class ProfileScreen extends StatelessWidget {
 
                     // Todos: Implement scan
                     onPressed: () {
-                        // scan()
+                      // scan()
                     }),
               ),
               // BottomNavigationBarItem(
@@ -146,66 +148,56 @@ class ProfileScreen extends StatelessWidget {
 }
 
 class CouponContainer extends StatelessWidget {
+  int numberOfRows = 10;
+  double paddingSize = 4.0;
+
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    var boxSize = width / 3 - 2;
-    var verticalGap = 2.0;
-    // TODO: implement build
-    return new Column(
-      children: <Widget>[
-        new Container(
-          height: 10.0,
-        ),
-        new Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            new Container(width: boxSize, height: boxSize, color: Colors.grey),
-            new Container(width: boxSize, height: boxSize, color: Colors.grey),
-            new Container(width: boxSize, height: boxSize, color: Colors.grey),
-          ],
-        ),
-        new Container(
-          height: verticalGap,
-        ),
-        new Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            new Container(width: boxSize, height: boxSize, color: Colors.grey),
-            new Container(width: boxSize, height: boxSize, color: Colors.grey),
-            new Container(width: boxSize, height: boxSize, color: Colors.grey),
-          ],
-        ),
-        new Container(
-          height: verticalGap,
-        ),
-        new Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            new Container(width: boxSize, height: boxSize, color: Colors.grey),
-            new Container(width: boxSize, height: boxSize, color: Colors.grey),
-            new Container(width: boxSize, height: boxSize, color: Colors.grey),
-          ],
-        ),
-        new Container(
-          height: verticalGap,
-        ),
-        new Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            new Container(width: boxSize, height: boxSize, color: Colors.grey),
-            new Container(width: boxSize, height: boxSize, color: Colors.grey),
-            new Container(width: boxSize, height: boxSize, color: Colors.grey),
-          ],
-        ),
-        new Container(
-          height: verticalGap,
-        ),
-      ],
+    double height = MediaQuery.of(context).size.width / 3;
+
+    return new Expanded(
+      child: new ListView.builder(
+        itemCount: numberOfRows,
+        itemBuilder: (context, index) {
+          return new Column(
+            children: <Widget>[
+              new Container(
+                height: height,
+                child: Row(
+                  children: <Widget>[
+                    new Container(width: paddingSize),
+                    new Expanded(
+                      child: Container(
+                        color: index % 2 == 0 ? Colors.orange : Colors.blue,
+                        child: Center(child:new Text("" + (index * 3 + 0).toString())),
+                      ),
+                    ),
+                    new Container(width: paddingSize),
+                    new Expanded(
+                      child: Container(
+                        color:index % 2 == 0 ? Colors.cyanAccent : Colors.grey,
+                        child: Center(child:new Text("" + (index * 3 + 1).toString())),
+                      ),
+                    ),
+                    new Container(width: paddingSize),
+                    new Expanded(
+                      child: Container(
+                        color: index % 2 == 0 ? Colors.green : Colors.amber,
+                        child: Center(child:new Text("" + (index * 3 + 2).toString())),
+                      ),
+                    ),
+                    new Container(width: paddingSize),
+                  ],
+                ),
+              ),
+              new Container(height: paddingSize),
+            ],
+          );
+        },
+      ),
     );
   }
 }
-
 
 /**
  * Scan METHOD
