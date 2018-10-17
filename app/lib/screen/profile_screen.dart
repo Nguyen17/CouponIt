@@ -40,11 +40,39 @@ google_logout() {
 }
 
 class ProfileScreen extends StatelessWidget {
-  String username = "KrustyKrab";
-  int numberOfCoupons = 29;
+  String username;
+  int numberOfCoupons;
+  int numberOfRows;
+  double padding;
+  double width;
+  double height;
+  List<String> data;
 
   @override
   Widget build(BuildContext context) {
+    data = [
+      "https://nardio.net/wp-content/uploads/2017/01/Konosuba-s2-e2-feature.png",
+      "https://images-na.ssl-images-amazon.com/images/I/61IB2TBKUmL._SX425_.jpg",
+      "https://figuya.com/uploads/product/profile_picture/10320/profile_wiz-konosuba-2-niitengomu-gummi-anhaenger20171115-15611-z8rqew",
+      "http://runt-of-the-web.com/wordpress/wp-content/uploads/2016/07/funny-spongebob-memes.jpg",
+      "https://www.yourtango.com/sites/default/files/styles/header_slider/public/image_blog/spongebobmemesheader.jpg?itok=vaF4bfS7",
+      "http://www.funnybeing.com/wp-content/uploads/2016/08/Studying-For-Finals-Like-600x600.jpg",
+      "https://assets.simpleviewcms.com/simpleview/image/upload/c_fill,h_900,q_75,w_1600/v1/clients/lasvegas/strip3_d7b175ef-3642-41a4-9dad-33b9be2b00a9.jpg",
+      "https://assets.simpleviewcms.com/simpleview/image/upload/c_fill,h_350,q_90,w_750/v1/clients/lasvegas/9162A76E5131D92FAC861416A9FE008A_2ec286f4-c45e-4811-84dd-c442f5d396b8.jpg",
+      "https://d2droglu4qf8st.cloudfront.net/2017/09/346967/Korean-BBQ-Beef_ArticleImage-CategoryPage_ID-2427166.jpg?v=2427166",
+      "http://www.pepper.ph/wp-content/uploads/2016/12/UbePie_CI03.jpg",
+
+    ];
+
+    username = "KrustyKrab";
+    numberOfCoupons = data.length;
+    numberOfRows = (numberOfCoupons % 3 == 0)
+        ? numberOfCoupons ~/ 3
+        : numberOfCoupons ~/ 3 + 1;
+    padding = 2.0;
+    width = MediaQuery.of(context).size.width / 3 - (4 * padding);
+    height = width;
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: new Scaffold(
@@ -63,27 +91,29 @@ class ProfileScreen extends StatelessWidget {
             )
           ],
         ),
-        body: new Container(
-          padding: EdgeInsets.fromLTRB(0.0, 30.0, 0.0, 0.0),
-          child: new Center(
-            child: new Column(
-              children: <Widget>[
-                new Icon(
-                  Icons.account_circle,
-                  size: 60.0,
-                ),
-                new Text(
-                  "$username",
-                  style: new TextStyle(
-                      fontSize: 20.0, fontWeight: FontWeight.bold),
-                ),
-                new Text(
-                  numberOfCoupons.toString() + " Coupons",
-                  style: new TextStyle(fontStyle: FontStyle.italic),
-                ),
-                new Container(height: 10.0),
-                new CouponContainer(),
-              ],
+        body: new SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.fromLTRB(0.0, 30.0, 0.0, 0.0),
+            child: new Center(
+              child: new Column(
+                children: <Widget>[
+                  new Icon(
+                    Icons.account_circle,
+                    size: 60.0,
+                  ),
+                  new Text(
+                    "$username",
+                    style: new TextStyle(
+                        fontSize: 20.0, fontWeight: FontWeight.bold),
+                  ),
+                  new Text(
+                    numberOfCoupons.toString() + " Coupons",
+                    style: new TextStyle(fontStyle: FontStyle.italic),
+                  ),
+                  new Container(height: 10.0),
+                  couponContainer(),
+                ],
+              ),
             ),
           ),
         ),
@@ -91,17 +121,6 @@ class ProfileScreen extends StatelessWidget {
             fixedColor: Colors.black45,
             iconSize: 21.0,
             items: [
-              /** 
-             * Todo: CREATE 4-5 items of navigation
-             */
-
-              // BottomNavigationBarItem(
-              //   title: Text("search"),
-              //   icon: IconButton(
-              //       color: Colors.black45,
-              //       icon: Icon(FontAwesomeIcons.search),
-              //       onPressed: () {}),
-              // ),
               BottomNavigationBarItem(
                 title: Text("menu"),
                 icon: IconButton(
@@ -116,112 +135,138 @@ class ProfileScreen extends StatelessWidget {
                 icon: IconButton(
                     color: Colors.black45,
                     icon: Icon(FontAwesomeIcons.barcode),
-
-                    // Todos: Implement scan
                     onPressed: () {
+                      // Todo:
                       // scan()
                     }),
               ),
-              // BottomNavigationBarItem(
-              //   title: Text("friends"),
-              //   icon: IconButton(
-              //       icon: Icon(Icons.people),
-              //       onPressed: () {
-
-              //       }),
-              // ),
               BottomNavigationBarItem(
                 title: Text("Profile"),
                 icon: IconButton(
                     color: Colors.black45,
                     icon: Icon(Icons.account_box),
-                    onPressed: () {
-                      //Navigator.of(context).pushNamed('/profile');
-                      // sign_out();
-                      // google_logout();
-                    }),
+                    onPressed: () {}),
               ),
             ]),
       ),
     );
   }
-}
 
-class CouponContainer extends StatelessWidget {
-  int numberOfRows = 10;
-  double paddingSize = 4.0;
+  Widget couponContainer() {
+    print(numberOfCoupons);
+    print(numberOfRows);
 
-  @override
-  Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.width / 3;
+    return new ListView.builder(
+      shrinkWrap: true,
+      physics: ClampingScrollPhysics(),
+      itemCount: numberOfRows,
+      itemBuilder: (context, index) {
+        if (index != numberOfRows - 1 || numberOfCoupons % 3 == 0) {
+          return threeCellRow(index);
+        } else if (numberOfCoupons % 3 == 2) {
+          return twoCellRow(index);
+        } else if (numberOfCoupons % 3 == 1) {
+          return oneCellRow(index);
+        }
+      },
+    );
+  }
 
-    return new Expanded(
-      child: new ListView.builder(
-        itemCount: numberOfRows,
-        itemBuilder: (context, index) {
-          return new Column(
+  Widget threeCellRow(int index) {
+    return new Column(
+      children: <Widget>[
+        new Container(
+          height: height,
+          child: new Row(
             children: <Widget>[
+              new Container(width: padding),
               new Container(
+                width: width,
                 height: height,
-                child: Row(
-                  children: <Widget>[
-                    new Container(width: paddingSize),
-                    new Expanded(
-                      child: Container(
-                        color: index % 2 == 0 ? Colors.orange : Colors.blue,
-                        child: Center(child:new Text("" + (index * 3 + 0).toString())),
-                      ),
-                    ),
-                    new Container(width: paddingSize),
-                    new Expanded(
-                      child: Container(
-                        color:index % 2 == 0 ? Colors.cyanAccent : Colors.grey,
-                        child: Center(child:new Text("" + (index * 3 + 1).toString())),
-                      ),
-                    ),
-                    new Container(width: paddingSize),
-                    new Expanded(
-                      child: Container(
-                        color: index % 2 == 0 ? Colors.green : Colors.amber,
-                        child: Center(child:new Text("" + (index * 3 + 2).toString())),
-                      ),
-                    ),
-                    new Container(width: paddingSize),
-                  ],
-                ),
+                color: Colors.black,
+                child: coverNetworkImage(data[index * 3]),
               ),
-              new Container(height: paddingSize),
+              new Container(width: padding),
+              new Container(
+                width: width,
+                height: height,
+                color: Colors.black,
+                child: coverNetworkImage(data[index * 3 + 1]),
+              ),
+              new Container(width: padding),
+              new Container(
+                width: width,
+                height: height,
+                color: Colors.black,
+                child: coverNetworkImage(data[index * 3 + 2]),
+              ),
+              new Container(width: padding),
             ],
-          );
-        },
-      ),
+          ),
+        ),
+        new Container(height: padding),
+      ],
+    );
+  }
+
+  Widget twoCellRow(int index) {
+    return new Column(
+      children: <Widget>[
+        new Container(
+          height: height,
+          child: new Row(
+            children: <Widget>[
+              new Container(width: padding),
+              new Container(
+                width: width,
+                height: height,
+                color: Colors.black,
+                child: coverNetworkImage(data[index * 3]),
+              ),
+              new Container(width: padding),
+              new Container(
+                width: width,
+                height: height,
+                color: Colors.black,
+                child: coverNetworkImage(data[index * 3 + 1]),
+              ),
+            ],
+          ),
+        ),
+        new Container(height: padding),
+      ],
+    );
+  }
+
+  Widget oneCellRow(int index) {
+    return new Column(
+      children: <Widget>[
+        new Container(
+          height: height,
+          child: new Row(
+            children: <Widget>[
+              new Container(width: padding),
+              new Container(
+                width: width,
+                height: height,
+                color: Colors.black,
+                child: coverNetworkImage(data[index * 3]),
+              ),
+            ],
+          ),
+        ),
+        new Container(height: padding),
+      ],
+    );
+  }
+
+  Widget coverNetworkImage(String url) {
+    return new Image.network(
+      url,
+      fit: BoxFit.cover,
+      height: double.infinity,
+      width: double.infinity,
+      alignment: Alignment.center,
     );
   }
 }
-
-/**
- * Scan METHOD
- * @This is a method of AppScreen class Widget
- * @learn about future and promise
- * refer to barcode scan documentations
- */
-//   Future scan() async {
-//     try {
-//       String barcode = await BarcodeScanner.scan();
-//       setState(() => this.barcode = barcode);
-//     } on PlatformException catch (e) {
-//       if (e.code == BarcodeScanner.CameraAccessDenied) {
-//         setState(() {
-//           this.barcode = 'The user did not grant the camera permission!';
-//         });
-//       } else {
-//         setState(() => this.barcode = 'Unknown error: $e');
-//       }
-//     } on FormatException {
-//       setState(() => this.barcode =
-//           'null (User returned using the "back"-button before scanning anything. Result)');
-//     } catch (e) {
-//       setState(() => this.barcode = 'Unknown error: $e');
-//     }
-//   }
-// } // End of AppScreen CLASS
