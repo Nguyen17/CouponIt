@@ -25,6 +25,10 @@ dependencies:
   # FONT AWESOME ICONS
   font_awesome_flutter: ^8.0.1
 
+  # URL LAUNCHER
+  # - dependencies for url links to work
+  url_launcher: ^4.0.1
+
   
   
   # BARCODE SCANNER MODULE

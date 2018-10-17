@@ -31,6 +31,18 @@ import 'package:flutter/services.dart';
  */
 import 'dart:async';
 
+
+
+/** 
+ * Importing Any necessary screens
+ */
+import 'explore_screen.dart';
+import 'local_deal_screen.dart';
+import 'friends_screen.dart';
+import 'feed_screen.dart';
+
+
+
 final GoogleSignIn _googleSignIn = GoogleSignIn();
 
 /** 
@@ -96,8 +108,9 @@ class _AppScreenState extends State<AppScreen> {
               indicatorColor: Color.fromRGBO(250, 241, 246, 1.0),
               indicatorWeight: 6.0,
               tabs:[
+                Tab(text: "local deals"),
                 Tab(text: "explore"),
-                 Tab(text: "local deals"),
+                 
                   Tab(text: "friends"),
                    Tab(text: "feed"),
               
@@ -157,6 +170,20 @@ class _AppScreenState extends State<AppScreen> {
                   }),
             ),
           ]),
+
+          /**
+           * BODY CONTENT
+           * * This is where the content from the tab should appear
+           */
+          body: TabBarView(
+            children:[
+              LocalDealsScreen(),
+              ExploreScreen(),
+              
+              FriendsScreen(),
+              FeedScreen()
+            ]
+          )
 
         )
         ))
