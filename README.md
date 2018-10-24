@@ -1,4 +1,4 @@
-![couponit_logo](https://user-images.githubusercontent.com/17789092/47404210-4ce7d100-d701-11e8-8fb8-c64d31ad2588.png)
+![couponit_large_v2](https://user-images.githubusercontent.com/17789092/47404556-9dabf980-d702-11e8-93e5-3828dc0ded86.png)
 # Coupon It
 
 <p>
