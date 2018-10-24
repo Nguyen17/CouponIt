@@ -81,6 +81,8 @@ flutter:
    - assets/images/ic_couponitlogo.png
    - assets/images/ic_couponitlogo_2.png
    - assets/images/login_bg.jpg
+   - assets/data/local_deals.json
+   
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
