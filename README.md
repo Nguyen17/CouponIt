@@ -1,5 +1,4 @@
 ![couponit_large_v2](https://user-images.githubusercontent.com/17789092/47404556-9dabf980-d702-11e8-93e5-3828dc0ded86.png)
-# Coupon It
 
 <p>
 <strong style="color: #b6f686;">Coupon It </strong> is a <a href="https://flutter.io/"> flutter</a> mobile e-commerce application to bring together consumers and businesses. We aim to create a friendly interface for users when looking for coupon deals on commodities. Our goal is to turn Coupon It into a social network rather than a platform exclusively for advertisements.
