@@ -23,6 +23,13 @@ dependencies:
   #Staggered Grid View
   flutter_staggered_grid_view: "^0.2.3"
   
+
+  # UI PACKAGES
+  flutter_swiper: ^1.1.4
+  flutter_page_indicator: ^0.0.3
+  transformer_page_view: ^0.1.4
+  unicorndial: ^1.1.5
+
   # FONT AWESOME ICONS
   font_awesome_flutter: ^8.0.1
 
@@ -40,9 +47,6 @@ dependencies:
   firebase_core: any
   firebase_database: ^1.0.4
   firebase_auth: ^0.5.20
-
-
-
 
 
 dev_dependencies:
@@ -83,6 +87,18 @@ flutter:
    - assets/images/ic_couponitlogo_2.png
    - assets/images/login_bg.jpg
    - assets/data/local_deals.json
+   - assets/images/bgGradient1.jpg
+   - assets/images/bgGradient2.jpg
+   - assets/images/bgGradient3.jpg
+   - assets/images/image1.png
+   - assets/images/image2.png
+   - assets/images/image3.png
+   - assets/images/image4.png
+   - assets/images/image5.png
+   - assets/images/slide1.jpg
+   - assets/images/slide2.jpg
+   - assets/images/slide3.jpg
+   - assets/images/logo.png
 
   #  - images/a_dot_ham.jpeg
 
@@ -104,6 +120,15 @@ flutter:
     - family: Archivo
       fonts:
         - asset: assets/fonts/ArchivoBlack-Regular.ttf
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins-Italic.ttf
+          style: italic
+        - asset: assets/fonts/Poppins-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Poppins-Medium.ttf
+          weight: 500
 
   #   - family: Trajan Pro
   #     fonts:

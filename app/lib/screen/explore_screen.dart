@@ -18,7 +18,7 @@ class ExploreScreen extends StatefulWidget {
 }
 class _ExploreScreenState extends State<ExploreScreen> {
 
-var URL = "https://newsapi.org/v2/everything?q=grocery coupons&from=2018-10-01&sortBy=publishedAt&apiKey=1e6a7dc83456418ca0c38623de7f761b";
+var URL = "https://newsapi.org/v2/everything?q=shopping coupons&from=2018-10-01&sortBy=publishedAt&apiKey=1e6a7dc83456418ca0c38623de7f761b";
 
 var placeholder_blank = "https://via.placeholder.com/600x240";
 var placeholder_image = "https://picsum.photos/600/240/?random";
@@ -47,7 +47,7 @@ void initState() {
               //    backgroundImage: NetworkImage(articles[index]["urlToImage"]),
                  
               //  ),
-              Image.network(articles[index]["urlToImage"] == null ? placeholder_image: articles[index]["urlToImage"] ,
+              Image.network((articles[index]["urlToImage"] == null || articles[index]["urlToImage"] =="") ? placeholder_blank: articles[index]["urlToImage"] ,
                width: 600.0,
               height: 240.0,
               fit: BoxFit.cover,
@@ -82,7 +82,7 @@ void initState() {
                 SizedBox(height: 20.0),
                 MaterialButton(
                   onPressed: (){
-                    _launchURL(articles[index]['url']);
+                    articles[index]['url'] == null ? debugPrint("url not found") : _launchURL(articles[index]['url']);
                   },
                   color: Color.fromRGBO(184, 91, 176, 1.0),
                   child: Text("Read", style: TextStyle(
