@@ -6,13 +6,15 @@ import 'package:firebase_database/firebase_database.dart';
  * * Screens
  *  - use for defining page routes
  */
-import 'screen/login_screen.dart';
-import 'screen/login_screen_demo.dart';
+// import 'screen/login_screen.dart';
+// import 'screen/login_screen_demo.dart';
 import 'screen/profile_screen.dart';
 import 'screen/sign_up_email_screen.dart';
 import 'screen/sign_up_password_screen.dart';
 import 'screen/app_screen.dart';
 import 'screen/sign_up_screen.dart';
+import 'screen/login_screen.dart';
+import 'screen/welcome_screen.dart';
 
 void main(){
   runApp(App());
@@ -32,7 +34,8 @@ class App extends StatelessWidget {
       title: "Coupon It",
       initialRoute: '/',
       routes:{
-        '/': (context) => LoginScreenDemo(),
+        '/': (context) => WelcomeScreen(),
+        '/login':(context) => LoginScreen(),
         '/sign_up': (context) => SignUpScreen(),
         '/sign_up_email':(context) => SignUpEmail(),
         '/sign_up_password':  (context)=>SignUpPassword(),
