@@ -9,12 +9,14 @@ import 'package:firebase_database/firebase_database.dart';
 // import 'screen/login_screen.dart';
 // import 'screen/login_screen_demo.dart';
 import 'screen/profile_screen.dart';
+import 'screen/splash_screen.dart';
 import 'screen/sign_up_email_screen.dart';
 import 'screen/sign_up_password_screen.dart';
 import 'screen/app_screen.dart';
 import 'screen/sign_up_screen.dart';
 import 'screen/login_screen.dart';
 import 'screen/welcome_screen.dart';
+
 
 void main(){
   runApp(App());

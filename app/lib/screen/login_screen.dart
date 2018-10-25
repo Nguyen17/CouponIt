@@ -289,6 +289,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                               Navigator.pushNamed(context, '/home');
                                             }else{
                                               print("Called on null");
+                                               Navigator.pushNamed(context, '/home');
                                             }
 
                                             //  Navigator.pushNamed(context, '/home');
@@ -345,7 +346,7 @@ class _LoginScreenState extends State<LoginScreen> {
     FirebaseUser user = await _auth.signInWithGoogle(
         idToken: googleSignInAuthentication.idToken,
         accessToken: googleSignInAuthentication.accessToken);
-q
+
     print("User is  ${user.displayName}");
     return user;
   }
