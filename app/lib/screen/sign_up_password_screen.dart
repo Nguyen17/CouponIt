@@ -35,15 +35,15 @@ class _SignUpPasswordState extends State<SignUpPassword> {
         // Navigator.of(
         //         context) // route to home and remove routes (clear the stack)
         //     .pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
-    FirebaseUser new_user = await FirebaseAuth.instance
+    // FirebaseUser newUser = 
+    await FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: _email, password: _password)
-        .then((new_user) {
-      print("User email: ${new_user.email}");
+        .then((newUser) {
+      print("User email: ${newUser.email}");
         Navigator.of(
                 context) // route to home and remove routes (clear the stack)
             .pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
     });
-            
   }
 
   @override 

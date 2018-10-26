@@ -1,8 +1,8 @@
-/**
- * Explore Page Articles
- * - https://newsapi.org/v2/everything?q=shopping coupons&from=2018-09-16&sortBy=publishedAt&apiKey=1e6a7dc83456418ca0c38623de7f761b
- * - Holds an object that contains the data
- */
+// /**
+//  * Explore Page Articles
+//  * - https://newsapi.org/v2/everything?q=shopping coupons&from=2018-09-16&sortBy=publishedAt&apiKey=1e6a7dc83456418ca0c38623de7f761b
+//  * - Holds an object that contains the data
+//  */
 class ArticleModel {
   String status;
   int totalResults;

@@ -282,7 +282,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           color:
                                              Color.fromRGBO(52, 168, 83, 1.0),
                                           onPressed: () {
-                                            sign_in_google();
+                                            signInGoogle();
                                            
                                             if(_googleSignIn.currentUser != null){
                                               
@@ -334,10 +334,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 ]))));
   }
 
-  /**
-   * FIREBASE MAIN CODE HERE
-   */
-  Future<FirebaseUser> sign_in_google() async {
+  // /**
+  //  * FIREBASE MAIN CODE HERE
+  //  */
+  Future<FirebaseUser> signInGoogle() async {
     GoogleSignInAccount googleSignInAccount = await _googleSignIn.signIn();
     GoogleSignInAuthentication googleSignInAuthentication =
         await googleSignInAccount.authentication;
@@ -345,7 +345,6 @@ class _LoginScreenState extends State<LoginScreen> {
     FirebaseUser user = await _auth.signInWithGoogle(
         idToken: googleSignInAuthentication.idToken,
         accessToken: googleSignInAuthentication.accessToken);
-q
     print("User is  ${user.displayName}");
     return user;
   }

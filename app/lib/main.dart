@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_database/firebase_database.dart';
+// import 'package:firebase_database/firebase_database.dart';
 
-/**
- * Importing Screens and Components
- * * Screens
- *  - use for defining page routes
- */
+// /**
+//  * Importing Screens and Components
+//  * * Screens
+//  *  - use for defining page routes
+//  */
 // import 'screen/login_screen.dart';
 // import 'screen/login_screen_demo.dart';
 import 'screen/profile_screen.dart';
@@ -20,11 +20,11 @@ void main(){
   runApp(App());
 }
 
-/**
- * App 
- * * This is the main file
- * * - contains routes that store the location of pages
- */
+// /**
+//  * App 
+//  * * This is the main file
+//  * * - contains routes that store the location of pages
+//  */
 
 class App extends StatelessWidget {
   @override

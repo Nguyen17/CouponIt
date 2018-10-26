@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 // Importing HTTP packages
-import 'dart:async';
+// import 'dart:async';
 
 // Importing UI packages
 import 'package:flutter_swiper/flutter_swiper.dart';
@@ -10,7 +10,7 @@ import 'package:flutter_page_indicator/flutter_page_indicator.dart';
 /**
  * Importing any screen routes
  */
-import 'login_screen_ver2.dart';
+// import 'login_screen_ver2.dart';
 
 
 
@@ -24,12 +24,12 @@ class WelcomeScreen extends StatefulWidget {
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
-  /**
-   * Global Variables
-   *  - init starting variable to hold current index count
-   *  - hold images and data in lists
-   *  - when a user swipe, increment the image array to change bg and text of app
-   */
+  // /**
+  //  * Global Variables
+  //  *  - init starting variable to hold current index count
+  //  *  - hold images and data in lists
+  //  *  - when a user swipe, increment the image array to change bg and text of app
+  //  */
   int titleIndex = 0;
   int bgIndex = 0;
   List<String> bgImage = [

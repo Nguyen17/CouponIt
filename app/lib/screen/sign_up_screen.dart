@@ -158,7 +158,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         print(_password);
 
                         // Todos: FIX THIS !! <3
-                        create_user_account(context);
+                        createUserAccount(context);
                       },
                       child: Text("Create Account",
                           style: TextStyle(color: Colors.white)))),
@@ -167,11 +167,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
     ])));
   }
 
-  Future create_user_account(BuildContext context) async {
-    FirebaseUser new_user = await _auth
+  Future createUserAccount(BuildContext context) async {
+    // FirebaseUser newUser = 
+    await _auth
         .createUserWithEmailAndPassword(email: _email, password: _password)
-        .then((new_user) {
-      print("User email: ${new_user.email}");
+        .then((newUser) {
+      print("User email: ${newUser.email}");
       Navigator.pushNamed(context, '/');
     });
   }
