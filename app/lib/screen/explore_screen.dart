@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
+import 'components/color.dart';
+
+
+
+/**
+ * Importing UI packages
+ */
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 /**
  * Importing modules for Http requests 
@@ -9,6 +17,8 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' show get;
 import 'dart:async';
 import 'dart:convert';
+
+
 
 import '../models/article_model.dart';
 
@@ -26,6 +36,8 @@ var placeholder_image = "https://picsum.photos/600/240/?random";
 Map articleModel;
 List articles;
 
+bool _isloading = true;
+
 void initState() { 
   super.initState();
   fetchData();
@@ -33,7 +45,9 @@ void initState() {
 
   @override
   Widget build(BuildContext context) {
+   
     return 
+      (_isloading == true) ? SpinKitThreeBounce(color: pinkColorScheme, size: 45.0,) :
       ListView.builder(
         itemCount: articles == null ? 0: articles.length,
         itemBuilder:(BuildContext context, int index){
@@ -117,6 +131,7 @@ void initState() {
     //print(articleModel);
     debugPrint(articles.toString());
     print("articles length: ${articles.length}");
+    _isloading = false;
   }
 
 _launchURL(url_test) async {

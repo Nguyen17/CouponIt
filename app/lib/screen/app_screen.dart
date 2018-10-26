@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'components/color.dart';
 
 
 /**
@@ -60,6 +61,7 @@ class _AppScreenState extends State<AppScreen> {
   // This is a variables that holds the return value of the Scan method
   String barcode = '';
 
+
   @override
   initState() {
     super.initState();
@@ -78,18 +80,19 @@ class _AppScreenState extends State<AppScreen> {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         home: DefaultTabController(
-          length: 4,
+          length: 3,
           child: Scaffold(
           appBar: AppBar(
-            titleSpacing: 16.0,
+            titleSpacing: NavigationToolbar.kMiddleSpacing,
             leading: Image(
               image: AssetImage("assets/images/ic_couponitlogo_2.png")
             ),
             actions: <Widget>[
-              Icon(Icons.shopping_cart)
+              // Icon(Icons.shopping_cart)
             ],
             title: Container(
-              width: 400.0,
+              // width: 200.0,
+           
               alignment: Alignment.center,
               color: Colors.white,
               child: ListTile(
@@ -98,12 +101,13 @@ class _AppScreenState extends State<AppScreen> {
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
+                  border: InputBorder.none,
                   hintText: "search for coupons"
                 )
               )
             ),
             ) ,
-            backgroundColor: Color.fromRGBO(184, 52, 122, 1.0),
+            backgroundColor: pinkColorScheme,
             bottom: TabBar(
               indicatorColor: Color.fromRGBO(250, 241, 246, 1.0),
               indicatorWeight: 6.0,
@@ -112,7 +116,7 @@ class _AppScreenState extends State<AppScreen> {
                 Tab(text: "explore"),
                  
                   Tab(text: "friends"),
-                   Tab(text: "feed"),
+                  //  Tab(text: "feed"),
               
               ]
             ),
