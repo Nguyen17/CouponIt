@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /**
  * Importing HTTP Packages
@@ -320,10 +319,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 ]))));
   }
 
-  /**
-   * FIREBASE MAIN CODE HERE
-   */
-  Future<FirebaseUser> sign_in_google() async {
+  // /**
+  //  * FIREBASE MAIN CODE HERE
+  //  */
+  Future<FirebaseUser> signInGoogle() async {
     GoogleSignInAccount googleSignInAccount = await _googleSignIn.signIn();
     GoogleSignInAuthentication googleSignInAuthentication =
         await googleSignInAccount.authentication;
@@ -336,10 +335,10 @@ class _LoginScreenState extends State<LoginScreen> {
     return user;
   }
 
-  /**
-   * UNICORDIAL FLOATING ACTION BUTTON
-   *  - builds a lists of buttons and display them as vertical options
-   *  - init the lists of buttons
-   */
+  // /**
+  //  * UNICORDIAL FLOATING ACTION BUTTON
+  //  *  - builds a lists of buttons and display them as vertical options
+  //  *  - init the lists of buttons
+  //  */
 
 }
