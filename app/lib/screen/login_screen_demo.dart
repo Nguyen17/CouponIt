@@ -257,7 +257,7 @@ class _LoginScreenDemoState extends State<LoginScreenDemo> {
                                     //? This print is for debug
                                     print("Hello");    
                                   
-                                  sign_in_google();
+                                  signInGoogle();
                                   Navigator.of(context).pushNamed('/home');
                                   },
                                   child:
@@ -278,7 +278,7 @@ class _LoginScreenDemoState extends State<LoginScreenDemo> {
 
 
 
-  Future<FirebaseUser> sign_in_google() async {
+  Future<FirebaseUser> signInGoogle() async {
   GoogleSignInAccount googleSignInAccount = await _googleSignIn.signIn();
   GoogleSignInAuthentication googleSignInAuthentication =
       await googleSignInAccount.authentication;

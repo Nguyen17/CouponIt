@@ -18,9 +18,13 @@ import 'package:http/http.dart' show get;
 import 'dart:async';
 import 'dart:convert';
 
+<<<<<<< HEAD
 
 
 import '../models/article_model.dart';
+=======
+// import '../models/article_model.dart';
+>>>>>>> c0263006a13bdfd8843eee4dd5a4fdccdfef6452
 
 class ExploreScreen extends StatefulWidget {
     @override
@@ -28,10 +32,10 @@ class ExploreScreen extends StatefulWidget {
 }
 class _ExploreScreenState extends State<ExploreScreen> {
 
-var URL = "https://newsapi.org/v2/everything?q=shopping coupons&from=2018-10-01&sortBy=publishedAt&apiKey=1e6a7dc83456418ca0c38623de7f761b";
+var url = "https://newsapi.org/v2/everything?q=shopping coupons&from=2018-10-01&sortBy=publishedAt&apiKey=1e6a7dc83456418ca0c38623de7f761b";
 
-var placeholder_blank = "https://via.placeholder.com/600x240";
-var placeholder_image = "https://picsum.photos/600/240/?random";
+var placeholderBlank = "https://via.placeholder.com/600x240";
+var placeholderImage = "https://picsum.photos/600/240/?random";
 
 Map articleModel;
 List articles;
@@ -61,7 +65,7 @@ void initState() {
               //    backgroundImage: NetworkImage(articles[index]["urlToImage"]),
                  
               //  ),
-              Image.network((articles[index]["urlToImage"] == null || articles[index]["urlToImage"] =="") ? placeholder_blank: articles[index]["urlToImage"] ,
+              Image.network((articles[index]["urlToImage"] == null || articles[index]["urlToImage"] =="") ? placeholderBlank: articles[index]["urlToImage"] ,
                width: 600.0,
               height: 240.0,
               fit: BoxFit.cover,
@@ -113,16 +117,13 @@ void initState() {
     );
   }
 
-
-
-
-  /**
-   * FUTURE Methods
-   *  - calls the api and retrieve information
-   */
+  // /**
+  //  * FUTURE Methods
+  //  *  - calls the api and retrieve information
+  //  */
   Future fetchData() async {
 
-    var res = await get(URL);
+    var res = await get(url);
     //debugPrint(res.body);
     articleModel = json.decode(res.body);
     setState(() {
@@ -134,8 +135,8 @@ void initState() {
     _isloading = false;
   }
 
-_launchURL(url_test) async {
-  var url = url_test;
+_launchURL(urlTest) async {
+  var url = urlTest;
   if (await canLaunch(url)) {
     await launch(url);
   } else {

@@ -1,45 +1,49 @@
 import 'package:flutter/material.dart';
 
-/**
- * Importing icons from Font Awesome
- */
+// /**
+//  * Importing icons from Font Awesome
+//  */
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-/**
- * Importing Modules for Firebase
- */
+// /**
+//  * Importing Modules for Firebase
+//  */
 import 'package:firebase_auth/firebase_auth.dart';
 
-/**
- * Importing Google Modules
- */
+// /**
+//  * Importing Google Modules
+//  */
 import 'package:google_sign_in/google_sign_in.dart';
-/** 
- * Importing the Barcode Scan Module
- * * REFER TO DOCUMENTATION
- * * - https://pub.dartlang.org/packages/barcode_scan#-readme-tab-
- */
-import 'package:barcode_scan/barcode_scan.dart';
-import 'package:flutter/services.dart';
+// /** 
+//  * Importing the Barcode Scan Module
+//  * * REFER TO DOCUMENTATION
+//  * * - https://pub.dartlang.org/packages/barcode_scan#-readme-tab-
+//  */
+// import 'package:barcode_scan/barcode_scan.dart';
+// import 'package:flutter/services.dart';
 
-/** 
- * Importing dart libraries
- * - dart:async 
- *    - handles promises function
- *    - also needs to store http requests and responses
- */
-import 'dart:async';
+// /** 
+//  * Importing dart libraries
+//  * - dart:async 
+//  *    - handles promises function
+//  *    - also needs to store http requests and responses
+//  */
+// import 'dart:async';
 
 final GoogleSignIn _googleSignIn = GoogleSignIn();
 
-/** 
- * EXTERNAL METHODS
- */
-google_logout() {
+// /** 
+//  * EXTERNAL METHODS
+//  */
+googleLogout() {
   _googleSignIn.signOut();
 }
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
+    @override
+  _ProfileScreenState createState() => _ProfileScreenState();
+}
+class _ProfileScreenState extends State<ProfileScreen> {
   String username;
   int numberOfCoupons;
   int numberOfRows;

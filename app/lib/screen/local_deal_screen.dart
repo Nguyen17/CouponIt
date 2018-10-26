@@ -28,8 +28,8 @@ class _LocalDealsScreenState extends State<LocalDealsScreen> {
               .loadString('assets/data/local_deals.json'),
           builder: (context, snapshot) {
             // Decode the JSON
-            var new_data = json.decode(snapshot.data.toString());
-            var deals = new_data == null ? [] : new_data['deals'];
+            var newData = json.decode(snapshot.data.toString());
+            var deals = newData == null ? [] : newData['deals'];
             return new StaggeredGridView.countBuilder(
               crossAxisCount: 4,
               itemCount: deals.length,

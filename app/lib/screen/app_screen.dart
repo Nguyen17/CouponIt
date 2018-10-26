@@ -2,41 +2,41 @@ import 'package:flutter/material.dart';
 import 'components/color.dart';
 
 
-/**
- * Importing icons from Font Awesome
- */
+// /**
+//  * Importing icons from Font Awesome
+//  */
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-/**
- * Importing Modules for Firebase
- */
+// /**
+//  * Importing Modules for Firebase
+//  */
 import 'package:firebase_auth/firebase_auth.dart';
 
-/**
- * Importing Google Modules
- */
+// /**
+//  * Importing Google Modules
+//  */
 import 'package:google_sign_in/google_sign_in.dart';
-/** 
- * Importing the Barcode Scan Module
- * * REFER TO DOCUMENTATION
- * * - https://pub.dartlang.org/packages/barcode_scan#-readme-tab-
- */
+// /** 
+//  * Importing the Barcode Scan Module
+//  * * REFER TO DOCUMENTATION
+//  * * - https://pub.dartlang.org/packages/barcode_scan#-readme-tab-
+//  */
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/services.dart';
 
-/** 
- * Importing dart libraries
- * - dart:async 
- *    - handles promises function
- *    - also needs to store http requests and responses
- */
+// /** 
+//  * Importing dart libraries
+//  * - dart:async 
+//  *    - handles promises function
+//  *    - also needs to store http requests and responses
+//  */
 import 'dart:async';
 
 
 
-/** 
- * Importing Any necessary screens
- */
+// /** 
+//  * Importing Any necessary screens
+//  */
 import 'explore_screen.dart';
 import 'local_deal_screen.dart';
 import 'friends_screen.dart';
@@ -46,10 +46,10 @@ import 'feed_screen.dart';
 
 final GoogleSignIn _googleSignIn = GoogleSignIn();
 
-/** 
- * EXTERNAL METHODS
- */
-google_logout() {
+// /** 
+//  * EXTERNAL METHODS
+//  */
+googleLogout() {
   _googleSignIn.signOut();
 }
 
@@ -67,7 +67,7 @@ class _AppScreenState extends State<AppScreen> {
     super.initState();
   }
 
-  sign_out() {
+  signOut() {
     FirebaseAuth.instance.signOut().then((user) {
       Navigator.of(context).pushNamed('/');
     });
@@ -194,12 +194,12 @@ class _AppScreenState extends State<AppScreen> {
     );
   }
 
-/**
- * Scan METHOD
- * @This is a method of AppScreen class Widget
- * @learn about future and promise
- * refer to barcode scan documentations
- */
+// /**
+//  * Scan METHOD
+//  * @This is a method of AppScreen class Widget
+//  * @learn about future and promise
+//  * refer to barcode scan documentations
+//  */
   Future scan() async {
     try {
       String barcode = await BarcodeScanner.scan();
