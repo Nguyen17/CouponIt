@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 /**
  * Importing HTTP Packages
  */
@@ -10,7 +9,6 @@ import 'dart:async';
  * Importing UI LIBRARIES
  */
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 
 /**
  * Importing Firebase Authentification
@@ -36,7 +34,8 @@ class LoginScreen extends StatefulWidget {
   _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<LoginScreen>
+    with TickerProviderStateMixin {
   String _email;
   String _password;
 
@@ -89,6 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                */
                 body: Stack(children: [
                   // INSERT BACKGROUND IMAGE
+
                   Container(
                       decoration: BoxDecoration(
                           image: DecorationImage(
@@ -269,31 +269,31 @@ class _LoginScreenState extends State<LoginScreen> {
                                           onPressed: () {},
                                           icon: Icon(
                                               FontAwesomeIcons.facebookSquare)),
-                                               IconButton(
+                                      IconButton(
                                           iconSize: 34.0,
                                           color:
                                               Color.fromRGBO(29, 161, 242, 1.0),
                                           onPressed: () {},
                                           icon: Icon(
                                               FontAwesomeIcons.twitterSquare)),
-                                      
                                       IconButton(
                                           iconSize: 34.0,
                                           color:
-                                             Color.fromRGBO(52, 168, 83, 1.0),
+                                              Color.fromRGBO(52, 168, 83, 1.0),
                                           onPressed: () {
                                             signInGoogle();
-                                           
-                                            if(_googleSignIn.currentUser != null){
-                                              
-                                              Navigator.pushNamed(context, '/home');
-                                            }else{
+
+                                            if (_googleSignIn.currentUser !=
+                                                null) {
+                                              Navigator.pushNamed(
+                                                  context, '/home');
+                                            } else {
                                               print("Called on null");
-                                               Navigator.pushNamed(context, '/home');
+                                              Navigator.pushNamed(
+                                                  context, '/home');
                                             }
 
                                             //  Navigator.pushNamed(context, '/home');
-                                            
                                           },
                                           icon: Icon(FontAwesomeIcons
                                               .googlePlusSquare))
@@ -323,7 +323,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       children: <Widget>[
                         Text("New to the app? Press to Sign up!",
                             style: TextStyle(
-                                fontFamily: 'Cookie', 
+                                fontFamily: 'Cookie',
                                 fontSize: 14.0,
                                 color: Colors.white))
                       ],
@@ -346,10 +346,6 @@ class _LoginScreenState extends State<LoginScreen> {
     FirebaseUser user = await _auth.signInWithGoogle(
         idToken: googleSignInAuthentication.idToken,
         accessToken: googleSignInAuthentication.accessToken);
-<<<<<<< HEAD
-
-=======
->>>>>>> c0263006a13bdfd8843eee4dd5a4fdccdfef6452
     print("User is  ${user.displayName}");
     return user;
   }

@@ -18,13 +18,8 @@ import 'package:http/http.dart' show get;
 import 'dart:async';
 import 'dart:convert';
 
-<<<<<<< HEAD
 
 
-import '../models/article_model.dart';
-=======
-// import '../models/article_model.dart';
->>>>>>> c0263006a13bdfd8843eee4dd5a4fdccdfef6452
 
 class ExploreScreen extends StatefulWidget {
     @override
