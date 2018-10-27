@@ -55,11 +55,6 @@ void initState() {
                padding: EdgeInsets.all(16.0),
                child:  Column(
                children: <Widget>[
-              //  CircleAvatar(
-              //    radius: 40.0,
-              //    backgroundImage: NetworkImage(articles[index]["urlToImage"]),
-                 
-              //  ),
               Image.network((articles[index]["urlToImage"] == null || articles[index]["urlToImage"] =="") ? placeholderBlank: articles[index]["urlToImage"] ,
                width: 600.0,
               height: 240.0,
