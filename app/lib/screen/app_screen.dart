@@ -65,6 +65,18 @@ class _AppScreenState extends State<AppScreen> {
   @override
   initState() {
     super.initState();
+    checkSignIn();
+  }
+
+  checkSignIn(){
+    var user = FirebaseAuth.instance.currentUser();
+    if(user == null) {
+      print("There are no users currently logged on.");
+    } else{
+      print(" User currently logged on: $user");
+    }
+
+
   }
 
   signOut() {
