@@ -42,7 +42,7 @@ class _SignUpPasswordState extends State<SignUpPassword> {
       print("User email: ${newUser.email}");
         Navigator.of(
                 context) // route to home and remove routes (clear the stack)
-            .pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
+            .pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
     });
   }
 
