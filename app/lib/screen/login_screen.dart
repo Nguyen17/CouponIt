@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'profile_screen.dart';
 /**
  * Importing HTTP Packages
  */
@@ -60,6 +60,8 @@ class _LoginScreenState extends State<LoginScreen>
         .signInWithEmailAndPassword(email: _email, password: _password)
         .then((user) {
       print("User email: ${user.email}");
+      // database unique acc id for the profile implementation
+      database_user_profile_reference(user.uid,_email);
       Navigator.of(context).pushNamed('/home');
     });
   }

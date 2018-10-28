@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'sign_up_email_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
+import 'profile_screen.dart';
 String _password;
 String _email;
 
@@ -40,6 +40,7 @@ class _SignUpPasswordState extends State<SignUpPassword> {
         .createUserWithEmailAndPassword(email: _email, password: _password)
         .then((newUser) {
       print("User email: ${newUser.email}");
+      database_push_new_uid(newUser.uid,_email);
         Navigator.of(
                 context) // route to home and remove routes (clear the stack)
             .pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);

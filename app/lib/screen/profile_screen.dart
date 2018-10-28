@@ -15,6 +15,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 //  */
 import 'package:google_sign_in/google_sign_in.dart';
 // /** 
+import 'package:firebase_database/firebase_database.dart';
+DatabaseReference database = FirebaseDatabase.instance.reference();
 //  * Importing the Barcode Scan Module
 //  * * REFER TO DOCUMENTATION
 //  * * - https://pub.dartlang.org/packages/barcode_scan#-readme-tab-
@@ -37,6 +39,22 @@ final GoogleSignIn _googleSignIn = GoogleSignIn();
 //  */
 googleLogout() {
   _googleSignIn.signOut();
+}
+
+
+String user_email;
+void  database_push_new_uid(x,y){
+user_email = y;
+
+// x is the unique acc ID, if we want to transfer unique profile items, we must 
+// adjust the reference to this uid
+database.child(x).child('email').set(y); // the reference is the users auth id, which is created if there isnt one
+
+}
+void database_user_profile_reference(x,y){
+// x is the uid, which is unused for meow
+user_email = y;
+  
 }
 
 class ProfileScreen extends StatefulWidget {
@@ -68,7 +86,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
     ];
 
-    username = "KrustyKrab";
+    username = user_email;
     numberOfCoupons = data.length;
     numberOfRows = (numberOfCoupons % 3 == 0)
         ? numberOfCoupons ~/ 3
@@ -88,7 +106,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
               icon: new Icon(Icons.input),
               onPressed: () {
                 FirebaseAuth.instance.signOut().then((user) {
-                  Navigator.of(context).pushNamed('/');
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                    '/', (Route<dynamic> route) => false);
                 });
                 _googleSignIn.signOut();
               },
