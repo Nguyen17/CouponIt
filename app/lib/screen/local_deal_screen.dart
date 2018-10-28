@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'components/color.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 // import 'package:url_launcher/url_launcher.dart';
@@ -8,8 +9,8 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
  *  - need for 'get' requests
  *  - need to parse json
  */
-// import 'package:http/http.dart' show get;
-// import 'dart:async' show Future;
+import 'package:http/http.dart' show get;
+import 'dart:async' show Future;
 import 'dart:convert';
 
 class LocalDealsScreen extends StatefulWidget {
@@ -18,29 +19,32 @@ class LocalDealsScreen extends StatefulWidget {
 }
 
 class _LocalDealsScreenState extends State<LocalDealsScreen> {
+
+  // API URL
+  var URL = 'https://api.discountapi.com/v2/deals?api_key=CqtOTdQe&query="food"&location="las vegas, NV"';
+  // INIT variables to hold api response
+  Map dealModel;
+  List dealList;
+
+bool _isloading = true;
+
+  @override
+    void initState() {
+      // TODO: implement initState
+      super.initState();
+      fetchData();
+    }
   @override
   Widget build(BuildContext context) {
-    return new Container(
-      padding: EdgeInsets.all(8.0),
-      child: new Center(
-        // Use future builder and DefaultAssetBundle to load the local JSON file
-        child: new FutureBuilder(
-          future: DefaultAssetBundle.of(context)
-              .loadString('assets/data/local_deals.json'),
-          builder: (context, snapshot) {
-            // Decode the JSON
-            var newData = json.decode(snapshot.data.toString());
-            var deals = newData == null ? [] : newData['deals'];
-            return (deals.length == 0) ? SpinKitThreeBounce(color: Colors.green) :
-           new StaggeredGridView.countBuilder(
+    return   (_isloading == true) ? SpinKitCubeGrid(color: pinkColorScheme, size: 45.0,) : StaggeredGridView.countBuilder(
               crossAxisCount: 4,
-              itemCount: deals.length,
+              itemCount: dealList.length,
               itemBuilder: (context, index) {
                 return new Container(
-                    color: Colors.green,
+                
                     child: new Stack(
                       children: <Widget>[
-                        coverNetworkImage(deals[index]['deal']['image_url']),
+                        coverNetworkImage(dealList[index]['deal']['image_url']),
                         new Column(
                           mainAxisAlignment: MainAxisAlignment.end,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -50,7 +54,7 @@ class _LocalDealsScreenState extends State<LocalDealsScreen> {
                               color: Color.fromRGBO(0, 0, 0, 0.4),
                               child: Column(children: [
                                 Text(
-                                  deals[index]['deal']['short_title'],
+                                  dealList[index]['deal']['short_title'],
                                   style: new TextStyle(color: Colors.white),
                                 ),
                               ]),
@@ -67,10 +71,6 @@ class _LocalDealsScreenState extends State<LocalDealsScreen> {
               mainAxisSpacing: 8.0,
               crossAxisSpacing: 8.0,
             );
-          },
-        ),
-      ),
-    );
   }
 
   Widget coverNetworkImage(String url) {
@@ -81,6 +81,26 @@ class _LocalDealsScreenState extends State<LocalDealsScreen> {
       width: double.infinity,
       alignment: Alignment.center,
     );
+  }
+
+
+  // /**
+  //  * FUTURE Methods
+  //  *  - calls the api and retrieve information
+  //  */
+  Future fetchData() async {
+
+     var res = await get(URL);
+     dealModel = json.decode(res.body);
+    setState(() {
+          dealList = dealModel["deals"];
+        });
+    //print(articleModel);
+   print(dealList.toString());
+     print(dealList.length);
+        _isloading = false;
+
+
   }
 }
 
