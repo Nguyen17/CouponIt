@@ -140,37 +140,37 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-            fixedColor: Colors.black45,
-            iconSize: 21.0,
-            items: [
-              BottomNavigationBarItem(
-                title: Text("menu"),
-                icon: IconButton(
-                    color: Colors.black45,
-                    icon: Icon(Icons.more_horiz),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    }),
-              ),
-              BottomNavigationBarItem(
-                title: Text("scan"),
-                icon: IconButton(
-                    color: Colors.black45,
-                    icon: Icon(FontAwesomeIcons.barcode),
-                    onPressed: () {
-                      // Todo:
-                      // scan()
-                    }),
-              ),
-              BottomNavigationBarItem(
-                title: Text("Profile"),
-                icon: IconButton(
-                    color: Colors.black45,
-                    icon: Icon(Icons.account_box),
-                    onPressed: () {}),
-              ),
-            ]),
+        // bottomNavigationBar: BottomNavigationBar(
+        //     fixedColor: Colors.black45,
+        //     iconSize: 21.0,
+        //     items: [
+        //       BottomNavigationBarItem(
+        //         title: Text("menu"),
+        //         icon: IconButton(
+        //             color: Colors.black45,
+        //             icon: Icon(Icons.more_horiz),
+        //             onPressed: () {
+        //               Navigator.of(context).pop();
+        //             }),
+        //       ),
+        //       BottomNavigationBarItem(
+        //         title: Text("scan"),
+        //         icon: IconButton(
+        //             color: Colors.black45,
+        //             icon: Icon(FontAwesomeIcons.barcode),
+        //             onPressed: () {
+        //               // Todo:
+        //               // scan()
+        //             }),
+        //       ),
+        //       BottomNavigationBarItem(
+        //         title: Text("Profile"),
+        //         icon: IconButton(
+        //             color: Colors.black45,
+        //             icon: Icon(Icons.account_box),
+        //             onPressed: () {}),
+        //       ),
+        //     ]),
       ),
     );
   }
