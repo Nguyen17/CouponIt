@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'components/color.dart';
-
+import 'coupon_screen.dart';
 
 // /**
 //  * Importing icons from Font Awesome
@@ -222,7 +222,7 @@ class _AppScreenState extends State<AppScreen> {
   Future scan() async {
     try {
       String barcode = await BarcodeScanner.scan();
-
+      scanned_value(barcode);
       setState(() => this.barcode = barcode);
 
       Navigator.pushNamed(context, '/coupon');

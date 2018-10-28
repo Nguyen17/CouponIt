@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'app_screen.dart';
+String coupon_val;
 
-
+void scanned_value(x){
+coupon_val = x;
+}
 
 class CouponScreen extends StatelessWidget {
   @override
@@ -11,7 +15,7 @@ class CouponScreen extends StatelessWidget {
         child: Scaffold(
         body: Container(
          alignment: Alignment.center,
-         child: Text("This is the coupon screen.") 
+         child: Text(coupon_val) 
         )
       )
       )
