@@ -40,7 +40,7 @@ class _SignUpPasswordState extends State<SignUpPassword> {
         .createUserWithEmailAndPassword(email: _email, password: _password)
         .then((newUser) {
       print("User email: ${newUser.email}");
-      database_push_new_uid(newUser.uid,_email);
+     databaseUniqueid(newUser.uid,_email);
         Navigator.of(
                 context) // route to home and remove routes (clear the stack)
             .pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);

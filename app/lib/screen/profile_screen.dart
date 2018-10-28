@@ -43,7 +43,7 @@ googleLogout() {
 
 
 String user_email;
-void  database_push_new_uid(x,y){
+void  databaseUniqueid(x,y){
 user_email = y;
 
 // x is the unique acc ID, if we want to transfer unique profile items, we must 
@@ -51,7 +51,7 @@ user_email = y;
 database.child(x).child('email').set(y); // the reference is the users auth id, which is created if there isnt one
 
 }
-void database_user_profile_reference(x,y){
+void databaseProfileref(x,y){
 // x is the uid, which is unused for meow
 user_email = y;
   

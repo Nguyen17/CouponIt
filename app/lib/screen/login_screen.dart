@@ -61,7 +61,7 @@ class _LoginScreenState extends State<LoginScreen>
         .then((user) {
       print("User email: ${user.email}");
       // database unique acc id for the profile implementation
-      database_user_profile_reference(user.uid,_email);
+      databaseProfileref(user.uid,_email);
       Navigator.of(context).pushNamed('/home');
     });
   }
