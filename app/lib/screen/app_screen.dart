@@ -44,6 +44,7 @@ import 'feed_screen.dart';
 
 
 
+
 final GoogleSignIn _googleSignIn = GoogleSignIn();
 
 // /** 
@@ -53,13 +54,16 @@ googleLogout() {
   _googleSignIn.signOut();
 }
 
+
+
+
 class AppScreen extends StatefulWidget {
   _AppScreenState createState() => _AppScreenState();
 }
 
 class _AppScreenState extends State<AppScreen> {
   // This is a variables that holds the return value of the Scan method
-  String barcode = '';
+   String barcode = '';
 
 
   @override
@@ -88,14 +92,17 @@ class _AppScreenState extends State<AppScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      minimum: EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 0.0),
+      minimum: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         home: DefaultTabController(
           length: 3,
           child: Scaffold(
           appBar: AppBar(
-            titleSpacing: NavigationToolbar.kMiddleSpacing,
+            // title: Image(
+            //   image: AssetImage("assets/images/ic_couponitlogo_2.png")
+            // ),
+            // titleSpacing: NavigationToolbar.kMiddleSpacing,
             leading: Image(
               image: AssetImage("assets/images/ic_couponitlogo_2.png")
             ),
@@ -215,7 +222,10 @@ class _AppScreenState extends State<AppScreen> {
   Future scan() async {
     try {
       String barcode = await BarcodeScanner.scan();
+
       setState(() => this.barcode = barcode);
+
+      Navigator.pushNamed(context, '/coupon');
     } on PlatformException catch (e) {
       if (e.code == BarcodeScanner.CameraAccessDenied) {
         setState(() {

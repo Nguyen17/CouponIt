@@ -31,6 +31,7 @@ dependencies:
   unicorndial: ^1.1.5
   splashscreen: ^1.1.0
   flutter_spinkit: "^2.1.0"
+  backdrop: ^0.1.8
 
 
   # FONT AWESOME ICONS

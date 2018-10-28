@@ -6,16 +6,15 @@ import 'package:flutter/material.dart';
 //  * * Screens
 //  *  - use for defining page routes
 //  */
-// import 'screen/login_screen.dart';
-// import 'screen/login_screen_demo.dart';
 import 'screen/profile_screen.dart';
-import 'screen/splash_screen.dart';
 import 'screen/sign_up_email_screen.dart';
 import 'screen/sign_up_password_screen.dart';
 import 'screen/app_screen.dart';
 import 'screen/sign_up_screen.dart';
 import 'screen/login_screen.dart';
 import 'screen/welcome_screen.dart';
+import 'screen/menu_screen.dart';
+import 'screen/coupon_screen.dart';
 
 
 void main(){
@@ -42,6 +41,8 @@ class App extends StatelessWidget {
         '/sign_up_email':(context) => SignUpEmail(),
         '/sign_up_password':  (context)=>SignUpPassword(),
         '/profile': (context)=>ProfileScreen(),
+        '/menu':(context) => MenuScreen(),
+        '/coupon':(context) => CouponScreen(),
         '/home': (context) => AppScreen()
       },
     );

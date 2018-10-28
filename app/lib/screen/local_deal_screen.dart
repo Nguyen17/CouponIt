@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 // import 'package:url_launcher/url_launcher.dart';
 
 /**
@@ -30,7 +31,8 @@ class _LocalDealsScreenState extends State<LocalDealsScreen> {
             // Decode the JSON
             var newData = json.decode(snapshot.data.toString());
             var deals = newData == null ? [] : newData['deals'];
-            return new StaggeredGridView.countBuilder(
+            return (deals.length == 0) ? SpinKitThreeBounce(color: Colors.green) :
+           new StaggeredGridView.countBuilder(
               crossAxisCount: 4,
               itemCount: deals.length,
               itemBuilder: (context, index) {
@@ -46,11 +48,13 @@ class _LocalDealsScreenState extends State<LocalDealsScreen> {
                             new Container(
                               padding: EdgeInsets.all(6.0),
                               color: Color.fromRGBO(0, 0, 0, 0.4),
-                              child: new Text(
-                                deals[index]['deal']['title'],
-                                style: new TextStyle(color: Colors.white),
-                              ),
-                            )
+                              child: Column(children: [
+                                Text(
+                                  deals[index]['deal']['short_title'],
+                                  style: new TextStyle(color: Colors.white),
+                                ),
+                              ]),
+                            ),
                           ],
                         ),
                       ],

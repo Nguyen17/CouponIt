@@ -323,7 +323,7 @@ class _LoginScreenState extends State<LoginScreen>
                       children: <Widget>[
                         Text("New to the app? Press to Sign up!",
                             style: TextStyle(
-                                fontFamily: 'Cookie',
+                                fontFamily: 'Kotori',
                                 fontSize: 14.0,
                                 color: Colors.white))
                       ],
