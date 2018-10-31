@@ -41,6 +41,7 @@ import 'explore_screen.dart';
 import 'local_deal_screen.dart';
 import 'friends_screen.dart';
 import 'feed_screen.dart';
+import 'explore_screen_test.dart';
 
 
 
@@ -140,59 +141,34 @@ class _AppScreenState extends State<AppScreen> {
               ]
             ),
             ),
-          bottomNavigationBar: BottomNavigationBar(
-           
-           fixedColor: Colors.black45, 
-            iconSize: 21.0, items: [
-            /** 
-             * Todo: CREATE 4-5 items of navigation
-             */
-      
-            // BottomNavigationBarItem(
-            //   title: Text("search"),
-            //   icon: IconButton(
-            //       color: Colors.black45,
-            //       icon: Icon(FontAwesomeIcons.search),
-            //       onPressed: () {}),
-            // ),
-            BottomNavigationBarItem(
-              title: Text("menu"),
-              icon: IconButton(
+            floatingActionButton: FloatingActionButton(
+              backgroundColor: Color.fromRGBO(221, 0, 102, 1.0),
+              onPressed: (){
+                scan();
+              },
+              child: Icon(FontAwesomeIcons.barcode),
+            ),
+            floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          bottomNavigationBar: BottomAppBar(
+
+            shape: CircularNotchedRectangle(),
+            child: Row(
+              mainAxisAlignment:MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                IconButton(
                   color: Colors.black45,
                   icon: Icon(Icons.more_horiz),
                   onPressed: () {}),
-            ),
-            BottomNavigationBarItem(
-              title: Text("scan"),
-              icon: IconButton(
-                  color: Colors.black45,
-                  icon: Icon(FontAwesomeIcons.barcode),
-
-                  // Todos: Implement scan
-                  onPressed: () {
-                    scan();
-                  }),
-            ),
-            // BottomNavigationBarItem(
-            //   title: Text("friends"),
-            //   icon: IconButton(
-            //       icon: Icon(Icons.people),
-            //       onPressed: () {
-
-            //       }),
-            // ),
-            BottomNavigationBarItem(
-              title: Text("Profile"),
-              icon: IconButton(
+                     IconButton(
                   color: Colors.black45,
                   icon: Icon(Icons.account_box),
                   onPressed: () {
                     Navigator.of(context).pushNamed('/profile');
-                    // sign_out();
-                    // google_logout();
                   }),
-            ),
-          ]),
+              ],
+
+            )
+          ),  
 
           /**
            * BODY CONTENT
@@ -201,6 +177,8 @@ class _AppScreenState extends State<AppScreen> {
           body: TabBarView(
             children:[
               LocalDealsScreen(),
+
+              // Todos: Redo the UI of the new feed(explore)
               ExploreScreen(),
               
               FriendsScreen(),
@@ -222,7 +200,7 @@ class _AppScreenState extends State<AppScreen> {
   Future scan() async {
     try {
       String barcode = await BarcodeScanner.scan();
-      scanned_value(barcode);
+      scannedValue(barcode);
       setState(() => this.barcode = barcode);
 
       Navigator.pushNamed(context, '/coupon');
