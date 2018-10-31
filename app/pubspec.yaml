@@ -32,6 +32,7 @@ dependencies:
   splashscreen: ^1.1.0
   flutter_spinkit: "^2.1.0"
   backdrop: ^0.1.8
+  auto_size_text: ^0.2.1
 
 
   # FONT AWESOME ICONS
@@ -89,11 +90,13 @@ flutter:
    - assets/images/bg2.jpg
    - assets/images/ic_couponitlogo.png
    - assets/images/ic_couponitlogo_2.png
+   - assets/images/couponit_logo.png
    - assets/images/login_bg.jpg
    - assets/data/local_deals.json
    - assets/images/bgGradient1.jpg
    - assets/images/bgGradient2.jpg
    - assets/images/bgGradient3.jpg
+   - assets/images/bgGradient4.jpg
    - assets/images/image1.png
    - assets/images/image2.png
    - assets/images/image3.png
@@ -103,6 +106,7 @@ flutter:
    - assets/images/slide2.jpg
    - assets/images/slide3.jpg
    - assets/images/logo.png
+   - assets/images/sephora.png
 
   #  - images/a_dot_ham.jpeg
 
@@ -133,6 +137,17 @@ flutter:
           weight: 700
         - asset: assets/fonts/Poppins-Medium.ttf
           weight: 500
+    - family: OpenSans
+      fonts:
+        - asset: assets/fonts/OpenSans-Regular.ttf
+    - family: PlayfairDisplay
+      fonts:
+        - asset: assets/fonts/PlayfairDisplay-Bold.ttf
+          weight: 700
+    
+          
+
+
 
   #   - family: Trajan Pro
   #     fonts:
