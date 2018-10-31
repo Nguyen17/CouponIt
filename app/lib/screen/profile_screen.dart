@@ -105,11 +105,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
             IconButton(
               icon: new Icon(Icons.input),
               onPressed: () {
-                FirebaseAuth.instance.signOut().then((user) {
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                    '/', (Route<dynamic> route) => false);
-                });
-                _googleSignIn.signOut();
+                // FirebaseAuth.instance.signOut().then((user) {
+                //   Navigator.of(context).pushNamedAndRemoveUntil(
+                //     '/', (Route<dynamic> route) => false);
+                // });
+                // _googleSignIn.signOut();
+                Navigator.of(context).pushNamed('/account_settings');
               },
             )
           ],
