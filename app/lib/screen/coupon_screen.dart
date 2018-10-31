@@ -1,44 +1,42 @@
 import 'package:flutter/material.dart';
-import 'app_screen.dart';
-
+// import 'app_screen.dart';
 
 /**
  * Importing UI Packages
  */
 import 'package:backdrop/backdrop.dart';
 
-
 // ===========================
-String coupon_val;
+String couponVal;
 
-/**
- * USAGE
- * - Text(coupon_val)
- *   - display return barcode after scanning
- */
-void scanned_value(x){
-coupon_val = x;
+////**
+///* USAGE
+///* - Text(couponVal)
+///*   - display return barcode after scanning
+///*/
+void scannedValue(x) {
+  couponVal = x;
 }
 
 class CouponScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: BackdropScaffold(
-        title: Text("Coupons"),
-        backLayer: Center(
-          child: Text("Back Layer"),
-        ),
-        frontLayer: Center(
-          child: Text(coupon_val),
-        ),
-        iconPosition: BackdropIconPosition.leading,
-        actions: <Widget>[
-          BackdropToggleButton(
-            icon: AnimatedIcons.list_view,
+        debugShowCheckedModeBanner: false,
+        home: BackdropScaffold(
+          title: Text("Coupons"),
+          backLayer: Center(
+            child: Text("Back Layer"),
           ),
-        ],
-      ));
+          frontLayer: Center(
+            child: Text(couponVal),
+          ),
+          iconPosition: BackdropIconPosition.leading,
+          actions: <Widget>[
+            BackdropToggleButton(
+              icon: AnimatedIcons.list_view,
+            ),
+          ],
+        ));
   }
 }
