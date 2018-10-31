@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // /**
 //  * Importing icons from Font Awesome
 //  */
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // /**
 //  * Importing Modules for Firebase
@@ -42,9 +42,9 @@ googleLogout() {
 }
 
 
-String user_email;
+String userEmail;
 void  databaseUniqueid(x,y){
-user_email = y;
+userEmail = y;
 
 // x is the unique acc ID, if we want to transfer unique profile items, we must 
 // adjust the reference to this uid
@@ -53,7 +53,7 @@ database.child(x).child('email').set(y); // the reference is the users auth id, 
 }
 void databaseProfileref(x,y){
 // x is the uid, which is unused for meow
-user_email = y;
+userEmail = y;
   
 }
 
@@ -86,7 +86,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
     ];
 
-    username = user_email;
+    username = userEmail;
     numberOfCoupons = data.length;
     numberOfRows = (numberOfCoupons % 3 == 0)
         ? numberOfCoupons ~/ 3

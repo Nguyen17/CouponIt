@@ -20,8 +20,8 @@ class LocalDealsScreen extends StatefulWidget {
 
 class _LocalDealsScreenState extends State<LocalDealsScreen> {
 
-  // API URL
-  var URL = 'https://api.discountapi.com/v2/deals?api_key=CqtOTdQe&query="food"&location="las vegas, NV"';
+  // API url
+  var url = 'https://api.discountapi.com/v2/deals?api_key=CqtOTdQe&query="food"&location="las vegas, NV"';
   // INIT variables to hold api response
   Map dealModel;
   List dealList;
@@ -90,7 +90,7 @@ bool _isloading = true;
   //  */
   Future fetchData() async {
 
-     var res = await get(URL);
+     var res = await get(url);
      dealModel = json.decode(res.body);
     setState(() {
           dealList = dealModel["deals"];

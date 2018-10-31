@@ -19,6 +19,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 final GoogleSignIn _googleSignIn = GoogleSignIn();
+
 /**
  * NOTES:
  * todos: comment the use case scenario
@@ -61,7 +62,7 @@ class _LoginScreenState extends State<LoginScreen>
         .then((user) {
       print("User email: ${user.email}");
       // database unique acc id for the profile implementation
-      databaseProfileref(user.uid,_email);
+      databaseProfileref(user.uid, _email);
       Navigator.of(context).pushNamed('/home');
     });
   }
@@ -331,6 +332,17 @@ class _LoginScreenState extends State<LoginScreen>
                       ],
                     ),
                     SizedBox(height: 10.0),
+                Container(width: 200.0,
+                  margin: EdgeInsets.fromLTRB(
+                                        100.0, 0.0, 100.0, 0.0),
+                child:     RaisedButton(
+                  color: Colors.blue[600],
+                      textColor: Colors.white,
+                      child: Text("Sign in as Guest"),
+                      onPressed:(){
+                        Navigator.pushNamed(context, '/home');
+                      }
+                    ))
 
                     // =====================================
                   ])
