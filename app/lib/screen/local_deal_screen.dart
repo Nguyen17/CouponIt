@@ -21,7 +21,7 @@ class LocalDealsScreen extends StatefulWidget {
 class _LocalDealsScreenState extends State<LocalDealsScreen> {
 
   // API url
-  var url = 'https://api.discountapi.com/v2/deals?api_key=CqtOTdQe&query="food"&location="las vegas, NV"';
+  var url = 'https://api.discountapi.com/v2/deals?api_key=CqtOTdQe&query="local"&location="las vegas, NV"';
   // INIT variables to hold api response
   Map dealModel;
   List dealList;
