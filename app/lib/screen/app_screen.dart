@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'components/color.dart';
 import 'coupon_screen.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 // /**
 //  * Importing icons from Font Awesome
 //  */
@@ -202,8 +202,10 @@ class _AppScreenState extends State<AppScreen> {
       String barcode = await BarcodeScanner.scan();
       scannedValue(barcode);
       setState(() => this.barcode = barcode);
+      _launchURL(barcode,context);  
+     
+     
 
-      Navigator.pushNamed(context, '/coupon');
     } on PlatformException catch (e) {
       if (e.code == BarcodeScanner.CameraAccessDenied) {
         setState(() {
@@ -220,3 +222,14 @@ class _AppScreenState extends State<AppScreen> {
     }
   }
 } // End of AppScreen CLASS
+
+
+  _launchURL(urlTest,context) async {
+    var url = urlTest;
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+       Navigator.pushNamed(context, '/coupon'); 
+      // throw 'Could not launch $url';
+    }
+  }
