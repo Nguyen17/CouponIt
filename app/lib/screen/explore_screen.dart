@@ -70,14 +70,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                         fit: BoxFit.cover,
                       ),
                       SizedBox(height: 20.0),
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      //   children: <Widget>[
-                      //     Text(articles[index]["publishedAt"]),
-
-                      //   ],
-                      // ),
-                      //  SizedBox(height: 20.0),
+           
                       Container(
                           //  width: 201.0,
                           //  height: 48.0,
