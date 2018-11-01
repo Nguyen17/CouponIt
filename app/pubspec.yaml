@@ -144,6 +144,13 @@ flutter:
       fonts:
         - asset: assets/fonts/PlayfairDisplay-Bold.ttf
           weight: 700
+    - family: SFProText
+      fonts:
+        - asset: assets/fonts/SFProText-Regular.ttf
+        - asset: assets/fonts/SFProText-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/SFProText-SemiBold.ttf
+          weight: 600
     
           
 
