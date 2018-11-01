@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'profile_screen.dart';
 
 import 'dart:async';
 /**
@@ -21,9 +22,38 @@ class _SignUpScreenState extends State<SignUpScreen> {
   String _email;
   String _password;
 
+// void validateSubmit()async{
+
+//       Future createUserAccount(BuildContext context) async {
+//     // FirebaseUser newUser = 
+//     await _auth
+//         .createUserWithEmailAndPassword(email: _email, password: _password)
+//         .then((newUser) {
+//       print("User email: ${newUser.email}");
+//        databaseUniqueid(newUser.uid,_email);
+//        Navigator.of(
+//                 context) // route to home and remove routes (clear the stack)
+//             .pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
+//     });
+//   }
+// }
+void validateSubmit() async {
+
+    await FirebaseAuth.instance
+        .createUserWithEmailAndPassword(email: _email, password: _password)
+        .then((newUser) {
+      print("User email: ${newUser.email}");
+     databaseUniqueid(newUser.uid,_email);
+        Navigator.of(
+                context) // route to home and remove routes (clear the stack)
+            .pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
         home: Scaffold(
             body: ListView(children: <Widget>[
       Form(
@@ -158,7 +188,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         print(_password);
 
                         // Todos: FIX THIS !! <3
-                        createUserAccount(context);
+                        // createUserAccount(context);
+                        validateSubmit();
                       },
                       child: Text("Create Account",
                           style: TextStyle(color: Colors.white)))),
@@ -167,13 +198,5 @@ class _SignUpScreenState extends State<SignUpScreen> {
     ])));
   }
 
-  Future createUserAccount(BuildContext context) async {
-    // FirebaseUser newUser = 
-    await _auth
-        .createUserWithEmailAndPassword(email: _email, password: _password)
-        .then((newUser) {
-      print("User email: ${newUser.email}");
-      Navigator.pushNamed(context, '/');
-    });
-  }
+
 } // END OF SIGN UP CLASS
