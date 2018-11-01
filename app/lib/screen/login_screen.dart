@@ -97,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen>
                           image: DecorationImage(
                               fit: BoxFit.fill,
                               image: AssetImage(
-                                  "assets/images/bgGradient3.jpg")))),
+                                  "assets/images/bgGradient4.jpg")))),
 
                   ListView(children: [
                     SizedBox(height: 40.0),
@@ -123,8 +123,8 @@ class _LoginScreenState extends State<LoginScreen>
                       'Coupon It.',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontFamily: "Kotori",
-                          fontWeight: FontWeight.w700,
+                          fontFamily: "SFProText",
+                          fontWeight: FontWeight.w600,
                           fontSize: 44.0,
                           color: Colors.white),
                     ),
@@ -170,7 +170,7 @@ class _LoginScreenState extends State<LoginScreen>
                                     decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius:
-                                            BorderRadius.circular(30.0)),
+                                            BorderRadius.circular(5.0)),
                                     child: ListTile(
                                         leading: Icon(Icons.email),
                                         title: TextFormField(
@@ -186,8 +186,9 @@ class _LoginScreenState extends State<LoginScreen>
                                           decoration: InputDecoration(
                                             filled: false,
                                             hintText: "email",
-                                            hintStyle:
-                                                TextStyle(fontSize: 11.0),
+                                            hintStyle: TextStyle(
+                                                fontSize: 11.0,
+                                                fontFamily: "SFProText"),
                                             border: InputBorder.none,
                                           ),
                                         ))),
@@ -200,7 +201,7 @@ class _LoginScreenState extends State<LoginScreen>
                                     decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius:
-                                            BorderRadius.circular(30.0)),
+                                            BorderRadius.circular(5.0)),
                                     child: ListTile(
                                         leading: Icon(FontAwesomeIcons.key),
                                         title: TextFormField(
@@ -215,8 +216,9 @@ class _LoginScreenState extends State<LoginScreen>
                                           decoration: InputDecoration(
                                             filled: false,
                                             hintText: "password",
-                                            hintStyle:
-                                                TextStyle(fontSize: 11.0),
+                                            hintStyle: TextStyle(
+                                                fontSize: 11.0,
+                                                fontFamily: "SFProText"),
                                             border: InputBorder.none,
                                           ),
                                         ))),
@@ -228,19 +230,26 @@ class _LoginScreenState extends State<LoginScreen>
                                     margin: EdgeInsets.fromLTRB(
                                         50.0, 20.0, 50.0, 0.0),
                                     decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(40.0),
                                         gradient: LinearGradient(
-                                      colors: [
-                                        Color.fromRGBO(233, 183, 255, 1.0),
-                                        Color.fromRGBO(193, 193, 255, 1.0),
-                                        Color.fromRGBO(144, 203, 255, 1.0),
-                                        Color.fromRGBO(91, 211, 255, 1.0),
-                                        Color.fromRGBO(44, 216, 250, 1.0),
-                                      ],
-                                      begin: FractionalOffset.topLeft,
-                                      end: FractionalOffset.bottomRight,
-                                      // stops: [0.2,0.2,0.2,0.2,0.2],
-                                      // tileMode: TileMode.mirror
-                                    )),
+                                          colors: [
+                                            // Color.fromRGBO(198, 2, 240, 1.0),
+                                            // Color.fromRGBO(212, 20, 240, 1.0),
+                                            // Color.fromRGBO(224, 34, 239, 1.0),
+                                            // Color.fromRGBO(236, 45, 239, 1.0),
+                                            // Color.fromRGBO(248, 56, 239, 1.0),
+                                            Color.fromRGBO(239, 243, 209, 1.0),
+                                            Color.fromRGBO(215, 241, 200, 1.0),
+                                            Color.fromRGBO(182, 240, 200, 1.0),
+                                            Color.fromRGBO(141, 238, 210, 1.0),
+                                            Color.fromRGBO(86, 235, 229, 1.0),
+                                          ],
+                                          begin: FractionalOffset.topLeft,
+                                          end: FractionalOffset.bottomRight,
+                                          // stops: [0.2,0.2,0.2,0.2,0.2],
+                                          // tileMode: TileMode.mirror
+                                        )),
 
                                     //* Create Account Button
                                     //* creates a new user and send to firebase
@@ -255,7 +264,9 @@ class _LoginScreenState extends State<LoginScreen>
                                         },
                                         child: Text("Login",
                                             style: TextStyle(
-                                                color: Colors.white)))),
+                                                color: Colors.white,
+                                                fontFamily: "SFProText",
+                                                fontWeight: FontWeight.w600)))),
                                 // Container(
                                 //     width: 252.0,
                                 //     padding: EdgeInsets.all(0.0),
@@ -356,13 +367,13 @@ class _LoginScreenState extends State<LoginScreen>
                             ))),
 
                     // SIGN UP
-                    SizedBox(height: 40.0),
+                    SizedBox(height: 20.0),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text("New to the app? Press to Sign up!",
                             style: TextStyle(
-                                fontFamily: 'Kotori',
+                                fontFamily: 'SFProText',
                                 fontSize: 14.0,
                                 color: Colors.white))
                       ],
@@ -377,12 +388,14 @@ class _LoginScreenState extends State<LoginScreen>
                             elevation: 3.0,
                             padding: EdgeInsets.all(20.0),
                             // color: Color.fromRGBO(184, 6, 172, 1.0),
-                            color: Color.fromRGBO(255, 31, 105, 1.0),
+                            color: Color.fromRGBO(198, 44, 192, 1.0),
                             onPressed: () {
                               Navigator.pushNamed(context, '/sign_up');
                             },
                             child: Text("Sign Up!",
-                                style: TextStyle(color: Colors.white)))),
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontFamily: "SFProText")))),
 
                     // SIGN IN AS GUEST
                     Container(
@@ -390,9 +403,12 @@ class _LoginScreenState extends State<LoginScreen>
                         padding: EdgeInsets.all(5.0),
                         margin: EdgeInsets.fromLTRB(120.0, 0.0, 120.0, 0.0),
                         child: RaisedButton(
-                            color: Colors.blue[600],
+                            color: Color.fromRGBO(51, 44, 198, 1.0),
                             textColor: Colors.white,
-                            child: Text("Sign in as Guest"),
+                            child: Text(
+                              "Sign in as Guest",
+                              style: TextStyle(fontFamily: "SFProText",fontSize: 10.0),
+                            ),
                             onPressed: () {
                               Navigator.pushNamed(context, '/home');
                             })),

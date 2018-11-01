@@ -90,9 +90,9 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                   // textAlign: TextAlign.start,
                                   maxLines: 3,
                                   style: TextStyle(
-                                      fontFamily: 'PlayfairDisplay',
-                                      //  fontSize: 21.0,
-                                      fontWeight: FontWeight.w700),
+                                      fontFamily: 'SFProText',
+                                      //  fontSize: 17.0,
+                                      fontWeight: FontWeight.w600),
                                 ),
                                 SizedBox(height: 10.0),
                               ]))
@@ -108,7 +108,8 @@ class _ExploreScreenState extends State<ExploreScreen> {
                             softWrap: true,
                             style: TextStyle(
                               height: 1.25,
-                              fontFamily: 'OpenSans',
+                              fontSize:15.0,
+                              fontFamily: 'SFProText',
                             ),
                           )),
                       SizedBox(height: 20.0),
@@ -126,7 +127,9 @@ class _ExploreScreenState extends State<ExploreScreen> {
                               child: Text(
                                 "Read",
                                 style: TextStyle(
-                                    color: Color.fromRGBO(255, 255, 255, 1.0)),
+                                    color: Color.fromRGBO(255, 255, 255, 1.0),
+                                    fontSize: 11.0,
+                                    fontFamily: "SFProText"),
                               )),
                           SizedBox(width: 20.0),
                           Icon(Icons.favorite_border),
@@ -138,7 +141,9 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                 ? "unknown source"
                                 : articles[index]["source"]["name"],
                             style: TextStyle(
-                                color: Color.fromRGBO(103, 103, 103, 1.0)),
+                                color: Color.fromRGBO(103, 103, 103, 1.0),
+                                fontSize: 13.0,
+                                fontFamily:"SFProText"),
                           ),
                           SizedBox(width: 20.0),
                         ],

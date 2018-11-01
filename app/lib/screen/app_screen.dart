@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'components/color.dart';
 import 'coupon_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 // /**
 //  * Importing icons from Font Awesome
 //  */
@@ -118,11 +119,16 @@ class _AppScreenState extends State<AppScreen> {
               child: ListTile(
               leading: Icon(Icons.search),
               title: TextFormField(
+                textAlign: TextAlign.center,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
                   border: InputBorder.none,
-                  hintText: "search for coupons"
+                  hintText: "search for coupons",
+                  hintStyle: TextStyle(
+                    fontSize: 10.0,
+                    fontFamily: "SFProText"
+                  )
                 )
               )
             ),
@@ -182,7 +188,7 @@ class _AppScreenState extends State<AppScreen> {
               ExploreScreen(),
               
               FriendsScreen(),
-              FeedScreen()
+              // FeedScreen()
             ]
           )
 

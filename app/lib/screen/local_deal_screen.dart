@@ -55,7 +55,9 @@ bool _isloading = true;
                               child: Column(children: [
                                 Text(
                                   dealList[index]['deal']['short_title'],
-                                  style: new TextStyle(color: Colors.white),
+                                  style: new TextStyle(color: Colors.white,
+                                  fontSize: 13.0,
+                                  fontFamily: "SFProText"),
                                 ),
                               ]),
                             ),

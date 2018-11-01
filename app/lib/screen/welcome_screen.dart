@@ -12,8 +12,6 @@ import 'package:flutter_page_indicator/flutter_page_indicator.dart';
  */
 // import 'login_screen_ver2.dart';
 
-
-
 /// Welcome Screen
 /// title:
 /// actors:
@@ -128,12 +126,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                     topRight: const Radius.circular(20.0),
                                     bottomLeft: const Radius.circular(20.0),
                                     bottomRight: const Radius.circular(20.0))),
-
                             child: Swiper(
                               onIndexChanged: _changeTitle,
                               curve: Curves.easeInOut,
                               itemBuilder: (BuildContext context, int index) {
-
                                 // Builds the cards when a user swipe
                                 return Container(
                                   decoration: BoxDecoration(
@@ -182,11 +178,11 @@ Widget loginRoute(BuildContext context) {
       decoration: BoxDecoration(
           gradient: LinearGradient(
         colors: [
-          Color.fromRGBO(239, 243, 209, 1.0),
-          Color.fromRGBO(215, 241, 200, 1.0),
-          Color.fromRGBO(182, 240, 200, 1.0),
-          Color.fromRGBO(141, 238, 210, 1.0),
-          Color.fromRGBO(86, 235, 229, 1.0),
+          Color.fromRGBO(198, 2, 240, 1.0),
+          Color.fromRGBO(212, 20, 240, 1.0),
+          Color.fromRGBO(224, 34, 239, 1.0),
+          Color.fromRGBO(236, 45, 239, 1.0),
+          Color.fromRGBO(248, 56, 239, 1.0),
         ],
         begin: FractionalOffset.topLeft,
         end: FractionalOffset.bottomRight,
@@ -199,5 +195,7 @@ Widget loginRoute(BuildContext context) {
             print("Hello");
             Navigator.pushNamed(context, '/login');
           },
-          child: Text("Login", style: TextStyle(color: Colors.white))));
+          child: Text("Login", style: TextStyle(color: Colors.white,
+          fontWeight: FontWeight.w600,
+          fontFamily: "SFProText"))));
 }
