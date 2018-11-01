@@ -97,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen>
                           image: DecorationImage(
                               fit: BoxFit.fill,
                               image: AssetImage(
-                                  "assets/images/bgGradient1.jpg")))),
+                                  "assets/images/bgGradient3.jpg")))),
 
                   ListView(children: [
                     SizedBox(height: 40.0),
@@ -223,22 +223,58 @@ class _LoginScreenState extends State<LoginScreen>
 
                                 // Create login button
                                 Container(
-                                    width: 252.0,
-                                    padding: EdgeInsets.all(0.0),
+                                    width: 264.0,
+                                    height: 54.0,
                                     margin: EdgeInsets.fromLTRB(
-                                        0.0, 20.0, 0.0, 0.0),
-                                    child: RaisedButton(
-                                        elevation: 3.0,
-                                        padding: EdgeInsets.all(20.0),
-                                        color: Color.fromRGBO(184, 6, 172, 1.0),
+                                        50.0, 20.0, 50.0, 0.0),
+                                    decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                      colors: [
+                                        Color.fromRGBO(233, 183, 255, 1.0),
+                                        Color.fromRGBO(193, 193, 255, 1.0),
+                                        Color.fromRGBO(144, 203, 255, 1.0),
+                                        Color.fromRGBO(91, 211, 255, 1.0),
+                                        Color.fromRGBO(44, 216, 250, 1.0),
+                                      ],
+                                      begin: FractionalOffset.topLeft,
+                                      end: FractionalOffset.bottomRight,
+                                      // stops: [0.2,0.2,0.2,0.2,0.2],
+                                      // tileMode: TileMode.mirror
+                                    )),
+
+                                    //* Create Account Button
+                                    //* creates a new user and send to firebase
+                                    child: FlatButton(
                                         onPressed: () {
+                                          //? This print is for debug
+                                          // Navigator.pushNamed(context, '/sign_up_email');
                                           _formKey.currentState.save();
-                                          print(_email);
                                           userLogin();
+
+                                          // Todos: FIX THIS !! <3
                                         },
-                                        child: Text("continue to app",
+                                        child: Text("Login",
                                             style: TextStyle(
                                                 color: Colors.white)))),
+                                // Container(
+                                //     width: 252.0,
+                                //     padding: EdgeInsets.all(0.0),
+                                //     margin: EdgeInsets.fromLTRB(
+                                //         0.0, 20.0, 0.0, 0.0),
+                                //     child: RaisedButton(
+                                //         elevation: 3.0,
+                                //         padding: EdgeInsets.all(20.0),
+                                //         // color: Color.fromRGBO(184, 6, 172, 1.0),
+                                //         color:
+                                //             Color.fromRGBO(255, 31, 105, 1.0),
+                                //         onPressed: () {
+                                //           _formKey.currentState.save();
+                                //           print(_email);
+                                //           userLogin();
+                                //         },
+                                //         child: Text("continue to app",
+                                //             style: TextStyle(
+                                //                 color: Colors.white)))),
 
                                 // Create Facebook and Google submit button
                                 // - style should be a round button
@@ -331,18 +367,36 @@ class _LoginScreenState extends State<LoginScreen>
                                 color: Colors.white))
                       ],
                     ),
+
+                    // SizedBox(height: 5.0),
+                    Container(
+                        width: 252.0,
+                        padding: EdgeInsets.all(0.0),
+                        margin: EdgeInsets.fromLTRB(120.0, 20.0, 120.0, 0.0),
+                        child: RaisedButton(
+                            elevation: 3.0,
+                            padding: EdgeInsets.all(20.0),
+                            // color: Color.fromRGBO(184, 6, 172, 1.0),
+                            color: Color.fromRGBO(255, 31, 105, 1.0),
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/sign_up');
+                            },
+                            child: Text("Sign Up!",
+                                style: TextStyle(color: Colors.white)))),
+
+                    // SIGN IN AS GUEST
+                    Container(
+                        width: 200.0,
+                        padding: EdgeInsets.all(5.0),
+                        margin: EdgeInsets.fromLTRB(120.0, 0.0, 120.0, 0.0),
+                        child: RaisedButton(
+                            color: Colors.blue[600],
+                            textColor: Colors.white,
+                            child: Text("Sign in as Guest"),
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/home');
+                            })),
                     SizedBox(height: 10.0),
-                Container(width: 200.0,
-                  margin: EdgeInsets.fromLTRB(
-                                        100.0, 0.0, 100.0, 0.0),
-                child:     RaisedButton(
-                  color: Colors.blue[600],
-                      textColor: Colors.white,
-                      child: Text("Sign in as Guest"),
-                      onPressed:(){
-                        Navigator.pushNamed(context, '/home');
-                      }
-                    ))
 
                     // =====================================
                   ])
