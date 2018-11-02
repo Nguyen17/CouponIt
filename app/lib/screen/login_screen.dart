@@ -97,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen>
                           image: DecorationImage(
                               fit: BoxFit.fill,
                               image: AssetImage(
-                                  "assets/images/bgGradient4.jpg")))),
+                                  "assets/images/bgGradient5.jpg")))),
 
                   ListView(children: [
                     SizedBox(height: 40.0),
@@ -123,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen>
                       'Coupon It.',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontFamily: "SFProText",
+                          fontFamily: "Cookie",
                           fontWeight: FontWeight.w600,
                           fontSize: 44.0,
                           color: Colors.white),
@@ -152,7 +152,7 @@ class _LoginScreenState extends State<LoginScreen>
                             key: _formKey,
                             child: Container(
                               padding: EdgeInsets.all(5.0),
-                              width: 300.0,
+                              width: 275.0,
                               // height: 550.0,
 
                               /**
@@ -225,20 +225,38 @@ class _LoginScreenState extends State<LoginScreen>
 
                                 // Create login button
                                 Container(
-                                    width: 264.0,
-                                    height: 54.0,
+                                    width: 154.0,
+                                    height: 44.0,
                                     margin: EdgeInsets.fromLTRB(
                                         50.0, 20.0, 50.0, 0.0),
                                     decoration: BoxDecoration(
                                         borderRadius:
                                             BorderRadius.circular(40.0),
+                                        boxShadow: <BoxShadow>[
+                                          BoxShadow(
+                                              color: Color.fromRGBO(
+                                                  16, 62, 102, 1.0),
+                                              offset: Offset(1.0, 6.0),
+                                              blurRadius: 20.0),
+                                          BoxShadow(
+                                              color: Color.fromRGBO(
+                                                  197, 37, 144, 1.0),
+                                              blurRadius: 20.0)
+                                        ],
                                         gradient: LinearGradient(
                                           colors: [
+                                            //   Color.fromRGBO(16, 62, 102, 1.0),
+                                            // Color.fromRGBO(50, 68, 129, 1.0),
+                                            // Color.fromRGBO(97, 68, 147, 1.0),
+                                            // Color.fromRGBO(147, 59, 153, 1.0),
+                                            // Color.fromRGBO(197, 37, 144, 1.0),
+// ---
                                             // Color.fromRGBO(198, 2, 240, 1.0),
                                             // Color.fromRGBO(212, 20, 240, 1.0),
                                             // Color.fromRGBO(224, 34, 239, 1.0),
                                             // Color.fromRGBO(236, 45, 239, 1.0),
                                             // Color.fromRGBO(248, 56, 239, 1.0),
+
                                             Color.fromRGBO(239, 243, 209, 1.0),
                                             Color.fromRGBO(215, 241, 200, 1.0),
                                             Color.fromRGBO(182, 240, 200, 1.0),
@@ -253,7 +271,7 @@ class _LoginScreenState extends State<LoginScreen>
 
                                     //* Create Account Button
                                     //* creates a new user and send to firebase
-                                    child: FlatButton(
+                                    child: MaterialButton(
                                         onPressed: () {
                                           //? This print is for debug
                                           // Navigator.pushNamed(context, '/sign_up_email');
@@ -266,7 +284,9 @@ class _LoginScreenState extends State<LoginScreen>
                                             style: TextStyle(
                                                 color: Colors.white,
                                                 fontFamily: "SFProText",
-                                                fontWeight: FontWeight.w600)))),
+                                                fontSize: 15.0,
+                                                fontWeight:
+                                                    FontWeight.w600)))), //penis
                                 // Container(
                                 //     width: 252.0,
                                 //     padding: EdgeInsets.all(0.0),
@@ -371,7 +391,7 @@ class _LoginScreenState extends State<LoginScreen>
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text("New to the app? Press to Sign up!",
+                        Text("New to the app?",
                             style: TextStyle(
                                 fontFamily: 'SFProText',
                                 fontSize: 14.0,
@@ -386,7 +406,7 @@ class _LoginScreenState extends State<LoginScreen>
                         margin: EdgeInsets.fromLTRB(120.0, 20.0, 120.0, 0.0),
                         child: RaisedButton(
                             elevation: 3.0,
-                            padding: EdgeInsets.all(20.0),
+                            padding: EdgeInsets.all(10.0),
                             // color: Color.fromRGBO(184, 6, 172, 1.0),
                             color: Color.fromRGBO(198, 44, 192, 1.0),
                             onPressed: () {
@@ -400,14 +420,15 @@ class _LoginScreenState extends State<LoginScreen>
                     // SIGN IN AS GUEST
                     Container(
                         width: 200.0,
-                        padding: EdgeInsets.all(5.0),
+                        padding: EdgeInsets.all(10.0),
                         margin: EdgeInsets.fromLTRB(120.0, 0.0, 120.0, 0.0),
                         child: RaisedButton(
                             color: Color.fromRGBO(51, 44, 198, 1.0),
                             textColor: Colors.white,
                             child: Text(
                               "Sign in as Guest",
-                              style: TextStyle(fontFamily: "SFProText",fontSize: 10.0),
+                              style: TextStyle(
+                                  fontFamily: "SFProText", fontSize: 10.0),
                             ),
                             onPressed: () {
                               Navigator.pushNamed(context, '/home');
