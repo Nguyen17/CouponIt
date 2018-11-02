@@ -148,11 +148,14 @@ class _AppScreenState extends State<AppScreen> {
             ),
             ),
             floatingActionButton: FloatingActionButton(
+              elevation: 2.0,
+              highlightElevation: 2.0,
               backgroundColor: Color.fromRGBO(221, 0, 102, 1.0),
               onPressed: (){
                 scan();
               },
-              child: Icon(FontAwesomeIcons.barcode),
+              child: Icon(FontAwesomeIcons.barcode,
+              semanticLabel: "scan",),
             ),
             floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
           bottomNavigationBar: BottomAppBar(

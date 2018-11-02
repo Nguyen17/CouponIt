@@ -36,7 +36,7 @@ bool _isloading = true;
     }
   @override
   Widget build(BuildContext context) {
-    return   (_isloading == true) ? SpinKitCubeGrid(color: pinkColorScheme, size: 45.0,) : StaggeredGridView.countBuilder(
+    return   (_isloading == true) ? SpinKitFoldingCube(color: pinkColorScheme, size: 45.0,) : StaggeredGridView.countBuilder(
               crossAxisCount: 4,
               itemCount: dealList.length,
               itemBuilder: (context, index) {

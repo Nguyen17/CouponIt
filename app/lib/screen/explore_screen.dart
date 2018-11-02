@@ -85,8 +85,8 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                 AutoSizeText(
                                   articles[index]["title"],
                                   //  overflow: TextOverflow.fade,
-                                  maxFontSize: 32.0,
-                                  minFontSize: 24.0,
+                                  maxFontSize: 24.0,
+                                  minFontSize: 21.0,
                                   // textAlign: TextAlign.start,
                                   maxLines: 3,
                                   style: TextStyle(
@@ -104,11 +104,11 @@ class _ExploreScreenState extends State<ExploreScreen> {
                           width: 350.0,
                           child: AutoSizeText(
                             articles[index]["description"],
-                            minFontSize: 12.0,
+                            minFontSize: 11.0,
                             softWrap: true,
                             style: TextStyle(
                               height: 1.25,
-                              fontSize:15.0,
+                              fontSize:12.0,
                               fontFamily: 'SFProText',
                             ),
                           )),
@@ -123,7 +123,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                     : _launchURL(articles[index]['url']);
                               },
                               // color: Color.fromRGBO(184, 91, 176, 1.0),
-                              color: Color.fromRGBO(45, 90, 124, 1.0),
+                              color: Color.fromRGBO(164, 46, 109, 1.0),
                               child: Text(
                                 "Read",
                                 style: TextStyle(
@@ -132,9 +132,9 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                     fontFamily: "SFProText"),
                               )),
                           SizedBox(width: 20.0),
-                          Icon(Icons.favorite_border),
+                          Icon(Icons.favorite_border,color:Color.fromRGBO(211, 101, 160, 1.0)),
                           SizedBox(width: 20.0),
-                          Icon(Icons.share),
+                          Icon(Icons.share,color:Color.fromRGBO(200, 61, 135, 0.7)),
                           SizedBox(width: 20.0),
                           Text(
                             articles[index]["source"]["name"] == null
