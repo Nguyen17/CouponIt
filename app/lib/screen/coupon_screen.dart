@@ -6,6 +6,15 @@ import 'package:flutter/material.dart';
  */
 import 'package:backdrop/backdrop.dart';
 
+
+/**
+ * DEBUG TEST
+ * - create test barcode string to debug database
+ */
+String barcodeTest = "073854008089";
+
+
+
 // ===========================
 String couponVal;
 
