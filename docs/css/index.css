@@ -103,9 +103,8 @@ section h2 {
     z-index: -1;
 }
 
-.hero img {
+.hero img.logo {
     width: 50%;
-    max-height: 50vh;
 }
 
 .hero div.container {
