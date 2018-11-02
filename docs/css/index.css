@@ -105,6 +105,7 @@ section h2 {
 
 .hero img {
     width: 50%;
+    max-height: 50vh;
 }
 
 .hero div.container {
