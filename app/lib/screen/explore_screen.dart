@@ -24,7 +24,7 @@ class ExploreScreen extends StatefulWidget {
 
 class _ExploreScreenState extends State<ExploreScreen> {
   var url =
-      "https://newsapi.org/v2/everything?q=shopping coupons&from=2018-10-01&sortBy=publishedAt&apiKey=1e6a7dc83456418ca0c38623de7f761b";
+      "https://newsapi.org/v2/everything?q=shopping coupons&from=2018-11-01&sortBy=publishedAt&apiKey=1e6a7dc83456418ca0c38623de7f761b";
 
   var placeholderBlank = "https://via.placeholder.com/600x240";
   var placeholderLogo =
