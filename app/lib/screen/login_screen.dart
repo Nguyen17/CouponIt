@@ -97,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen>
                           image: DecorationImage(
                               fit: BoxFit.fill,
                               image: AssetImage(
-                                  "assets/images/bgGradient5.jpg")))),
+                                  "assets/images/bgGradient6.jpg")))),
 
                   ListView(children: [
                     SizedBox(height: 40.0),
@@ -237,11 +237,11 @@ class _LoginScreenState extends State<LoginScreen>
                                               color: Color.fromRGBO(
                                                   16, 62, 102, 1.0),
                                               offset: Offset(1.0, 6.0),
-                                              blurRadius: 20.0),
+                                              blurRadius: 5.0),
                                           BoxShadow(
                                               color: Color.fromRGBO(
                                                   197, 37, 144, 1.0),
-                                              blurRadius: 20.0)
+                                              blurRadius: 10.0)
                                         ],
                                         gradient: LinearGradient(
                                           colors: [
