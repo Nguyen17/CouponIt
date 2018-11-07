@@ -41,10 +41,16 @@ class _SignUpPasswordState extends State<SignUpPassword> {
         .then((newUser) {
       print("User email: ${newUser.email}");
      databaseUniqueid(newUser.uid,_email);
+         database.reference().child("" + newUser.uid).set({
+      "accountName" : _email,
+      "email": _email
+    });
         Navigator.of(
                 context) // route to home and remove routes (clear the stack)
             .pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
     });
+
+
   }
 
   @override 
