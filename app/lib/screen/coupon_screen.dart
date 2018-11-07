@@ -7,11 +7,14 @@ import 'package:flutter/material.dart';
 import 'package:backdrop/backdrop.dart';
 
 
+import 'package:firebase_database/firebase_database.dart';
+DatabaseReference database = FirebaseDatabase.instance.reference();
+
 /**
  * DEBUG TEST
  * - create test barcode string to debug database
  */
-String barcodeTest = "073854008089";
+String barcodeTest = "SDFDS";
 
 
 
@@ -24,8 +27,28 @@ String couponVal;
 ///*   - display return barcode after scanning
 ///*/
 void scannedValue(x) {
+  
   couponVal = x;
+ 
+
+    // x is the hard coded coupon number value
+database.reference().child('Coupons').child(x).once().then((DataSnapshot snapshot) {
+   
+   Map<dynamic,dynamic> info = snapshot.value;
+
+   print("$info");
+   // barcodetest is the variable being printed below Text(barcodeText)
+   // acquire the value associated to Name in the database
+   barcodeTest = info['Name'];
+   print(barcodeTest);
+    });
 }
+
+
+
+
+
+
 
 class CouponScreen extends StatelessWidget {
   @override
@@ -38,7 +61,7 @@ class CouponScreen extends StatelessWidget {
             child: Text("Back Layer"),
           ),
           frontLayer: Center(
-            child: Text(couponVal),
+            child: Text(barcodeTest),
           ),
           iconPosition: BackdropIconPosition.leading,
           actions: <Widget>[
@@ -47,5 +70,6 @@ class CouponScreen extends StatelessWidget {
             ),
           ],
         ));
+        
   }
 }
