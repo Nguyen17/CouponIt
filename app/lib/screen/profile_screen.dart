@@ -14,9 +14,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 //  * Importing Google Modules
 //  */
 import 'package:google_sign_in/google_sign_in.dart';
-// /** 
+
 import 'package:firebase_database/firebase_database.dart';
+
 DatabaseReference database = FirebaseDatabase.instance.reference();
+
 //  * Importing the Barcode Scan Module
 //  * * REFER TO DOCUMENTATION
 //  * * - https://pub.dartlang.org/packages/barcode_scan#-readme-tab-
@@ -24,9 +26,9 @@ DatabaseReference database = FirebaseDatabase.instance.reference();
 // import 'package:barcode_scan/barcode_scan.dart';
 // import 'package:flutter/services.dart';
 
-// /** 
+// /**
 //  * Importing dart libraries
-//  * - dart:async 
+//  * - dart:async
 //  *    - handles promises function
 //  *    - also needs to store http requests and responses
 //  */
@@ -34,41 +36,88 @@ DatabaseReference database = FirebaseDatabase.instance.reference();
 
 final GoogleSignIn _googleSignIn = GoogleSignIn();
 
-// /** 
+// /**
 //  * EXTERNAL METHODS
 //  */
 googleLogout() {
   _googleSignIn.signOut();
 }
 
-
 String userEmail;
-void  databaseUniqueid(x,y){
-userEmail = y;
 
-// x is the unique acc ID, if we want to transfer unique profile items, we must 
+void databaseUniqueid(x, y) {
+  userEmail = y;
+
+// x is the unique acc ID, if we want to transfer unique profile items, we must
 // adjust the reference to this uid
-database.child(x).child('email').set(y); // the reference is the users auth id, which is created if there isnt one
-
+  database.child(x).child('email').set(
+      y); // the reference is the users auth id, which is created if there isnt one
 }
-void databaseProfileref(x,y){
+
+void databaseProfileref(x, y) {
 // x is the uid, which is unused for meow
-userEmail = y;
-  
+  userEmail = y;
 }
 
 class ProfileScreen extends StatefulWidget {
-    @override
+  @override
   _ProfileScreenState createState() => _ProfileScreenState();
 }
+
 class _ProfileScreenState extends State<ProfileScreen> {
   String username;
+  String displayName;
   int numberOfCoupons;
   int numberOfRows;
   double padding;
   double width;
   double height;
   List<String> data;
+
+  bool _isloading = true;
+
+  /**
+   * Before building the widget and ui, initState sets the necessary states
+   */
+  void initState() {
+    super.initState();
+    initUserInfo();
+  }
+
+
+  /**
+   * initUserInfo
+   * - retrieves user info from the database 
+   * - init user variables
+   */
+  void initUserInfo() async {
+    print(displayName);
+
+    // TODO: implement setState
+    FirebaseUser user = await FirebaseAuth.instance.currentUser();
+
+    database.reference().child(user.uid).once().then((DataSnapshot snapshot) {
+
+      //@ returns a list of values from the database
+      Map<dynamic, dynamic> info = snapshot.value;
+
+      displayName = info["accountName"];
+      
+      //DEBUG @@@@@@@@@
+      print("$info");
+
+     
+      
+      //@@@@@@@@@@@@@@/
+    });
+
+    setState(() {
+      displayName = displayName;
+      
+    });
+
+     _isloading = false;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,10 +132,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
       "https://assets.simpleviewcms.com/simpleview/image/upload/c_fill,h_350,q_90,w_750/v1/clients/lasvegas/9162A76E5131D92FAC861416A9FE008A_2ec286f4-c45e-4811-84dd-c442f5d396b8.jpg",
       "https://d2droglu4qf8st.cloudfront.net/2017/09/346967/Korean-BBQ-Beef_ArticleImage-CategoryPage_ID-2427166.jpg?v=2427166",
       "http://www.pepper.ph/wp-content/uploads/2016/12/UbePie_CI03.jpg",
-
     ];
 
     username = userEmail;
+
     numberOfCoupons = data.length;
     numberOfRows = (numberOfCoupons % 3 == 0)
         ? numberOfCoupons ~/ 3
@@ -95,21 +144,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
     width = MediaQuery.of(context).size.width / 3 - (4 * padding);
     height = width;
 
-    return MaterialApp(
+    return (_isloading == true) ? loadIndicator :
+
+     MaterialApp(
       debugShowCheckedModeBanner: false,
       home: new Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+    
+          },
+        ),
         appBar: new AppBar(
-          title: new Text("$username's Profile"),
+          title: new Text("$displayName's Profile"),
           backgroundColor: Color.fromRGBO(184, 52, 122, 1.0),
           actions: <Widget>[
             IconButton(
               icon: new Icon(Icons.input),
               onPressed: () {
-                // FirebaseAuth.instance.signOut().then((user) {
-                //   Navigator.of(context).pushNamedAndRemoveUntil(
-                //     '/', (Route<dynamic> route) => false);
-                // });
-                // _googleSignIn.signOut();
                 Navigator.of(context).pushNamed('/account_settings');
               },
             )
@@ -126,7 +177,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     size: 60.0,
                   ),
                   new Text(
-                    "$username",
+                    "$displayName",
                     style: new TextStyle(
                         fontSize: 20.0, fontWeight: FontWeight.bold),
                   ),
@@ -141,37 +192,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
           ),
         ),
-        // bottomNavigationBar: BottomNavigationBar(
-        //     fixedColor: Colors.black45,
-        //     iconSize: 21.0,
-        //     items: [
-        //       BottomNavigationBarItem(
-        //         title: Text("menu"),
-        //         icon: IconButton(
-        //             color: Colors.black45,
-        //             icon: Icon(Icons.more_horiz),
-        //             onPressed: () {
-        //               Navigator.of(context).pop();
-        //             }),
-        //       ),
-        //       BottomNavigationBarItem(
-        //         title: Text("scan"),
-        //         icon: IconButton(
-        //             color: Colors.black45,
-        //             icon: Icon(FontAwesomeIcons.barcode),
-        //             onPressed: () {
-        //               // Todo:
-        //               // scan()
-        //             }),
-        //       ),
-        //       BottomNavigationBarItem(
-        //         title: Text("Profile"),
-        //         icon: IconButton(
-        //             color: Colors.black45,
-        //             icon: Icon(Icons.account_box),
-        //             onPressed: () {}),
-        //       ),
-        //     ]),
       ),
     );
   }
@@ -293,4 +313,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
       alignment: Alignment.center,
     );
   }
+}
+
+
+// Indicator Page
+
+Widget loadIndicator (){  
+return MaterialApp(
+  home:Scaffold(
+    body: Center(
+      child: CircularProgressIndicator(),
+    ),
+  )
+);
 }
