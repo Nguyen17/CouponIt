@@ -16,7 +16,7 @@ import 'package:firebase_database/firebase_database.dart';
 
 final GoogleSignIn _googleSignIn = GoogleSignIn();
 
-DatabaseReference database = FirebaseDatabase.instance.reference();
+final DatabaseReference database = FirebaseDatabase.instance.reference();
 
 // /** 
 //  * EXTERNAL METHODS
@@ -35,11 +35,51 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
   final firstNameController = TextEditingController();
   final lastNameController = TextEditingController();
 
-  String username = 'Krusty Kreme';
+  String displayName;
   String firstName = 'Jon';
   String lastName = 'Doe';
 
   bool enableUpdateProfileButton = false;
+
+
+
+  /**
+   * Before building the widget and ui, initState sets the necessary states
+   */
+  void initState() {
+    super.initState();
+    initUserInfo();
+  }
+
+
+  /**
+   * initUserInfo
+   * - retrieves user info from the database 
+   * - init user variables
+   */
+  void initUserInfo() async {
+    print(displayName);
+
+    // TODO: implement setState
+    FirebaseUser user = await FirebaseAuth.instance.currentUser();
+
+    database.reference().child(user.uid).once().then((DataSnapshot snapshot) {
+
+      //@ returns a list of values from the database
+      Map<dynamic, dynamic> info = snapshot.value;
+
+      displayName = info["accountName"];
+      
+      //DEBUG @@@@@@@@@
+      print("$info");
+      
+      //@@@@@@@@@@@@@@/
+    });
+
+    setState(() {
+      displayName = displayName;
+    });
+  }
 
   void enableProfileUpdate() {
     setState(() {
@@ -63,10 +103,26 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
     }
   }
 
-  void updateAccountFromTextField() {
-    username = usernameController.text != '' ? usernameController.text : username;
+  void updateAccountFromTextField() async {
+    displayName = usernameController.text != '' ? usernameController.text : displayName;
     firstName = firstNameController.text != '' ? firstNameController.text : firstName;
     lastName = lastNameController.text != '' ? lastNameController.text : lastName;
+    
+    FirebaseUser user = await FirebaseAuth.instance.currentUser();
+    database.reference().child("" + user.uid).set({
+      "accountName" : displayName,
+      "email": user.email,
+      "firstName": firstName,
+      "lastName": lastName
+    });
+
+    //@DEBUG
+    print(user.uid);
+    // @@@
+    displayName = user.displayName;
+
+    
+
   }
 
   void clearTextFields() {
@@ -74,6 +130,8 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
     firstNameController.text = '';
     lastNameController.text = '';
   }
+
+
 
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -98,7 +156,7 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
     return new Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        settingsRow('Username', username, usernameController),
+        settingsRow('Username', displayName, usernameController),
         settingsRow('First Name', firstName, firstNameController),
         settingsRow('Last Name', lastName, lastNameController),
       ],
