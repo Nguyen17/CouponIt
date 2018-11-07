@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'components/color.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:share/share.dart';
 
 /**
  * Importing UI packages
@@ -70,7 +72,6 @@ class _ExploreScreenState extends State<ExploreScreen> {
                         fit: BoxFit.cover,
                       ),
                       SizedBox(height: 20.0),
-           
                       Container(
                           //  width: 201.0,
                           //  height: 48.0,
@@ -99,7 +100,6 @@ class _ExploreScreenState extends State<ExploreScreen> {
                         ],
                       )),
                       SizedBox(height: 10.0),
-
                       Container(
                           width: 350.0,
                           child: AutoSizeText(
@@ -108,7 +108,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                             softWrap: true,
                             style: TextStyle(
                               height: 1.25,
-                              fontSize:12.0,
+                              fontSize: 12.0,
                               fontFamily: 'SFProText',
                             ),
                           )),
@@ -116,6 +116,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
+                          SizedBox(width: 20.0),
                           MaterialButton(
                               onPressed: () {
                                 articles[index]['url'] == null
@@ -132,9 +133,18 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                     fontFamily: "SFProText"),
                               )),
                           SizedBox(width: 20.0),
-                          Icon(Icons.favorite_border,color:Color.fromRGBO(211, 101, 160, 1.0)),
-                          SizedBox(width: 20.0),
-                          Icon(Icons.share,color:Color.fromRGBO(200, 61, 135, 0.7)),
+                          Icon(Icons.favorite_border,
+                              color: Color.fromRGBO(211, 101, 160, 1.0)),
+                          SizedBox(width: 10.0),
+                          IconButton(
+                            splashColor: Color.fromRGBO(217, 121, 172, 1.0),
+                            highlightColor: Color.fromRGBO(200, 62, 135, 1.0),
+                            icon: Icon(FontAwesomeIcons.shareAlt,
+                                color: Color.fromRGBO(100, 159, 211, 0.7)),
+                            onPressed: () {
+                              Share.share(articles[index]['url']);
+                            },
+                          ),
                           SizedBox(width: 20.0),
                           Text(
                             articles[index]["source"]["name"] == null
@@ -143,7 +153,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                             style: TextStyle(
                                 color: Color.fromRGBO(103, 103, 103, 1.0),
                                 fontSize: 13.0,
-                                fontFamily:"SFProText"),
+                                fontFamily: "SFProText"),
                           ),
                           SizedBox(width: 20.0),
                         ],
