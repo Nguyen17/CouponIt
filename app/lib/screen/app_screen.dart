@@ -141,7 +141,7 @@ class _AppScreenState extends State<AppScreen> {
                 Tab(text: "local deals"),
                 Tab(text: "explore"),
                  
-                  Tab(text: "friends"),
+                  Tab(text: "posts"),
                   //  Tab(text: "feed"),
               
               ]
@@ -190,7 +190,7 @@ class _AppScreenState extends State<AppScreen> {
               // Todos: Redo the UI of the new feed(explore)
               ExploreScreen(),
               
-              FriendsScreen(),
+              FeedScreen(),
               // FeedScreen()
             ]
           )
