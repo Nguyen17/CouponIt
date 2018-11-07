@@ -96,7 +96,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
     // TODO: implement setState
     FirebaseUser user = await FirebaseAuth.instance.currentUser();
 
-    database.reference().child(user.uid).once().then((DataSnapshot snapshot) {
+
+    if(user.uid == null ){
+      setState(() {
+              displayName = "Guest";
+            });
+    }
+    else{
+          database.reference().child(user.uid).once().then((DataSnapshot snapshot) {
 
       //@ returns a list of values from the database
       Map<dynamic, dynamic> info = snapshot.value;
@@ -115,6 +122,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
       displayName = displayName;
       
     });
+    }
+  
 
      _isloading = false;
   }
@@ -144,7 +153,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     width = MediaQuery.of(context).size.width / 3 - (4 * padding);
     height = width;
 
-    return (_isloading == true) ? loadIndicator :
+    return 
 
      MaterialApp(
       debugShowCheckedModeBanner: false,
