@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'components/color.dart';
 
-
 // /**
 //  * Importing Modules for Firebase
 //  */
@@ -11,14 +10,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 //  * Importing Google Modules
 //  */
 import 'package:google_sign_in/google_sign_in.dart';
-// /** 
+// /**
 import 'package:firebase_database/firebase_database.dart';
 
 final GoogleSignIn _googleSignIn = GoogleSignIn();
 
 final DatabaseReference database = FirebaseDatabase.instance.reference();
 
-// /** 
+// /**
 //  * EXTERNAL METHODS
 //  */
 googleLogout() {
@@ -34,29 +33,29 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
   final usernameController = TextEditingController();
   final firstNameController = TextEditingController();
   final lastNameController = TextEditingController();
+  FirebaseUser currentUser;
 
   String displayName;
-  String firstName = 'Jon';
-  String lastName = 'Doe';
+  String firstName;
+  String lastName;
+  String uid;
+  Map coupons;
 
   bool enableUpdateProfileButton = false;
 
-
-
-  /**
-   * Before building the widget and ui, initState sets the necessary states
-   */
+  // /**
+  //  * Before building the widget and ui, initState sets the necessary states
+  //  */
   void initState() {
     super.initState();
     initUserInfo();
   }
 
-
-  /**
-   * initUserInfo
-   * - retrieves user info from the database 
-   * - init user variables
-   */
+  // /**
+  //  * initUserInfo
+  //  * - retrieves user info from the database
+  //  * - init user variables
+  //  */
   void initUserInfo() async {
     print(displayName);
 
@@ -64,15 +63,14 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
     FirebaseUser user = await FirebaseAuth.instance.currentUser();
 
     database.reference().child(user.uid).once().then((DataSnapshot snapshot) {
-
       //@ returns a list of values from the database
       Map<dynamic, dynamic> info = snapshot.value;
 
       displayName = info["accountName"];
-      
+
       //DEBUG @@@@@@@@@
       print("$info");
-      
+
       //@@@@@@@@@@@@@@/
     });
 
@@ -104,25 +102,19 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
   }
 
   void updateAccountFromTextField() async {
-    displayName = usernameController.text != '' ? usernameController.text : displayName;
-    firstName = firstNameController.text != '' ? firstNameController.text : firstName;
-    lastName = lastNameController.text != '' ? lastNameController.text : lastName;
-    
-    FirebaseUser user = await FirebaseAuth.instance.currentUser();
-    database.reference().child("" + user.uid).set({
-      "accountName" : displayName,
-      "email": user.email,
-      "firstName": firstName,
-      "lastName": lastName
-    });
+    displayName =
+        usernameController.text != '' ? usernameController.text : displayName;
+    firstName =
+        firstNameController.text != '' ? firstNameController.text : firstName;
+    lastName =
+        lastNameController.text != '' ? lastNameController.text : lastName;
 
-    //@DEBUG
-    print(user.uid);
-    // @@@
-    displayName = user.displayName;
+    // FirebaseUser user = await FirebaseAuth.instance.currentUser();
+    database.child(uid).child("displayName").set(displayName);
+    database.child(uid).child("firstName").set(firstName);
+    database.child(uid).child("lastName").set(lastName);
 
-    
-
+    // displayName = user.displayName;
   }
 
   void clearTextFields() {
@@ -131,9 +123,38 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
     lastNameController.text = '';
   }
 
-
+  void getUserInfo() {
+    FirebaseAuth.instance.currentUser().then((user) {
+      // get user UID and user ref
+      currentUser = user;
+      uid = user.uid;
+      return database.child(uid).once();
+    }).then((userInfo) {
+      // If user is not there, create user
+      if (userInfo.value == null) {
+        database.child(uid).set({
+          'email': currentUser.email,
+        });
+      } 
+      //try to fetch first name, last name, display name
+      setState(() {
+        firstName = userInfo.value['firstName'] != null
+            ? userInfo.value['firstName']
+            : null;
+        lastName = userInfo.value['lastName'] != null
+            ? userInfo.value['lastName']
+            : null;
+        displayName = userInfo.value['displayName'] != null
+            ? userInfo.value['displayName']
+            : null;
+      });
+      coupons = userInfo.value['coupons'];
+    });
+  }
 
   Widget build(BuildContext context) {
+    getUserInfo();
+
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
       home: new Scaffold(
@@ -215,13 +236,15 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
           color: enableUpdateProfileButton ? Colors.green : Colors.grey,
           textColor: Colors.white,
           child: new Text("Update Profile"),
-          onPressed: enableUpdateProfileButton ? () {
-            // do someting
-            print('Fake debug: Update Profile');
-            updateAccountFromTextField();
-            clearTextFields();
-            disableProfileUpdate();
-          } : null,
+          onPressed: enableUpdateProfileButton
+              ? () {
+                  // do someting
+                  print('Fake debug: Update Profile');
+                  updateAccountFromTextField();
+                  clearTextFields();
+                  disableProfileUpdate();
+                }
+              : null,
           splashColor: Colors.redAccent,
         ),
         new MaterialButton(
@@ -232,10 +255,10 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
           child: new Text("Sign Out"),
           onPressed: () {
             FirebaseAuth.instance.signOut().then((user) {
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                    '/', (Route<dynamic> route) => false);
-                });
-                _googleSignIn.signOut();
+              Navigator.of(context).pushNamedAndRemoveUntil(
+                  '/', (Route<dynamic> route) => false);
+            });
+            _googleSignIn.signOut();
           },
           splashColor: Colors.redAccent,
         ),

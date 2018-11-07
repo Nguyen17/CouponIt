@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'profile_screen.dart';
 
-import 'dart:async';
+// import 'dart:async';
 /**
  * 
  * Import Firebase
@@ -9,7 +9,7 @@ import 'dart:async';
  */
 import 'package:firebase_auth/firebase_auth.dart';
 
-final FirebaseAuth _auth = FirebaseAuth.instance;
+// final FirebaseAuth _auth = FirebaseAuth.instance;
 
 class SignUpScreen extends StatefulWidget {
   @override

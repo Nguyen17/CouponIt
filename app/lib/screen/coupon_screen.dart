@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 // import 'app_screen.dart';
 
-/**
- * Importing UI Packages
- */
+// /**
+//  * Importing UI Packages
+//  */
 import 'package:backdrop/backdrop.dart';
 
 
 import 'package:firebase_database/firebase_database.dart';
 DatabaseReference database = FirebaseDatabase.instance.reference();
 
-/**
- * DEBUG TEST
- * - create test barcode string to debug database
- */
+// /**
+//  * DEBUG TEST
+//  * - create test barcode string to debug database
+//  */
 String barcodeTest = "SDFDS";
 
 
