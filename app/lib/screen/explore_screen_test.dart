@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import 'components/color.dart';
+// import 'components/color.dart';
 
 
 
-/**
- * Importing UI packages
- */
-import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
+// /**
+//  * Importing UI packages
+//  */
+// import 'package:url_launcher/url_launcher.dart';
+// import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-/**
- * Importing modules for Http requests 
- *  - need for 'get' requests
- *  - need to parse json
- */
-import 'package:http/http.dart' show get;
-import 'dart:async';
-import 'dart:convert';
+// /**
+//  * Importing modules for Http requests 
+//  *  - need for 'get' requests
+//  *  - need to parse json
+//  */
+// import 'package:http/http.dart' show get;
+// import 'dart:async';
+// import 'dart:convert';
 
 
 

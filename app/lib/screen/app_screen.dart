@@ -40,9 +40,9 @@ import 'dart:async';
 //  */
 import 'explore_screen.dart';
 import 'local_deal_screen.dart';
-import 'friends_screen.dart';
+// import 'friends_screen.dart';
 import 'feed_screen.dart';
-import 'explore_screen_test.dart';
+// import 'explore_screen_test.dart';
 
 
 

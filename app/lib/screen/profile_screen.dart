@@ -65,86 +65,83 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  String username;
+  FirebaseUser currentUser;
+  Map userInfo;
+  String username = 'User';
   String displayName;
   int numberOfCoupons;
   int numberOfRows;
   double padding;
   double width;
   double height;
-  List<String> data;
+  List<String> data = [];
 
-  bool _isloading = true;
+  // bool _isloading = true;
 
-  /**
-   * Before building the widget and ui, initState sets the necessary states
-   */
+  // /**
+  //  * Before building the widget and ui, initState sets the necessary states
+  //  */
   void initState() {
     super.initState();
-    initUserInfo();
+    fetchUser().then((foundUser) {
+      if (foundUser) {
+        fetchUserInfo().then((userInfo) {
+          this.userInfo = userInfo.value;
+          // setDisplayName();
+          setCoupons();
+          database
+              .child(currentUser.uid)
+              .child('displayName')
+              .onValue
+              .listen((value) {
+            setState(() {
+              displayName = value.snapshot.value;
+            });
+          });
+        });
+      }
+    });
   }
 
-
-  /**
-   * initUserInfo
-   * - retrieves user info from the database 
-   * - init user variables
-   */
-  void initUserInfo() async {
-    print(displayName);
-
-    // TODO: implement setState
-    FirebaseUser user = await FirebaseAuth.instance.currentUser();
-
-
-    if(user.uid == null ){
-      setState(() {
-              displayName = "Guest";
-            });
-    }
-    else{
-          database.reference().child(user.uid).once().then((DataSnapshot snapshot) {
-
-      //@ returns a list of values from the database
-      Map<dynamic, dynamic> info = snapshot.value;
-
-      displayName = info["accountName"];
-      
-      //DEBUG @@@@@@@@@
-      print("$info");
-
-     
-      
-      //@@@@@@@@@@@@@@/
+  Future<bool> fetchUser() async {
+    return FirebaseAuth.instance.currentUser().then((user) {
+      if (user == null) {
+        setState(() {
+          displayName = "Guest";
+          return false;
+        });
+      }
+      currentUser = user;
+      return true;
     });
+  }
 
+  Future fetchUserInfo() async {
+    return database.child(currentUser.uid).once();
+  }
+
+  void setDisplayName() {
     setState(() {
-      displayName = displayName;
-      
+      displayName = userInfo['displayName'] != null
+          ? userInfo['displayName']
+          : currentUser.email;
     });
-    }
-  
+  }
 
-     _isloading = false;
+  void setCoupons() {
+    List<String> imgUrls = [];
+    if (userInfo['coupons'] != null) {
+      userInfo['coupons'].forEach((item) {
+        imgUrls.add(item);
+      });
+    }
+    setState(() {
+      data = imgUrls;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    data = [
-      "https://nardio.net/wp-content/uploads/2017/01/Konosuba-s2-e2-feature.png",
-      "https://images-na.ssl-images-amazon.com/images/I/61IB2TBKUmL._SX425_.jpg",
-      "https://figuya.com/uploads/product/profile_picture/10320/profile_wiz-konosuba-2-niitengomu-gummi-anhaenger20171115-15611-z8rqew",
-      "http://runt-of-the-web.com/wordpress/wp-content/uploads/2016/07/funny-spongebob-memes.jpg",
-      "https://www.yourtango.com/sites/default/files/styles/header_slider/public/image_blog/spongebobmemesheader.jpg?itok=vaF4bfS7",
-      "http://www.funnybeing.com/wp-content/uploads/2016/08/Studying-For-Finals-Like-600x600.jpg",
-      "https://assets.simpleviewcms.com/simpleview/image/upload/c_fill,h_900,q_75,w_1600/v1/clients/lasvegas/strip3_d7b175ef-3642-41a4-9dad-33b9be2b00a9.jpg",
-      "https://assets.simpleviewcms.com/simpleview/image/upload/c_fill,h_350,q_90,w_750/v1/clients/lasvegas/9162A76E5131D92FAC861416A9FE008A_2ec286f4-c45e-4811-84dd-c442f5d396b8.jpg",
-      "https://d2droglu4qf8st.cloudfront.net/2017/09/346967/Korean-BBQ-Beef_ArticleImage-CategoryPage_ID-2427166.jpg?v=2427166",
-      "http://www.pepper.ph/wp-content/uploads/2016/12/UbePie_CI03.jpg",
-    ];
-
-    username = userEmail;
-
     numberOfCoupons = data.length;
     numberOfRows = (numberOfCoupons % 3 == 0)
         ? numberOfCoupons ~/ 3
@@ -153,15 +150,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
     width = MediaQuery.of(context).size.width / 3 - (4 * padding);
     height = width;
 
-    return 
-
-     MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: new Scaffold(
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
-    
-          },
+          onPressed: () {},
         ),
         appBar: new AppBar(
           title: new Text("$displayName's Profile"),
@@ -170,7 +163,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
             IconButton(
               icon: new Icon(Icons.input),
               onPressed: () {
-                Navigator.of(context).pushNamed('/account_settings');
+                if (currentUser == null) {
+                  // Signout
+                  FirebaseAuth.instance.signOut().then((user) {
+              Navigator.of(context).pushNamedAndRemoveUntil(
+                  '/', (Route<dynamic> route) => false);
+            });
+            _googleSignIn.signOut();
+                } else {
+                  Navigator.of(context).pushNamed('/account_settings');
+                }
               },
             )
           ],
@@ -206,9 +208,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   Widget couponContainer() {
-    print(numberOfCoupons);
-    print(numberOfRows);
-
     return new ListView.builder(
       shrinkWrap: true,
       physics: ClampingScrollPhysics(),
@@ -324,15 +323,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 }
 
-
 // Indicator Page
 
-Widget loadIndicator (){  
-return MaterialApp(
-  home:Scaffold(
+Widget loadIndicator() {
+  return MaterialApp(
+      home: Scaffold(
     body: Center(
       child: CircularProgressIndicator(),
     ),
-  )
-);
+  ));
 }
