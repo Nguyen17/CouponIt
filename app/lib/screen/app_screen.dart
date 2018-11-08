@@ -43,9 +43,13 @@ import 'local_deal_screen.dart';
 // import 'friends_screen.dart';
 import 'feed_screen.dart';
 // import 'explore_screen_test.dart';
+import 'package:firebase_database/firebase_database.dart';
+
 
 final GoogleSignIn _googleSignIn = GoogleSignIn();
-
+  final DatabaseReference database =
+      FirebaseDatabase.instance.reference().child("Search");
+  final username_controller = TextEditingController();
 // /**
 //  * EXTERNAL METHODS
 //  */
@@ -60,6 +64,15 @@ class AppScreen extends StatefulWidget {
 class _AppScreenState extends State<AppScreen> {
   // This is a variables that holds the return value of the Scan method
   String barcode = '';
+
+
+
+
+  databasePush() {
+    print(username_controller);
+    database.child("Term").set(username_controller.text);
+  }
+
 
   @override
   initState() {
@@ -184,11 +197,12 @@ class _AppScreenState extends State<AppScreen> {
                           padding: EdgeInsets.all(0.0),
                           color: Colors.white,
                           child: ListTile(
-                            leading: Icon(
-                              FontAwesomeIcons.search,
-                              size: 21.0,
+                            leading: IconButton(
+                              icon: Icon(FontAwesomeIcons.search),
+                              onPressed: databasePush,
                             ),
                             title: TextFormField(
+                                controller: username_controller,
                                 textAlign: TextAlign.center,
                                 decoration: InputDecoration(
                                     contentPadding: EdgeInsets.all(10.0),
