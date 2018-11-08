@@ -45,6 +45,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
 
   Map articleModel;
   List articles;
+  
 
   bool _isloading = true;
 
@@ -168,7 +169,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                               Share.share(articles[index]['url']);
                             },
                           ),
-                          SizedBox(width: 20.0),
+                          SizedBox(width: 10.0),
                           Text(
                             articles[index]["source"]["name"] == null
                                 ? "unknown source"
