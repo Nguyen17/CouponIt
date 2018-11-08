@@ -25,6 +25,16 @@ class ExploreScreen extends StatefulWidget {
 }
 
 class _ExploreScreenState extends State<ExploreScreen> {
+
+  /**
+   * Creating necessary variables
+   *  - url
+   *    - hold the location of where the api call takes place
+   *    - pass in search input here
+   * 
+   *  - additional components
+   *    - such as placeholder variables
+   */
   var url =
       "https://newsapi.org/v2/everything?q=shopping coupons&from=2018-11-01&sortBy=publishedAt&apiKey=1e6a7dc83456418ca0c38623de7f761b";
 
@@ -45,6 +55,11 @@ class _ExploreScreenState extends State<ExploreScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    /** 
+     * While component is rendering and calling api requests
+     *  - return loading indicator while retrieving data
+     */
     return (_isloading == true)
         ? SpinKitThreeBounce(
             color: pinkColorScheme,
@@ -61,6 +76,8 @@ class _ExploreScreenState extends State<ExploreScreen> {
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
+
+                      // Create Card Image
                       Image.network(
                         (articles[index]["urlToImage"] == "" ||
                                 articles[index]["urlToImage"] == null)
@@ -72,9 +89,10 @@ class _ExploreScreenState extends State<ExploreScreen> {
                         fit: BoxFit.cover,
                       ),
                       SizedBox(height: 20.0),
+
+                      // Create Title
                       Container(
-                          //  width: 201.0,
-                          //  height: 48.0,
+                
 
                           child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -100,6 +118,8 @@ class _ExploreScreenState extends State<ExploreScreen> {
                         ],
                       )),
                       SizedBox(height: 10.0),
+
+                      // Create description
                       Container(
                           width: 350.0,
                           child: AutoSizeText(
@@ -113,6 +133,9 @@ class _ExploreScreenState extends State<ExploreScreen> {
                             ),
                           )),
                       SizedBox(height: 20.0),
+
+                      // Create a row of components
+                      // holds buttong, favorite, and share features
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
@@ -182,6 +205,10 @@ class _ExploreScreenState extends State<ExploreScreen> {
     _isloading = false;
   }
 
+  /**
+   * _luanchURL method
+   *  @returns link user to the source site
+   */
   _launchURL(urlTest) async {
     var url = urlTest;
     if (await canLaunch(url)) {
