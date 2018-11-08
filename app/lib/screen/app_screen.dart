@@ -101,26 +101,38 @@ class _AppScreenState extends State<AppScreen> {
           length: 3,
           child: Scaffold(
           appBar: AppBar(
+            toolbarOpacity: 0.9,
+            bottomOpacity: 0.8,
             // title: Image(
             //   image: AssetImage("assets/images/ic_couponitlogo_2.png")
             // ),
             // titleSpacing: NavigationToolbar.kMiddleSpacing,
-            leading: Image(
-              image: AssetImage("assets/images/ic_couponitlogo_2.png")
+            centerTitle: true,
+            leading: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(width:20.0),
+                Icon(FontAwesomeIcons.bars)
+              ],
             ),
+ 
             actions: <Widget>[
-              // Icon(Icons.shopping_cart)
+              Icon(FontAwesomeIcons.bell),
+              SizedBox(width:30.0)
             ],
             title: Container(
-              // width: 200.0,
-           
-              alignment: Alignment.center,
+              width: 300.0,
+          padding: EdgeInsets.all(0.0),
               color: Colors.white,
               child: ListTile(
-              leading: Icon(Icons.search),
-              title: TextFormField(
+                
+                leading: Icon(FontAwesomeIcons.search,
+                size: 21.0,),
+                title: TextFormField(
+               
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(10.0),
                   filled: true,
                   fillColor: Colors.white,
                   border: InputBorder.none,
@@ -130,8 +142,12 @@ class _AppScreenState extends State<AppScreen> {
                     fontFamily: "SFProText"
                   )
                 )
-              )
+              
             ),
+              )
+              
+              
+              
             ) ,
             backgroundColor: pinkColorScheme,
             bottom: TabBar(
