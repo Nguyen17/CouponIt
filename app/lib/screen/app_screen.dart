@@ -46,11 +46,9 @@ import 'feed_screen.dart';
 
 
 
-import 'package:firebase_database/firebase_database.dart';
-final DatabaseReference database =
-      FirebaseDatabase.instance.reference().child("Search");
+
 final GoogleSignIn _googleSignIn = GoogleSignIn();
-  final username_controller = TextEditingController();
+
 // /** 
 //  * EXTERNAL METHODS
 //  */
@@ -68,14 +66,7 @@ class AppScreen extends StatefulWidget {
 class _AppScreenState extends State<AppScreen> {
   // This is a variables that holds the return value of the Scan method
    String barcode = '';
-  
 
-  void databasePush() {
-    print(username_controller);
-
-    database.child("Term").set(username_controller.text);
-
-  }
 
   @override
   initState() {
@@ -110,7 +101,6 @@ class _AppScreenState extends State<AppScreen> {
           length: 3,
           child: Scaffold(
           appBar: AppBar(
-       
             toolbarOpacity: 0.9,
             bottomOpacity: 0.8,
             // title: Image(
@@ -136,13 +126,10 @@ class _AppScreenState extends State<AppScreen> {
               color: Colors.white,
               child: ListTile(
                 
-                leading: IconButton(
-                icon: Icon(FontAwesomeIcons.search),
-                onPressed: databasePush,
-                ),
-                title: TextField(
-                
-               controller: username_controller,
+                leading: Icon(FontAwesomeIcons.search,
+                size: 21.0,),
+                title: TextFormField(
+               
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.all(10.0),
@@ -151,7 +138,6 @@ class _AppScreenState extends State<AppScreen> {
                   border: InputBorder.none,
                   hintText: "search for coupons",
                   hintStyle: TextStyle(
-                  
                     fontSize: 10.0,
                     fontFamily: "SFProText"
                   )
