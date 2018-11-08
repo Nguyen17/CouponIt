@@ -97,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen>
                           image: DecorationImage(
                               fit: BoxFit.fill,
                               image: AssetImage(
-                                  "assets/images/bgGradient7.jpg")))),
+                                  "assets/images/bgGradient2.jpg")))),
 
                   ListView(children: [
                     SizedBox(height: 40.0),
@@ -151,9 +151,22 @@ class _LoginScreenState extends State<LoginScreen>
                         child: Form(
                             key: _formKey,
                             child: Container(
+                              decoration: BoxDecoration(
+                                 color: Colors.white,
+                                borderRadius: BorderRadius.circular(20.0),
+                                boxShadow: <BoxShadow>[
+                                  BoxShadow(
+                                    color: Color.fromRGBO(193,29,114,0.8),
+                                    offset: Offset(0.0, 2.0),
+                                    blurRadius: 10.0
+                                  )
+                                ]
+                              ),
                               padding: EdgeInsets.all(5.0),
-                              width: 275.0,
+                              width: 325.0,
                               // height: 550.0,
+                             
+                              
 
                               /**
                        * Create Column
@@ -163,6 +176,7 @@ class _LoginScreenState extends State<LoginScreen>
                               child: Column(children: <Widget>[
                                 // Create email field
                                 Container(
+                                  padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
                                     margin:
                                         EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
                                     // width: 300.0,
@@ -192,10 +206,11 @@ class _LoginScreenState extends State<LoginScreen>
                                             border: InputBorder.none,
                                           ),
                                         ))),
+                                        Divider(),
                                 // Create password field
                                 Container(
                                     margin: EdgeInsets.fromLTRB(
-                                        0.0, 20.0, 0.0, 20.0),
+                                        0.0, 10.0, 0.0, 10.0),
                                     // width: 300.0,
                                     height: 51.0,
                                     decoration: BoxDecoration(
@@ -232,17 +247,17 @@ class _LoginScreenState extends State<LoginScreen>
                                     decoration: BoxDecoration(
                                         borderRadius:
                                             BorderRadius.circular(40.0),
-                                        boxShadow: <BoxShadow>[
-                                          BoxShadow(
-                                              color: Color.fromRGBO(
-                                                  16, 62, 102, 1.0),
-                                              offset: Offset(1.0, 6.0),
-                                              blurRadius: 5.0),
-                                          BoxShadow(
-                                              color: Color.fromRGBO(
-                                                  197, 37, 144, 1.0),
-                                              blurRadius: 10.0)
-                                        ],
+                                        // boxShadow: <BoxShadow>[
+                                        //   BoxShadow(
+                                        //       color: Color.fromRGBO(
+                                        //           16, 62, 102, 1.0),
+                                        //       offset: Offset(1.0, 6.0),
+                                        //       blurRadius: 0.0),
+                                        //   BoxShadow(
+                                        //       color: Color.fromRGBO(
+                                        //           197, 37, 144, 1.0),
+                                        //       blurRadius: 0.0)
+                                        // ],
                                         gradient: LinearGradient(
                                           colors: [
 //                                               Color.fromRGBO(16, 62, 102, 1.0),
@@ -251,17 +266,17 @@ class _LoginScreenState extends State<LoginScreen>
 //                                             Color.fromRGBO(147, 59, 153, 1.0),
 //                                             Color.fromRGBO(197, 37, 144, 1.0),
 // // ---
-                                            Color.fromRGBO(198, 2, 240, 1.0),
-                                            Color.fromRGBO(212, 20, 240, 1.0),
-                                            Color.fromRGBO(224, 34, 239, 1.0),
-                                            Color.fromRGBO(236, 45, 239, 1.0),
-                                            Color.fromRGBO(248, 56, 239, 1.0),
+                                            // Color.fromRGBO(198, 2, 240, 1.0),
+                                            // Color.fromRGBO(212, 20, 240, 1.0),
+                                            // Color.fromRGBO(224, 34, 239, 1.0),
+                                            // Color.fromRGBO(236, 45, 239, 1.0),
+                                            // Color.fromRGBO(248, 56, 239, 1.0),
 
-                                            // Color.fromRGBO(239, 243, 209, 1.0),
-                                            // Color.fromRGBO(215, 241, 200, 1.0),
-                                            // Color.fromRGBO(182, 240, 200, 1.0),
-                                            // Color.fromRGBO(141, 238, 210, 1.0),
-                                            // Color.fromRGBO(86, 235, 229, 1.0),
+                                            Color.fromRGBO(239, 243, 209, 1.0),
+                                            Color.fromRGBO(215, 241, 200, 1.0),
+                                            Color.fromRGBO(182, 240, 200, 1.0),
+                                            Color.fromRGBO(141, 238, 210, 1.0),
+                                            Color.fromRGBO(86, 235, 229, 1.0),
                                           ],
                                           begin: FractionalOffset.topLeft,
                                           end: FractionalOffset.bottomRight,
@@ -272,6 +287,7 @@ class _LoginScreenState extends State<LoginScreen>
                                     //* Create Account Button
                                     //* creates a new user and send to firebase
                                     child: MaterialButton(
+                                      elevation: 2.0,
                                         onPressed: () {
                                           //? This print is for debug
                                           // Navigator.pushNamed(context, '/sign_up_email');
@@ -310,7 +326,7 @@ class _LoginScreenState extends State<LoginScreen>
                                 // Create Facebook and Google submit button
                                 // - style should be a round button
                                 // - solved the challenge of creating a gradient
-                                Divider(),
+                             
                                 Container(
                                   width: 200.0,
                                   padding: EdgeInsets.all(0.0),
