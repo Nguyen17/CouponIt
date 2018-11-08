@@ -97,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen>
                           image: DecorationImage(
                               fit: BoxFit.fill,
                               image: AssetImage(
-                                  "assets/images/bgGradient6.jpg")))),
+                                  "assets/images/bgGradient7.jpg")))),
 
                   ListView(children: [
                     SizedBox(height: 40.0),
@@ -245,23 +245,23 @@ class _LoginScreenState extends State<LoginScreen>
                                         ],
                                         gradient: LinearGradient(
                                           colors: [
-                                            //   Color.fromRGBO(16, 62, 102, 1.0),
-                                            // Color.fromRGBO(50, 68, 129, 1.0),
-                                            // Color.fromRGBO(97, 68, 147, 1.0),
-                                            // Color.fromRGBO(147, 59, 153, 1.0),
-                                            // Color.fromRGBO(197, 37, 144, 1.0),
-// ---
-                                            // Color.fromRGBO(198, 2, 240, 1.0),
-                                            // Color.fromRGBO(212, 20, 240, 1.0),
-                                            // Color.fromRGBO(224, 34, 239, 1.0),
-                                            // Color.fromRGBO(236, 45, 239, 1.0),
-                                            // Color.fromRGBO(248, 56, 239, 1.0),
+//                                               Color.fromRGBO(16, 62, 102, 1.0),
+//                                             Color.fromRGBO(50, 68, 129, 1.0),
+//                                             Color.fromRGBO(97, 68, 147, 1.0),
+//                                             Color.fromRGBO(147, 59, 153, 1.0),
+//                                             Color.fromRGBO(197, 37, 144, 1.0),
+// // ---
+                                            Color.fromRGBO(198, 2, 240, 1.0),
+                                            Color.fromRGBO(212, 20, 240, 1.0),
+                                            Color.fromRGBO(224, 34, 239, 1.0),
+                                            Color.fromRGBO(236, 45, 239, 1.0),
+                                            Color.fromRGBO(248, 56, 239, 1.0),
 
-                                            Color.fromRGBO(239, 243, 209, 1.0),
-                                            Color.fromRGBO(215, 241, 200, 1.0),
-                                            Color.fromRGBO(182, 240, 200, 1.0),
-                                            Color.fromRGBO(141, 238, 210, 1.0),
-                                            Color.fromRGBO(86, 235, 229, 1.0),
+                                            // Color.fromRGBO(239, 243, 209, 1.0),
+                                            // Color.fromRGBO(215, 241, 200, 1.0),
+                                            // Color.fromRGBO(182, 240, 200, 1.0),
+                                            // Color.fromRGBO(141, 238, 210, 1.0),
+                                            // Color.fromRGBO(86, 235, 229, 1.0),
                                           ],
                                           begin: FractionalOffset.topLeft,
                                           end: FractionalOffset.bottomRight,
@@ -310,6 +310,7 @@ class _LoginScreenState extends State<LoginScreen>
                                 // Create Facebook and Google submit button
                                 // - style should be a round button
                                 // - solved the challenge of creating a gradient
+                                Divider(),
                                 Container(
                                   width: 200.0,
                                   padding: EdgeInsets.all(0.0),
@@ -327,7 +328,7 @@ class _LoginScreenState extends State<LoginScreen>
                                   //   begin: FractionalOffset.topLeft,
                                   //   end: FractionalOffset.bottomRight,
                                   // )),
-
+                     
                                   child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceAround,
@@ -434,6 +435,27 @@ class _LoginScreenState extends State<LoginScreen>
                               Navigator.pushNamed(context, '/home');
                             })),
                     SizedBox(height: 10.0),
+                    Container(
+                      alignment: Alignment.center,
+                      child: InkWell(
+                        child:Text("terms of service and version", style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: "SFProText",
+                          fontSize: 8.0
+                        ),),
+                        onTap: (){
+                          showAboutDialog( 
+                            context:(context),
+                          applicationIcon: Image.asset("assets/images/ic_couponitlogo_2.png",
+                            width:32.0,height:32.0),
+                            applicationName: "Coupon It.",
+                            applicationVersion: "1.0",
+                            );
+                        },
+                      )
+                      ),
+                         SizedBox(height: 10.0),
+                    
 
                     // =====================================
                   ])
