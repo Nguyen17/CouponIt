@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'components/color.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:share/share.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 /**
  * Importing UI packages
@@ -53,6 +54,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
     super.initState();
     fetchData();
   }
+  RefreshController _refreshController;
 
   @override
   Widget build(BuildContext context) {
@@ -60,13 +62,19 @@ class _ExploreScreenState extends State<ExploreScreen> {
     /** 
      * While component is rendering and calling api requests
      *  - return loading indicator while retrieving data
+     * 
      */
+     
     return (_isloading == true)
         ? SpinKitThreeBounce(
             color: pinkColorScheme,
             size: 45.0,
           )
-        : ListView.builder(
+        : SmartRefresher(
+          enablePullDown: false,
+          enablePullUp: true,
+          onRefresh: _onRefresh,
+          child: ListView.builder(
             itemCount: articles == null ? 0 : articles.length,
             itemBuilder: (BuildContext context, int index) {
               return Card(
@@ -186,7 +194,8 @@ class _ExploreScreenState extends State<ExploreScreen> {
                     ])),
               );
             },
-          );
+          ),
+        );
   }
 
   // /**
@@ -218,4 +227,16 @@ class _ExploreScreenState extends State<ExploreScreen> {
       throw 'Could not launch $url';
     }
   }
+
+    void _onRefresh(bool up){
+		if(up){
+		   //headerIndicator callback
+		   new Future.delayed(const Duration(milliseconds: 2009))
+                               .then((val) {
+                                 _refreshController.sendBack(true, RefreshStatus.failed);
+                                
+                           });
+		   
+		}
+    }
 }

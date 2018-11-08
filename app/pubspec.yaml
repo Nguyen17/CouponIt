@@ -34,6 +34,9 @@ dependencies:
   flutter_spinkit: "^2.1.0"
   backdrop: ^0.1.8
   auto_size_text: ^0.2.1
+  share: ^0.5.3
+  pull_to_refresh: ^1.1.6
+  image_picker: ^0.4.10
 
 
   # FONT AWESOME ICONS
@@ -53,7 +56,7 @@ dependencies:
   firebase_core: any
   firebase_database: ^1.0.4
   firebase_auth: ^0.5.20
-  share: ^0.5.3
+  
 
 
 dev_dependencies:
