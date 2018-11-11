@@ -66,10 +66,11 @@ class _ExploreScreenState extends State<ExploreScreen> {
      */
      
     return (_isloading == true)
-        ? SpinKitThreeBounce(
-            color: pinkColorScheme,
-            size: 45.0,
-          )
+        // ? SpinKitThreeBounce(
+        //     color: pinkColorScheme,
+        //     size: 45.0,
+        //   )
+        ? loadingIcon()
         : SmartRefresher(
           enablePullDown: false,
           enablePullUp: true,
@@ -137,14 +138,14 @@ class _ExploreScreenState extends State<ExploreScreen> {
                             softWrap: true,
                             style: TextStyle(
                               height: 1.25,
-                              fontSize: 12.0,
+                              fontSize: 14.0,
                               fontFamily: 'SFProText',
                             ),
                           )),
                       SizedBox(height: 20.0),
 
                       // Create a row of components
-                      // holds buttong, favorite, and share features
+                      // holds button, favorite, and share features
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
@@ -178,14 +179,21 @@ class _ExploreScreenState extends State<ExploreScreen> {
                             },
                           ),
                           SizedBox(width: 10.0),
-                          Text(
+                          Container(
+                            alignment: Alignment.center,
+                            width: 150.0,
+                            child: AutoSizeText(
                             articles[index]["source"]["name"] == null
                                 ? "unknown source"
                                 : articles[index]["source"]["name"],
                             style: TextStyle(
-                                color: Color.fromRGBO(103, 103, 103, 1.0),
+                                color: Color.fromRGBO(103, 103, 103, 0.7),
                                 fontSize: 13.0,
                                 fontFamily: "SFProText"),
+                                maxLines: 1,
+                                softWrap: true,
+                                overflow: TextOverflow.ellipsis ,
+                          ),
                           ),
                           SizedBox(width: 20.0),
                         ],
@@ -239,4 +247,25 @@ class _ExploreScreenState extends State<ExploreScreen> {
 		   
 		}
     }
+}
+
+
+Widget loadingIcon(){
+  return Container(
+    child:
+Center(
+  child:     Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    crossAxisAlignment: CrossAxisAlignment.center,
+children: <Widget>[
+        Image.asset("assets/images/sadface.png", width: 250.0, height: 250.0),
+        SizedBox(height: 40.0),
+      SpinKitThreeBounce(
+            color: pinkColorScheme,
+            size: 21.0,
+          )
+],
+    ),
+)
+  ) ;
 }
