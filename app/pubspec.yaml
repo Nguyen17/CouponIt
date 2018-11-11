@@ -110,6 +110,12 @@ flutter:
    - assets/images/image3.png
    - assets/images/image4.png
    - assets/images/image5.png
+   - assets/images/sadface.png
+   - assets/images/park.png
+   - assets/images/friends.png
+   - assets/images/friends3.png
+   - assets/images/world.png
+   - assets/images/loading.png
    - assets/images/slide1.jpg
    - assets/images/slide2.jpg
    - assets/images/slide3.jpg
