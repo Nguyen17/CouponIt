@@ -15,6 +15,8 @@ import 'screen/sign_up_screen.dart';
 import 'screen/login_screen.dart';
 import 'screen/welcome_screen.dart';
 import 'screen/menu_screen.dart';
+import 'screen/price_screen.dart';
+import 'screen/price_track_screen.dart';
 import 'screen/coupon_screen.dart';
 
 
@@ -44,8 +46,10 @@ class App extends StatelessWidget {
         '/profile': (context)=>ProfileScreen(),
         '/account_settings': (context) => AccountSettingsScreen(),
         '/menu':(context) => MenuScreen(),
-        '/coupon':(context) => CouponScreen(),
-        '/home': (context) => AppScreen()
+        '/price':(context) => PriceScreen(),
+        '/home': (context) => AppScreen(),
+        '/coupon': (context) => CouponScreen(),
+        '/price_track': (context) => PriceTracker()
       },
     );
   }
