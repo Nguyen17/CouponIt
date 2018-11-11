@@ -97,26 +97,30 @@ class _LoginScreenState extends State<LoginScreen>
                           image: DecorationImage(
                               fit: BoxFit.fill,
                               image: AssetImage(
-                                  "assets/images/bgGradient2.jpg")))),
+                                  "assets/images/bgGradient1.jpg")))),
 
                   ListView(children: [
-                    SizedBox(height: 40.0),
+                    SizedBox(height: 80.0),
 
                     // INSERT LOGO IMAGE
-                    Flex(
+                   Flex(
+                     direction: Axis.horizontal,
+                     mainAxisAlignment: MainAxisAlignment.center,
+                     children: <Widget>[
+                        Flex(
                       direction: Axis.horizontal,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Container(
-                            width: 128.0,
-                            height: 128.0,
+                            width: 78.0,
+                            height: 78.0,
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                   image: AssetImage("assets/images/logo.png")),
                             ))
                       ],
                     ),
-                    SizedBox(height: 10.0),
+                    SizedBox(width: 20.0),
 
                     // INSERT APP TITLE
                     Text(
@@ -125,9 +129,11 @@ class _LoginScreenState extends State<LoginScreen>
                       style: TextStyle(
                           fontFamily: "Cookie",
                           fontWeight: FontWeight.w600,
-                          fontSize: 44.0,
+                          fontSize: 54.0,
                           color: Colors.white),
                     ),
+                     ],
+                   ),
                     SizedBox(height: 20.0),
 
                     // INSERT APP SVG / PNG IMAGE
@@ -137,7 +143,7 @@ class _LoginScreenState extends State<LoginScreen>
                       decoration: BoxDecoration(
                           image: DecorationImage(
                               fit: BoxFit.contain,
-                              image: AssetImage("assets/images/image5.png"))),
+                              image: AssetImage("assets/images/friends3.png"))),
                     ),
                     SizedBox(height: 40.0),
 
@@ -156,8 +162,8 @@ class _LoginScreenState extends State<LoginScreen>
                                 borderRadius: BorderRadius.circular(20.0),
                                 boxShadow: <BoxShadow>[
                                   BoxShadow(
-                                    color: Color.fromRGBO(193,29,114,0.8),
-                                    offset: Offset(0.0, 2.0),
+                                    color: Colors.black45,
+                                    offset: Offset(1.0, 4.0),
                                     blurRadius: 10.0
                                   )
                                 ]
@@ -175,6 +181,7 @@ class _LoginScreenState extends State<LoginScreen>
                        */
                               child: Column(children: <Widget>[
                                 // Create email field
+                                SizedBox(height: 40.0),
                                 Container(
                                   padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
                                     margin:
@@ -210,7 +217,7 @@ class _LoginScreenState extends State<LoginScreen>
                                 // Create password field
                                 Container(
                                     margin: EdgeInsets.fromLTRB(
-                                        0.0, 10.0, 0.0, 10.0),
+                                        0.0, 0.0, 0.0, 10.0),
                                     // width: 300.0,
                                     height: 51.0,
                                     decoration: BoxDecoration(
@@ -249,14 +256,13 @@ class _LoginScreenState extends State<LoginScreen>
                                             BorderRadius.circular(40.0),
                                         // boxShadow: <BoxShadow>[
                                         //   BoxShadow(
-                                        //       color: Color.fromRGBO(
-                                        //           16, 62, 102, 1.0),
-                                        //       offset: Offset(1.0, 6.0),
-                                        //       blurRadius: 0.0),
+                                        //       color:  Color.fromRGBO(239, 243, 209, 1.0),
+                                        //       offset: Offset(0.0, 2.0),
+                                        //       blurRadius: 2.0),
                                         //   BoxShadow(
-                                        //       color: Color.fromRGBO(
-                                        //           197, 37, 144, 1.0),
-                                        //       blurRadius: 0.0)
+                                        //       color:    Color.fromRGBO(86, 235, 229, 1.0),
+                                        //       offset: Offset(1.0,10.0),
+                                        //       blurRadius: 20.0)
                                         // ],
                                         gradient: LinearGradient(
                                           colors: [
@@ -266,11 +272,11 @@ class _LoginScreenState extends State<LoginScreen>
 //                                             Color.fromRGBO(147, 59, 153, 1.0),
 //                                             Color.fromRGBO(197, 37, 144, 1.0),
 // // ---
-                                            // Color.fromRGBO(198, 2, 240, 1.0),
-                                            // Color.fromRGBO(212, 20, 240, 1.0),
-                                            // Color.fromRGBO(224, 34, 239, 1.0),
-                                            // Color.fromRGBO(236, 45, 239, 1.0),
-                                            // Color.fromRGBO(248, 56, 239, 1.0),
+//                                             Color.fromRGBO(198, 2, 240, 1.0),
+//                                             Color.fromRGBO(212, 20, 240, 1.0),
+//                                             Color.fromRGBO(224, 34, 239, 1.0),
+//                                             Color.fromRGBO(236, 45, 239, 1.0),
+//                                             Color.fromRGBO(248, 56, 239, 1.0),
 
                                             Color.fromRGBO(239, 243, 209, 1.0),
                                             Color.fromRGBO(215, 241, 200, 1.0),
