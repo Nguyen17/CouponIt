@@ -295,6 +295,7 @@ class _AppScreenState extends State<AppScreen> {
     try {
       String barcode = await BarcodeScanner.scan();
       scannedValueCoupon(barcode);
+    
       setState(() => this.barcode = barcode);
       _launchURL(barcode, context);
       Navigator.pushNamed(context, '/coupon');

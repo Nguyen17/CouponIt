@@ -78,7 +78,7 @@ class _PriceTrackerState extends State<PriceTracker> {
       String barcode = await BarcodeScanner.scan();
       scannedValue(barcode);
       setState(() => this.barcode = barcode);
-      Navigator.pushNamed(context, '/price.');
+      Navigator.pushNamed(context, '/price');
     } on PlatformException catch (e) {
       if (e.code == BarcodeScanner.CameraAccessDenied) {
         setState(() {
