@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'components/color.dart';
+import 'price_screen.dart';
 import 'coupon_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:image_picker/image_picker.dart';
@@ -97,7 +98,7 @@ class _AppScreenState extends State<AppScreen> {
           onPressed: () {
             showDialog(
               context: (context),
-              child: SimpleDialog(
+              child:SimpleDialog(
                 title: Text("Text Post"),
                 children: <Widget>[
                   TextField(
@@ -231,11 +232,15 @@ class _AppScreenState extends State<AppScreen> {
                             IconButton(
                                 color: Colors.black45,
                                 icon: Icon(Icons.home),
-                                onPressed: () {}),
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/home');
+                                }),
                             IconButton(
                                 color: Colors.black45,
                                 icon: Icon(Icons.store),
-                                onPressed: () {}),
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/price_track');
+                                }),
 
                             // SCAN BUTTON
                             RaisedButton(
@@ -289,9 +294,11 @@ class _AppScreenState extends State<AppScreen> {
   Future scan() async {
     try {
       String barcode = await BarcodeScanner.scan();
-      scannedValue(barcode);
+      scannedValueCoupon(barcode);
       setState(() => this.barcode = barcode);
       _launchURL(barcode, context);
+      Navigator.pushNamed(context, '/coupon');
+
     } on PlatformException catch (e) {
       if (e.code == BarcodeScanner.CameraAccessDenied) {
         setState(() {
