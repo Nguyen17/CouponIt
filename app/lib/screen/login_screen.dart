@@ -129,12 +129,14 @@ class _LoginScreenState extends State<LoginScreen>
                       style: TextStyle(
                           fontFamily: "Cookie",
                           fontWeight: FontWeight.w600,
-                          fontSize: 54.0,
-                          color: Colors.white),
+                          fontSize: 44.0,
+                          // color: Color.fromRGBO(211, 29, 138, 1.0)),
+                          color: Colors.white
+                          )
                     ),
                      ],
                    ),
-                    SizedBox(height: 20.0),
+                    SizedBox(height: 30.0),
 
                     // INSERT APP SVG / PNG IMAGE
                     Container(
