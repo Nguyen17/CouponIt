@@ -98,6 +98,7 @@ flutter:
    - assets/images/couponit_logo.png
    - assets/images/login_bg.jpg
    - assets/data/local_deals.json
+   - assets/data/coupons.json
    - assets/images/bgGradient1.jpg
    - assets/images/bgGradient2.jpg
    - assets/images/bgGradient3.jpg
@@ -105,6 +106,8 @@ flutter:
    - assets/images/bgGradient5.jpg
    - assets/images/bgGradient6.jpg
    - assets/images/bgGradient7.jpg
+   - assets/images/bgGradient8.jpg
+   - assets/images/bgGradient9.jpg
    - assets/images/image1.png
    - assets/images/image2.png
    - assets/images/image3.png
