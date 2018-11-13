@@ -13,6 +13,8 @@ import 'package:http/http.dart' show get;
 import 'dart:async' show Future;
 import 'dart:convert';
 
+// DEBUG QUERY PARAMETER
+String testInput ="local";
 class LocalDealsScreen extends StatefulWidget {
   @override
   _LocalDealsScreenState createState() => _LocalDealsScreenState();
@@ -21,7 +23,7 @@ class LocalDealsScreen extends StatefulWidget {
 class _LocalDealsScreenState extends State<LocalDealsScreen> {
 
   // API url
-  var url = 'https://api.discountapi.com/v2/deals?api_key=CqtOTdQe&query="local"&location="las vegas, NV"';
+  var url = 'https://api.discountapi.com/v2/deals?api_key=CqtOTdQe&query=$testInput&location="las vegas, NV"';
   // INIT variables to hold api response
   Map dealModel;
   List dealList;
