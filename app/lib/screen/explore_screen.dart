@@ -20,6 +20,9 @@ import 'package:http/http.dart' show get;
 import 'dart:async';
 import 'dart:convert';
 
+// DEBUG TEST Query in api call
+ var testInput = "shopping";
+
 class ExploreScreen extends StatefulWidget {
   @override
   _ExploreScreenState createState() => _ExploreScreenState();
@@ -36,8 +39,9 @@ class _ExploreScreenState extends State<ExploreScreen> {
    *  - additional components
    *    - such as placeholder variables
    */
-  var url =
-      "https://newsapi.org/v2/everything?q=shopping coupons&from=2018-11-01&sortBy=publishedAt&apiKey=1e6a7dc83456418ca0c38623de7f761b";
+ 
+final String url =
+      "https://newsapi.org/v2/everything?q=${testInput} coupons&from=2018-11-01&sortBy=publishedAt&apiKey=1e6a7dc83456418ca0c38623de7f761b";
 
   var placeholderBlank = "https://via.placeholder.com/600x240";
   var placeholderLogo =
