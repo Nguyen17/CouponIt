@@ -13,8 +13,20 @@ import 'package:http/http.dart' show get;
 import 'dart:async' show Future;
 import 'dart:convert';
 
-// DEBUG QUERY PARAMETER
-String testInput ="local";
+
+// variable that is concatenated to the URL variable 
+String searchLocalInput ="local";
+
+
+
+// sets the global var searchlocalinput, which concatenates the string in the url var
+  void searchLocal(String val){
+    searchLocalInput = val;
+
+  return;
+  }
+
+
 class LocalDealsScreen extends StatefulWidget {
   @override
   _LocalDealsScreenState createState() => _LocalDealsScreenState();
@@ -22,9 +34,7 @@ class LocalDealsScreen extends StatefulWidget {
 
 class _LocalDealsScreenState extends State<LocalDealsScreen> {
 
-  // API url
-  var url = 'https://api.discountapi.com/v2/deals?api_key=CqtOTdQe&query=$testInput&location="las vegas, NV"';
-  // INIT variables to hold api response
+   // INIT variables to hold api response
   Map dealModel;
   List dealList;
 
@@ -93,6 +103,8 @@ bool _isloading = true;
   //  *  - calls the api and retrieve information
   //  */
   Future fetchData() async {
+ // API url
+  var url = 'https://api.discountapi.com/v2/deals?api_key=CqtOTdQe&query=$searchLocalInput&location="las vegas, NV"';
 
      var res = await get(url);
      dealModel = json.decode(res.body);
