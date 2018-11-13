@@ -1,0 +1,2 @@
+var userEmail;
+var userPasswords;
