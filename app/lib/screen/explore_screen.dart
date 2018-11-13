@@ -20,9 +20,13 @@ import 'package:http/http.dart' show get;
 import 'dart:async';
 import 'dart:convert';
 
-// DEBUG TEST Query in api call
- var testInput = "shopping";
 
+ String searchVal; 
+
+  void searchExplorer(String val){
+    searchVal = val;
+  return;
+  }
 class ExploreScreen extends StatefulWidget {
   @override
   _ExploreScreenState createState() => _ExploreScreenState();
@@ -39,10 +43,11 @@ class _ExploreScreenState extends State<ExploreScreen> {
    *  - additional components
    *    - such as placeholder variables
    */
- 
-final String url =
-      "https://newsapi.org/v2/everything?q=${testInput} coupons&from=2018-11-01&sortBy=publishedAt&apiKey=1e6a7dc83456418ca0c38623de7f761b";
 
+// search value from searchbar
+
+
+  
   var placeholderBlank = "https://via.placeholder.com/600x240";
   var placeholderLogo =
       "https://firebasestorage.googleapis.com/v0/b/projectcouponit.appspot.com/o/couponit_logo.png?alt=media&token=fb7ec269-1fdb-4588-8312-48a572014767";
@@ -58,6 +63,9 @@ final String url =
     super.initState();
     fetchData();
   }
+
+
+
   RefreshController _refreshController;
 
   @override
@@ -215,6 +223,9 @@ final String url =
   //  *  - calls the api and retrieve information
   //  */
   Future fetchData() async {
+    final String url =
+      "https://newsapi.org/v2/everything?q=${searchVal} coupons&from=2018-11-01&sortBy=publishedAt&apiKey=1e6a7dc83456418ca0c38623de7f761b";
+
     var res = await get(url);
     //debugPrint(res.body);
     articleModel = json.decode(res.body);

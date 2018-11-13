@@ -43,9 +43,12 @@ import 'explore_screen.dart';
 import 'local_deal_screen.dart';
 // import 'friends_screen.dart';
 import 'feed_screen.dart';
+import 'explore_screen.dart';
 // import 'explore_screen_test.dart';
 
 final GoogleSignIn _googleSignIn = GoogleSignIn();
+final username_controller = TextEditingController();
+
 
 // /**
 //  * EXTERNAL METHODS
@@ -53,6 +56,14 @@ final GoogleSignIn _googleSignIn = GoogleSignIn();
 googleLogout() {
   _googleSignIn.signOut();
 }
+
+
+  databasePush() {
+     print(username_controller.text);
+     searchExplorer(username_controller.text);
+    
+    // database.child("Term").set(username_controller.text);
+  }
 
 class AppScreen extends StatefulWidget {
   _AppScreenState createState() => _AppScreenState();
@@ -185,11 +196,12 @@ class _AppScreenState extends State<AppScreen> {
                           padding: EdgeInsets.all(0.0),
                           color: Colors.white,
                           child: ListTile(
-                            leading: Icon(
-                              FontAwesomeIcons.search,
-                              size: 21.0,
+                            leading: IconButton(
+                              icon: Icon(FontAwesomeIcons.search),
+                              onPressed: databasePush,
                             ),
                             title: TextFormField(
+                                controller: username_controller,
                                 textAlign: TextAlign.center,
                                 decoration: InputDecoration(
                                     contentPadding: EdgeInsets.all(10.0),
