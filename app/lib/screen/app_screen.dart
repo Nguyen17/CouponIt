@@ -49,7 +49,8 @@ import 'explore_screen.dart';
 final GoogleSignIn _googleSignIn = GoogleSignIn();
 final username_controller = TextEditingController();
 
-
+final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
+    new GlobalKey<RefreshIndicatorState>();
 // /**
 //  * EXTERNAL METHODS
 //  */
@@ -58,11 +59,13 @@ googleLogout() {
 }
 
 
-  databasePush() {
+// send the users input from the search bar to the explorer and local deals file
+// when the value goes there it will set a global variable that edits the url variable
+databasePush() {
      print(username_controller.text);
      searchExplorer(username_controller.text);
-    
-    // database.child("Term").set(username_controller.text);
+     searchLocal(username_controller.text);
+
   }
 
 class AppScreen extends StatefulWidget {
@@ -198,10 +201,13 @@ class _AppScreenState extends State<AppScreen> {
                           child: ListTile(
                             leading: IconButton(
                               icon: Icon(FontAwesomeIcons.search),
-                              onPressed: databasePush,
+        
                             ),
                             title: TextFormField(
+                              onFieldSubmitted: databasePush(),
+                             
                                 controller: username_controller,
+                                textInputAction: TextInputAction.go,
                                 textAlign: TextAlign.center,
                                 decoration: InputDecoration(
                                     contentPadding: EdgeInsets.all(10.0),
@@ -245,6 +251,7 @@ class _AppScreenState extends State<AppScreen> {
                                 color: Colors.black45,
                                 icon: Icon(Icons.home),
                                 onPressed: () {
+                                  
                                   Navigator.pushNamed(context, '/home');
                                 }),
                             IconButton(
@@ -286,7 +293,8 @@ class _AppScreenState extends State<AppScreen> {
            * BODY CONTENT
            * * This is where the content from the tab should appear
            */
-                    body: TabBarView(children: [
+                    body:
+                     TabBarView(children: [
                       LocalDealsScreen(),
 
                       // Todos: Redo the UI of the new feed(explore)
