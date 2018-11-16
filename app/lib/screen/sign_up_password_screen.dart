@@ -43,7 +43,10 @@ class _SignUpPasswordState extends State<SignUpPassword> {
      databaseUniqueid(newUser.uid,_email);
          database.reference().child("" + newUser.uid).set({
       "accountName" : _email,
-      "email": _email
+      "displayName": "",
+      "email": _email,
+      "firstName:": "",
+      "lastName": ""
     });
         Navigator.of(
                 context) // route to home and remove routes (clear the stack)

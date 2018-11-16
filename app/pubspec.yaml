@@ -45,8 +45,8 @@ dependencies:
   # URL LAUNCHER
   # - dependencies for url links to work
   url_launcher: ^4.0.1
-
   
+  http: 0.12.0
   
   # BARCODE SCANNER MODULE
   barcode_scan: ^0.0.3
