@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 // Importing UI packages
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter_page_indicator/flutter_page_indicator.dart';
-
+import 'feed_screen.dart';
 /**
  * Importing any screen routes
  */
@@ -16,6 +16,10 @@ import 'package:flutter_page_indicator/flutter_page_indicator.dart';
 /// title:
 /// actors:
 /// use case scenario:
+initiateDisplayPost(){
+  //in feed_screen
+  displayPosts();
+}
 class WelcomeScreen extends StatefulWidget {
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();
@@ -193,6 +197,8 @@ Widget loginRoute(BuildContext context) {
           onPressed: () {
             //? This print is for debug
             print("Hello");
+            // initiate post feed screen 
+            initiateDisplayPost();
             Navigator.pushNamed(context, '/login');
           },
           child: Text("Login", style: TextStyle(color: Colors.white,

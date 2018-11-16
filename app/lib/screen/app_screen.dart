@@ -44,11 +44,11 @@ import 'local_deal_screen.dart';
 // import 'friends_screen.dart';
 import 'feed_screen.dart';
 import 'explore_screen.dart';
-// import 'explore_screen_test.dart';
+import 'posts_screen.dart';
 
 final GoogleSignIn _googleSignIn = GoogleSignIn();
 final username_controller = TextEditingController();
-
+final textpost_controller = TextEditingController();
 final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
     new GlobalKey<RefreshIndicatorState>();
 // /**
@@ -63,7 +63,9 @@ googleLogout() {
 // when the value goes there it will set a global variable that edits the url variable
 databasePush() {
      print(username_controller.text);
+     // function in the explorer_screen
      searchExplorer(username_controller.text);
+     // function in the local_deal_screen
      searchLocal(username_controller.text);
 
   }
@@ -116,6 +118,7 @@ class _AppScreenState extends State<AppScreen> {
                 title: Text("Text Post"),
                 children: <Widget>[
                   TextField(
+                    controller: textpost_controller,
                     decoration: InputDecoration(
                       filled: true,
                       labelText: "comment your post here"
@@ -129,7 +132,9 @@ class _AppScreenState extends State<AppScreen> {
                         ),
                         FlatButton(
                           child: Text("post"),
-                          onPressed: (){},
+                          onPressed: (){
+                            postController(textpost_controller.text);
+                          },
                         )
 
                     ],
