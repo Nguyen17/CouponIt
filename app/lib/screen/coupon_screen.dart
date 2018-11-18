@@ -33,72 +33,64 @@ class _CouponScreenState extends State<CouponScreen> {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
-          
-        
- 
-            // Container(
-            //     height: 400.0,
-            //     decoration: BoxDecoration(
-            //         image: DecorationImage(
-            //       fit: BoxFit.cover,
-            //       image: NetworkImage(
-            //           productModel["073854008089"][0]["itemImgUrl"]),
-            //     ))),
-            //     SizedBox(height:20.0),
-            body:ListView.builder(
-              scrollDirection: Axis.vertical,
-              shrinkWrap: true,
-              itemCount: productModel["073854008089"][0]["coupons"].length,
-              itemBuilder: (BuildContext context, int index) {
-                return Card(
-                  child: ListTile(
-                  
-                    contentPadding: EdgeInsets.all(20.0),
-                    leading: AutoSizeText(
+          // Container(
+          //     height: 400.0,
+          //     decoration: BoxDecoration(
+          //         image: DecorationImage(
+          //       fit: BoxFit.cover,
+          //       image: NetworkImage(
+          //           productModel["073854008089"][0]["itemImgUrl"]),
+          //     ))),
+          //     SizedBox(height:20.0),
+          body: ListView.builder(
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            itemCount: productModel["073854008089"][0]["coupons"].length,
+            itemBuilder: (BuildContext context, int index) {
+              return Card(
+                child: ListTile(
+                  contentPadding: EdgeInsets.all(20.0),
+                  leading: AutoSizeText(
+                    productModel["073854008089"][0]["coupons"][index]
+                        ["couponType"],
+                    softWrap: true,
+                    maxLines: 3,
+                    style: TextStyle(
+                        color: Colors.greenAccent,
+                        fontFamily: "SFProText",
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.w700),
+                  ),
+                  title: AutoSizeText(
                       productModel["073854008089"][0]["coupons"][index]
-                          ["couponType"],
-                      softWrap: true,
+                          ["couponTitle"],
                       maxLines: 3,
                       style: TextStyle(
-                          color: Colors.greenAccent,
-                          fontFamily: "SFProText",
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.w700),
-                    ),
-                    title: AutoSizeText(
-                        productModel["073854008089"][0]["coupons"][index]
-                            ["couponTitle"],
-                        maxLines: 3,
-                        style: TextStyle(
-                          color: Colors.black45,
-                          fontFamily: "SFProText",
-                          fontSize: 11.0,
-                        )),
-                    trailing: Container(
-                      decoration: BoxDecoration(
-                        color:Colors.blueAccent,
-                        borderRadius: BorderRadius.circular(10.0)
-                      ),
-                      child: MaterialButton(
-                        onPressed: (){},
-                        child: AutoSizeText(
-                      productModel["073854008089"][0]["coupons"][index]
-                          ["couponCode"],
-                      maxLines: 3,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: "SFProText",
-                          fontSize: 10.0,
-                        )
-
-                    ),
-                      ),
+                        color: Colors.black45,
+                        fontFamily: "SFProText",
+                        fontSize: 11.0,
+                      )),
+                  trailing: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.blueAccent,
+                        borderRadius: BorderRadius.circular(10.0)),
+                    child: MaterialButton(
+                      onPressed: () {},
+                      child: AutoSizeText(
+                          productModel["073854008089"][0]["coupons"][index]
+                              ["couponCode"],
+                          maxLines: 3,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: "SFProText",
+                            fontSize: 10.0,
+                          )),
                     ),
                   ),
-                );
-              },
-            )
-          ,
+                ),
+              );
+            },
+          ),
         ));
   }
 

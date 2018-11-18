@@ -18,6 +18,7 @@ import 'screen/menu_screen.dart';
 import 'screen/price_screen.dart';
 import 'screen/price_track_screen.dart';
 import 'screen/coupon_screen.dart';
+import 'screen/splash_screen.dart';
 
 
 void main(){

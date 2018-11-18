@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'account_settings_screen.dart';
+import 'login_screen.dart';
 // /**
 //  * Importing icons from Font Awesome
 //  */
@@ -166,12 +167,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 if (currentUser == null) {
                   // Signout
                   FirebaseAuth.instance.signOut().then((user) {
-              Navigator.of(context).pushNamedAndRemoveUntil(
-                  '/', (Route<dynamic> route) => false);
-            });
-            _googleSignIn.signOut();
+                    Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                        (Route<dynamic> route) => false);
+                  });
+                  _googleSignIn.signOut();
                 } else {
-                  Navigator.of(context).pushNamed('/account_settings');
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => AccountSettingsScreen()));
                 }
               },
             )

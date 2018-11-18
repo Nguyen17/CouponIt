@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'components/color.dart';
-import 'price_screen.dart';
+import 'login_screen.dart';
 import 'coupon_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:image_picker/image_picker.dart';
+
 
 // /**
 //  * Importing icons from Font Awesome
 //  */
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:community_material_icon/community_material_icon.dart';
 import 'package:unicorndial/unicorndial.dart';
 
 // /**
@@ -43,8 +44,10 @@ import 'explore_screen.dart';
 import 'local_deal_screen.dart';
 // import 'friends_screen.dart';
 import 'feed_screen.dart';
-import 'explore_screen.dart';
 import 'posts_screen.dart';
+import 'price_track_screen.dart';
+import 'profile_screen.dart';
+
 
 final GoogleSignIn _googleSignIn = GoogleSignIn();
 final username_controller = TextEditingController();
@@ -58,17 +61,15 @@ googleLogout() {
   _googleSignIn.signOut();
 }
 
-
 // send the users input from the search bar to the explorer and local deals file
 // when the value goes there it will set a global variable that edits the url variable
 databasePush() {
-     print(username_controller.text);
-     // function in the explorer_screen
-     searchExplorer(username_controller.text);
-     // function in the local_deal_screen
-     searchLocal(username_controller.text);
-
-  }
+  print(username_controller.text);
+  // function in the explorer_screen
+  searchExplorer(username_controller.text);
+  // function in the local_deal_screen
+  searchLocal(username_controller.text);
+}
 
 class AppScreen extends StatefulWidget {
   _AppScreenState createState() => _AppScreenState();
@@ -95,7 +96,8 @@ class _AppScreenState extends State<AppScreen> {
 
   signOut() {
     FirebaseAuth.instance.signOut().then((user) {
-      Navigator.of(context).pushNamed('/');
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => LoginScreen()));
     });
   }
 
@@ -113,35 +115,32 @@ class _AppScreenState extends State<AppScreen> {
           child: Icon(FontAwesomeIcons.commentAlt),
           onPressed: () {
             showDialog(
-              context: (context),
-              child:SimpleDialog(
-                title: Text("Text Post"),
-                children: <Widget>[
-                  TextField(
-                    controller: textpost_controller,
-                    decoration: InputDecoration(
-                      filled: true,
-                      labelText: "comment your post here"
+                context: (context),
+                child: SimpleDialog(
+                  title: Text("Text Post"),
+                  children: <Widget>[
+                    TextField(
+                      controller: textpost_controller,
+                      decoration: InputDecoration(
+                          filled: true, labelText: "comment your post here"),
                     ),
-                  ),
-                  Row(
-                    children: <Widget>[
-                      FlatButton(
-                        child: Text("clear"),
-                        onPressed: (){},
+                    Row(
+                      children: <Widget>[
+                        FlatButton(
+                          child: Text("clear"),
+                          onPressed: () {},
                         ),
                         FlatButton(
                           child: Text("post"),
-                          onPressed: (){
+                          onPressed: () {
                             postController(textpost_controller.text);
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>AppScreen()));
                           },
                         )
-
-                    ],
-                  )
-                ],
-              )
-            );
+                      ],
+                    )
+                  ],
+                ));
           },
         )));
 
@@ -177,7 +176,7 @@ class _AppScreenState extends State<AppScreen> {
                         backgroundColor: Colors.transparent,
                         parentButtonBackground: pinkColorScheme,
                         orientation: UnicornOrientation.VERTICAL,
-                        parentButton: Icon(FontAwesomeIcons.penAlt, size: 15.0),
+                        parentButton: Icon(CommunityMaterialIcons.message_draw, size: 15.0),
                         childButtons: _postButtonItems),
                     appBar: AppBar(
                       toolbarOpacity: 0.9,
@@ -205,12 +204,11 @@ class _AppScreenState extends State<AppScreen> {
                           color: Colors.white,
                           child: ListTile(
                             leading: IconButton(
+                              onPressed: () {},
                               icon: Icon(FontAwesomeIcons.search),
-        
                             ),
                             title: TextFormField(
-                              onFieldSubmitted: databasePush(),
-                             
+                                onFieldSubmitted: databasePush(),
                                 controller: username_controller,
                                 textInputAction: TextInputAction.go,
                                 textAlign: TextAlign.center,
@@ -256,14 +254,20 @@ class _AppScreenState extends State<AppScreen> {
                                 color: Colors.black45,
                                 icon: Icon(Icons.home),
                                 onPressed: () {
-                                  
-                                  Navigator.pushNamed(context, '/home');
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => AppScreen()));
                                 }),
                             IconButton(
                                 color: Colors.black45,
                                 icon: Icon(Icons.store),
                                 onPressed: () {
-                                  Navigator.pushNamed(context, '/price_track');
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              PriceTracker()));
                                 }),
 
                             // SCAN BUTTON
@@ -272,7 +276,7 @@ class _AppScreenState extends State<AppScreen> {
                               shape: new RoundedRectangleBorder(
                                   borderRadius:
                                       new BorderRadius.circular(10.0)),
-                              child: Icon(FontAwesomeIcons.barcode,
+                              child: Icon(CommunityMaterialIcons.barcode,
                                   size: 32.0, color: Colors.white),
                               onPressed: () {
                                 scan();
@@ -289,7 +293,8 @@ class _AppScreenState extends State<AppScreen> {
                                 color: Colors.black45,
                                 icon: Icon(Icons.account_box),
                                 onPressed: () {
-                                  Navigator.of(context).pushNamed('/profile');
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => ProfileScreen()));
                                 }),
                           ],
                         )),
@@ -298,8 +303,7 @@ class _AppScreenState extends State<AppScreen> {
            * BODY CONTENT
            * * This is where the content from the tab should appear
            */
-                    body:
-                     TabBarView(children: [
+                    body: TabBarView(children: [
                       LocalDealsScreen(),
 
                       // Todos: Redo the UI of the new feed(explore)
@@ -320,11 +324,11 @@ class _AppScreenState extends State<AppScreen> {
     try {
       String barcode = await BarcodeScanner.scan();
       scannedValueCoupon(barcode);
-    
+
       setState(() => this.barcode = barcode);
       _launchURL(barcode, context);
-      Navigator.pushNamed(context, '/coupon');
-
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => CouponScreen()));
     } on PlatformException catch (e) {
       if (e.code == BarcodeScanner.CameraAccessDenied) {
         setState(() {
@@ -347,7 +351,8 @@ _launchURL(urlTest, context) async {
   if (await canLaunch(url)) {
     await launch(url);
   } else {
-    Navigator.pushNamed(context, '/coupon');
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => CouponScreen()));
     // throw 'Could not launch $url';
   }
 }

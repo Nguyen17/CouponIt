@@ -1,5 +1,33 @@
+/**
+ * 
+SSSSS       .sSSSSs.    .sSSSSs.    SSSSS .sSSSs.  SSSSS      .sSSSSSSSs. .sSSSSs.    .sSSSSs.    .sSSSSSSSSSSSSSs. SSSSS .sSSSSs.    .sSSSs.  SSSSS
+S SSS       S SSSSSSSs. S SSSSSSSs. S SSS S SSS SS SSSSS      S SSS SSSS' S SSSSSSSs. S SSSSSSSs. SSSSS S SSS SSSSS S SSS S SSSSSSSs. S SSS SS SSSSS
+S  SS       S  SS SSSSS S  SS SSSS' S  SS S  SS  `sSSSSS      S  SS       S  SS SSSS' S  SS SSSS' SSSSS S  SS SSSSS S  SS S  SS SSSSS S  SS  `sSSSSS
+S..SS       S..SS SSSSS S..SS       S..SS S..SS    SSSSS      `SSSSsSSSa. S..SS       S..SS       `:S:' S..SS `:S:' S..SS S..SS SSSSS S..SS    SSSSS
+S:::S       S:::S SSSSS S:::S`sSSs. S:::S S:::S    SSSSS      .sSSS SSSSS S:::SSSS    S:::S SSSSS       S:::S       S:::S S:::S SSSSS S:::S    SSSSS
+S;;;S       S;;;S SSSSS S;;;S SSSSS S;;;S S;;;S    SSSSS      S;;;S SSSSS S;;;S       S;;;S SSSSS       S;;;S       S;;;S S;;;S SSSSS S;;;S    SSSSS
+S%%%S SSSSS S%%%S SSSSS S%%%S SSSSS S%%%S S%%%S    SSSSS      S%%%S SSSSS S%%%S SSSSS S%%%S SSSSS       S%%%S       S%%%S S%%%S SSSSS S%%%S    SSSSS
+SSSSSsSS;:' SSSSSsSSSSS SSSSSsSSSSS SSSSS SSSSS    SSSSS      SSSSSsSSSSS SSSSSsSS;:' SSSSSsSSSSS       SSSSS       SSSSS SSSSSsSSSSS SSSSS    SSSSS
+ */
+
+/// Title: Login Using Email/Password
+/// Actors: Users
+/// Use Story: 
+///  - When the user accesses the login screen, they must enter the email address and password 
+///  - they used to create their account to access their account. 
+///  - The user also have the choice to login through Facebook and Google. 
+///  - If they fail to enter their email and/or password, they will be prompted to make another entry. 
+///  - Once they successfully login, the first screen they will be directed to will be the home interface, on the local deals tab.
+
+
+
+
+
+
 import 'package:flutter/material.dart';
 import 'profile_screen.dart';
+import 'app_screen.dart';
+import 'sign_up_email_screen.dart';
 /**
  * Importing HTTP Packages
  */
@@ -63,7 +91,8 @@ class _LoginScreenState extends State<LoginScreen>
       print("User email: ${user.email}");
       // database unique acc id for the profile implementation
       databaseProfileref(user.uid, _email);
-      Navigator.of(context).pushNamed('/home');
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => AppScreen()));
     });
   }
 
@@ -77,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen>
                     backgroundColor: Color.fromRGBO(218, 71, 223, 1.0),
                     child: Icon(Icons.person_add),
                     onPressed: () {
-                      Navigator.pushNamed(context, '/sign_up_email');
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUpEmail()));
                     }),
                 backgroundColor: Colors.transparent,
                 /**
@@ -103,39 +132,37 @@ class _LoginScreenState extends State<LoginScreen>
                     SizedBox(height: 80.0),
 
                     // INSERT LOGO IMAGE
-                   Flex(
-                     direction: Axis.horizontal,
-                     mainAxisAlignment: MainAxisAlignment.center,
-                     children: <Widget>[
-                        Flex(
+                    Flex(
                       direction: Axis.horizontal,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Container(
-                            width: 78.0,
-                            height: 78.0,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage("assets/images/logo.png")),
-                            ))
+                        Flex(
+                          direction: Axis.horizontal,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Container(
+                                width: 78.0,
+                                height: 78.0,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                      image:
+                                          AssetImage("assets/images/logo.png")),
+                                ))
+                          ],
+                        ),
+                        SizedBox(width: 20.0),
+
+                        // INSERT APP TITLE
+                        Text('Coupon It.',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontFamily: "Cookie",
+                                fontWeight: FontWeight.w600,
+                                fontSize: 44.0,
+                                // color: Color.fromRGBO(211, 29, 138, 1.0)),
+                                color: Colors.white)),
                       ],
                     ),
-                    SizedBox(width: 20.0),
-
-                    // INSERT APP TITLE
-                    Text(
-                      'Coupon It.',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontFamily: "Cookie",
-                          fontWeight: FontWeight.w600,
-                          fontSize: 44.0,
-                          // color: Color.fromRGBO(211, 29, 138, 1.0)),
-                          color: Colors.white
-                          )
-                    ),
-                     ],
-                   ),
                     SizedBox(height: 30.0),
 
                     // INSERT APP SVG / PNG IMAGE
@@ -160,21 +187,17 @@ class _LoginScreenState extends State<LoginScreen>
                             key: _formKey,
                             child: Container(
                               decoration: BoxDecoration(
-                                 color: Colors.white,
-                                borderRadius: BorderRadius.circular(20.0),
-                                boxShadow: <BoxShadow>[
-                                  BoxShadow(
-                                    color: Colors.black45,
-                                    offset: Offset(1.0, 4.0),
-                                    blurRadius: 10.0
-                                  )
-                                ]
-                              ),
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  boxShadow: <BoxShadow>[
+                                    BoxShadow(
+                                        color: Colors.black45,
+                                        offset: Offset(1.0, 4.0),
+                                        blurRadius: 10.0)
+                                  ]),
                               padding: EdgeInsets.all(5.0),
                               width: 325.0,
                               // height: 550.0,
-                             
-                              
 
                               /**
                        * Create Column
@@ -185,7 +208,8 @@ class _LoginScreenState extends State<LoginScreen>
                                 // Create email field
                                 SizedBox(height: 40.0),
                                 Container(
-                                  padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
+                                    padding:
+                                        EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
                                     margin:
                                         EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
                                     // width: 300.0,
@@ -215,7 +239,7 @@ class _LoginScreenState extends State<LoginScreen>
                                             border: InputBorder.none,
                                           ),
                                         ))),
-                                        Divider(),
+                                Divider(),
                                 // Create password field
                                 Container(
                                     margin: EdgeInsets.fromLTRB(
@@ -295,7 +319,7 @@ class _LoginScreenState extends State<LoginScreen>
                                     //* Create Account Button
                                     //* creates a new user and send to firebase
                                     child: MaterialButton(
-                                      elevation: 2.0,
+                                        elevation: 2.0,
                                         onPressed: () {
                                           //? This print is for debug
                                           // Navigator.pushNamed(context, '/sign_up_email');
@@ -334,7 +358,7 @@ class _LoginScreenState extends State<LoginScreen>
                                 // Create Facebook and Google submit button
                                 // - style should be a round button
                                 // - solved the challenge of creating a gradient
-                             
+
                                 Container(
                                   width: 200.0,
                                   padding: EdgeInsets.all(0.0),
@@ -352,7 +376,7 @@ class _LoginScreenState extends State<LoginScreen>
                                   //   begin: FractionalOffset.topLeft,
                                   //   end: FractionalOffset.bottomRight,
                                   // )),
-                     
+
                                   child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceAround,
@@ -380,12 +404,18 @@ class _LoginScreenState extends State<LoginScreen>
 
                                             if (_googleSignIn.currentUser !=
                                                 null) {
-                                              Navigator.pushNamed(
-                                                  context, '/home');
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          AppScreen()));
                                             } else {
                                               print("Called on null");
-                                              Navigator.pushNamed(
-                                                  context, '/home');
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          AppScreen()));
                                             }
 
                                             //  Navigator.pushNamed(context, '/home');
@@ -435,7 +465,10 @@ class _LoginScreenState extends State<LoginScreen>
                             // color: Color.fromRGBO(184, 6, 172, 1.0),
                             color: Color.fromRGBO(198, 44, 192, 1.0),
                             onPressed: () {
-                              Navigator.pushNamed(context, '/sign_up');
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SignUpEmail()));
                             },
                             child: Text("Sign Up!",
                                 style: TextStyle(
@@ -456,30 +489,35 @@ class _LoginScreenState extends State<LoginScreen>
                                   fontFamily: "SFProText", fontSize: 10.0),
                             ),
                             onPressed: () {
-                              Navigator.pushNamed(context, '/home');
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => AppScreen()));
                             })),
                     SizedBox(height: 10.0),
                     Container(
-                      alignment: Alignment.center,
-                      child: InkWell(
-                        child:Text("terms of service and version", style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: "SFProText",
-                          fontSize: 8.0
-                        ),),
-                        onTap: (){
-                          showAboutDialog( 
-                            context:(context),
-                          applicationIcon: Image.asset("assets/images/ic_couponitlogo_2.png",
-                            width:32.0,height:32.0),
-                            applicationName: "Coupon It.",
-                            applicationVersion: "1.0",
+                        alignment: Alignment.center,
+                        child: InkWell(
+                          child: Text(
+                            "terms of service and version",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "SFProText",
+                                fontSize: 8.0),
+                          ),
+                          onTap: () {
+                            showAboutDialog(
+                              context: (context),
+                              applicationIcon: Image.asset(
+                                  "assets/images/ic_couponitlogo_2.png",
+                                  width: 32.0,
+                                  height: 32.0),
+                              applicationName: "Coupon It.",
+                              applicationVersion: "1.0",
                             );
-                        },
-                      )
-                      ),
-                         SizedBox(height: 10.0),
-                    
+                          },
+                        )),
+                    SizedBox(height: 10.0),
 
                     // =====================================
                   ])

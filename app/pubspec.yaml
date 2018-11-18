@@ -37,14 +37,17 @@ dependencies:
   share: ^0.5.3
   pull_to_refresh: ^1.1.6
   image_picker: ^0.4.10
+  intro_views_flutter: ^2.3.0
+  flutter_custom_tabs: any
 
 
   # FONT AWESOME ICONS
   font_awesome_flutter: ^8.0.1
+  community_material_icon: any
 
   # URL LAUNCHER
   # - dependencies for url links to work
-  url_launcher: ^4.0.1
+  url_launcher: any
   
   http: 0.12.0
   

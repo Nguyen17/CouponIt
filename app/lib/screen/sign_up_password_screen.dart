@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'sign_up_email_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'profile_screen.dart';
+import 'app_screen.dart';
+
 String _password;
 String _email;
 
@@ -29,37 +31,39 @@ class _SignUpPasswordState extends State<SignUpPassword> {
   void validateSubmit() async {
     // if credentials are correct we will jump to the home page
     // print(_email+_password);
-        // FirebaseAuth.instance
-        //     .createUserWithEmailAndPassword(email: _email, password: _password);
+    // FirebaseAuth.instance
+    //     .createUserWithEmailAndPassword(email: _email, password: _password);
 
-        // Navigator.of(
-        //         context) // route to home and remove routes (clear the stack)
-        //     .pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
-    // FirebaseUser newUser = 
+    // Navigator.of(
+    //         context) // route to home and remove routes (clear the stack)
+    //     .pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
+    // FirebaseUser newUser =
     await FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: _email, password: _password)
         .then((newUser) {
       print("User email: ${newUser.email}");
-     databaseUniqueid(newUser.uid,_email);
-         database.reference().child("" + newUser.uid).set({
-      "accountName" : _email,
-      "displayName": "",
-      "email": _email,
-      "firstName:": "",
-      "lastName": ""
+      databaseUniqueid(newUser.uid, _email);
+      database.reference().child("" + newUser.uid).set({
+        "accountName": _email,
+        "displayName": "",
+        "email": _email,
+        "firstName:": "",
+        "lastName": ""
+      });
+      // Navigator.of(
+      //         context) // route to home and remove routes (clear the stack)
+      //     .pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
+      Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => AppScreen()),
+          (Route<dynamic> route) => false);
     });
-        Navigator.of(
-                context) // route to home and remove routes (clear the stack)
-            .pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
-    });
-
-
   }
 
-  @override 
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: false,
         home: Hero(
             tag: 'hero',
             child: Scaffold(
@@ -96,10 +100,10 @@ class _SignUpPasswordState extends State<SignUpPassword> {
                               child: Column(children: <Widget>[
                             TextFormField(
                               obscureText: true,
-                               validator: (value) => value.isEmpty
-                                    ? "Password can\'t be empty"
-                                    : null,
-                                onFieldSubmitted: (value) => _password = value,   
+                              validator: (value) => value.isEmpty
+                                  ? "Password can\'t be empty"
+                                  : null,
+                              onFieldSubmitted: (value) => _password = value,
                               decoration: InputDecoration(
                                   border: InputBorder.none,
                                   icon: Icon(
@@ -125,7 +129,7 @@ class _SignUpPasswordState extends State<SignUpPassword> {
                                       fontWeight: FontWeight.w700,
                                       color: Colors.black)),
                               onPressed: () {
-                                  validateSubmit();
+                                validateSubmit();
                               })))
                 ]),
               ]),

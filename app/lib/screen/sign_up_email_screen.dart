@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'sign_up_password_screen.dart';
 
-  final formKey = new GlobalKey<FormState>();
+final formKey = new GlobalKey<FormState>();
 
-  String _email;
+String _email;
 
 class SignUpEmail extends StatefulWidget {
   @override
@@ -11,12 +11,10 @@ class SignUpEmail extends StatefulWidget {
 }
 
 class _SignUpEmailState extends State<SignUpEmail> {
-
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: false,
         home: Hero(
             tag: 'hero',
             child: Scaffold(
@@ -59,9 +57,9 @@ class _SignUpEmailState extends State<SignUpEmail> {
                             TextFormField(
                               keyboardType: TextInputType.emailAddress,
                               validator: (value) => value.isEmpty
-                                    ? "Email can\'t be empty"
-                                    : null,
-                                onFieldSubmitted: (value) => _email = value,   
+                                  ? "Email can\'t be empty"
+                                  : null,
+                              onFieldSubmitted: (value) => _email = value,
                               decoration: InputDecoration(
                                   icon: Icon(
                                     Icons.lock_outline,
@@ -89,8 +87,8 @@ class _SignUpEmailState extends State<SignUpEmail> {
                                       color: Colors.black)),
                               onPressed: () {
                                 saveEmail(_email);
-                                Navigator.of(context)
-                                    .pushNamed('/sign_up_password');
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => SignUpPassword()));
                               })))
                 ]),
               ]),
