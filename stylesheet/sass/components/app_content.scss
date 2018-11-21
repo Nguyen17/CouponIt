@@ -1,0 +1,86 @@
+.app-content{
+    // background: #e41cbf;
+    // background: #fc008e;
+    background: #e4136e;
+    overflow: hidden;
+   
+ 
+
+    .welcome_description{
+        color: white;
+        font-family: "Noto Sans SC";
+        h1{
+            font-weight: 500;  
+        } 
+    li{
+            font-weight: 100;
+        }
+
+        p{
+            font-weight: 400;
+        }
+    }
+}
+
+#team-section{
+    padding-top: 40px;
+    h1{
+        font-family: "Noto Sans SC";
+        font-weight: 500;
+        margin: 100px;
+        margin-bottom: 180px;
+    }
+    
+
+    a{
+        color: $text-black;
+        opacity: 0.6;
+        transition: 0.3s;
+        &:hover{
+            opacity: 1.0;
+            text-decoration:none;
+        }
+    }
+}
+
+#about{
+    padding: 5rem;
+}
+@media(max-width:768px){
+    .app-content{
+        padding: 0;
+        .welcome_description{
+            margin-bottom: 10px;
+            margin-top: 20px;
+            h1{
+                font-size: 24px;
+            }
+            li{
+                font-size: 11px;
+             
+            }
+            p{
+                font-size: 11px;
+            }
+        }
+
+    }
+
+    
+    #about{
+        padding: 0;
+        padding-left: 5rem;
+        padding-right: 5rem;
+        padding-bottom: 5rem;
+    }
+    #team-section{
+        h1{
+            font-size:21px;
+            text-align: left;
+            margin: 50px;
+            margin-bottom: 150px;
+      
+        }
+    }
+}
+

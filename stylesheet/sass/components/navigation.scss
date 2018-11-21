@@ -1,0 +1,65 @@
+.navbar {
+    // TRBL
+    // margin: 40px 150px 40px 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-content: center;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+
+    h3 {
+        font-family: "Cookie";
+        color:  $nav-title-color;
+        transition: 0.3s;
+        // font-size: 44px;
+    }
+    h4{
+        font-family: "Cookie";
+        color:  $nav-title-color;
+    }
+    ul {
+        li{
+            
+            font-weight: 400;
+            color:   $nav-link-color;
+            a{
+                color:  $nav-link-color;
+                transition: 0.3s;
+                font-family: "Noto Sans SC";
+                font-weight: 100;
+
+                &:hover{
+                    color: black;
+                }
+            }
+        }
+    }
+}
+
+
+
+.navbar-toggler-icon {
+    background: transparent;
+}
+
+
+
+/* MOBILE */
+@media(max-width:768px) {
+    .navbar {
+        h3 {
+            font-size: 1.25rem;
+        }
+    }
+
+    .navbar-toggler-icon {
+        background: transparent;
+
+        :focus {
+            outline: none;
+        }
+    }
+
+}

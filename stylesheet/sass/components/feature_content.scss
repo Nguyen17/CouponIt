@@ -1,0 +1,32 @@
+#feature-section{
+    // background-image: linear-gradient(to bottom, #e4136e, #e30080, #df0093, #d801a7, #cb1bbc);
+    // background: #f562ba;
+
+    .card{
+        box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+        font-family: "Noto Sans SC";
+        // padding: 50px;
+        box-sizing: border-box;
+ 
+        .card-body{
+          h4{
+              text-align: left;
+          }
+          p{
+              text-align: left;
+           
+              opacity: 0.6;
+
+          }
+        }
+    }
+}
+
+@media(max-width:768px){
+
+#feature-section{
+    .card{
+        margin-bottom: 10px;
+    }
+}
+}

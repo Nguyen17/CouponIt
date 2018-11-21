@@ -1,0 +1,16 @@
+.navbar {
+  margin: 40px;
+}
+
+.navbar #h3 {
+  font-family: "Cookie";
+}
+
+.navbar-bg {
+  background-color: transparent;
+}
+
+.navbar-toggler-icon {
+  background: transparent;
+}
+/*# sourceMappingURL=navigation.css.map */

@@ -1,124 +1,455 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CouponIt</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Oswald" rel="stylesheet">
-    
-    <!-- Slick -->
-    <link rel="stylesheet" type="text/css" href="docs/css/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="docs/css/slick-theme.css"/>
+    <title>Coupon It.</title>
 
-    <!-- CSS Assets -->
-    <link rel="stylesheet" href="docs/css/nav_icon.css">
-    <link rel="stylesheet" href="docs/css/mouse.css">
-    <link rel="stylesheet" href="docs/css/index.css">
+    <!--
+      -- ──────────────────────────────────────── I ──────────
+      --   Favicon 
+      -- ──────────────────────────────────────────────────
+      -->
+
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:100,400,500,700" rel="stylesheet">
+    <!-- JQUERY -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <!-- Icons -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' />
+    <!-- Bootstrap Stylesheets-->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="stylesheet/css/main.css">
+
 </head>
+
 <body>
-    <nav>
-        <div class="container">
-            <h2>CouponIt</h2>
-            <div id="nav-icon" class="nav-icon" onclick="navIconClicked(this);">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
+
+    <!-- 
+        SECTION NAVIGATION
+      -- ───  ───────────────────────────────────────────────────────────────────────────
+      -->
+
+    <nav class="navbar  navbar-expand-sm navbar-bg px-5">
+        <div class="row">
+
+            <div class="navbar-brand">
+
+                <h3 class="white">Coupon It.</h3>
             </div>
         </div>
-        <div class="drop-down close" id="drop-down">
-            <ul>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#summary">Executive Summary</a></li>
-                <li><a href="#developers">Developers</a></li>
-                <li><a href="#farewell">Farewell</a></li>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+                <i class="fa fa-navicon white"></i>
+            </span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="#ourApp" class="nav-link">welcome</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#share" class="nav-link">share</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">about</a>
+                </li>
+
+
             </ul>
         </div>
     </nav>
-    <section class="hero">
-        <img class="background" src="https://androidwalls.net/wp-content/uploads/2016/03/Simple%20Purple%20Gradient%20Samsung%20Android%20Wallpaper.jpg" alt="gradient">
-        <div class="container">
-            <img src="docs/assets/logo.png" alt="barcode logo" class="logo">
-            <h1>CouponIt</h1>
-            <h3>Senior Design Project 2018</h3>
-        </div>
-        <div class="mouse-container" onclick="scrollToAboutSection()">
-            <div class="mouse-icon">
-            </div>
-        </div>
-    </section>
-    <section id="about">
-        <div class="container">
-            <h2>About Us</h2>
-            <p>CouponIt is a mobile application aiming to transform coupons from an advertising platform to a social networking platform. It will connect users through the sharing of deals and provide users a simple and intuitive way to find deals on specific items quickly with just a scan of an item</p>
-            
-        </div>
-    </section>
-    <section class="dark" id="summary">
-        <div class="container">
-            <h2>Executive Summary</h2>
-            <p>Searching for coupons and deals on a specific item can be time consuming. It is often strenuous to have to manually flip through numerous pages in a booklet or fliers or tedious to scroll through pages on a website to find a specific deal that suits one’s needs. CouponIt aims to solve this by making deals easier and more efficient to find by having coupons readily available through allowing users to find deals on specific items.<br><br>
-               CouponIt will benefit the budget conscious consumers as well as businesses. CouponIt’s scanner function will make finding deals possible at the press of a button. Deals or coupons will be instantly available for the user by scanning an item’s barcode, making finding deals simple and fast. This makes it possible for on the spot couponing as a shopper browsing at items at a store could easily scan the barcode of an item they are interested in at that moment to check if there are any available deals.<br><br> 
-               What separates CouponIt from existing coupon apps, like Groupon, is its focus on developing the app into a social network rather than a platform exclusively for advertisements. This app would allow users to easily share the deals they find with friends and family, which would give more exposure to businesses and their products.
-            </p>
-        </div>
-    </section>
-    <section id="developers">
-        <div class="container">
-            <h2>Developers</h2>
-        </div>
-        <div class="developers">
-            <div class="developer">
-                <img src="docs/assets/jennifer.jpg" alt="">
-                <h3>Jennifer Lee</h3>
-                <p>Project Coordinator</p>
-            </div>
-            <div class="developer">
-                <img src="docs/assets/Timmy.jpg" alt="">
-                <h3>Timmy Nguyen</h3>
-                <p>Head Developer</p>
-            </div>
-            <div class="developer">
-                <img src="docs/assets/Jeeno.jpg" alt="">
-                <h3>Jeeno Doria</h3>
-                <p>Firebase Guru</p>
-            </div>
-            <div class="developer">
-                <img src="docs/assets/Joshua.jpg" alt="">
-                <h3>Joshua Ramos</h3>
-                <p>Full Stack Developer</p>
-            </div>
-            <div class="developer">
-                <img src="docs/assets/michael.jpg" alt="">
-                <h3>Michael Miranda</h3>
-                <p>Data Analyst</p>
-            </div>
-            <div class="developer">
-                <img src="docs/assets/jeffrey.jpg" alt="">
-                <h3>Jeffrey Razon</h3>
-                <p>Team Daddy</p>
-            </div>
-            <div class="developer">
-                <img src="docs/assets/Richie.jpg" alt="">
-                <h3>Richie Abenoja</h3>
-                <p>iOS Employee</p>
-            </div>
-        </div>
-    </section>
-    <section class="dark" id="farewell">
-        <div class="container">
-            <h2>On Behalf of the Team from CouponIt</h2>
-            <p>We thank you for taking the time to learn about our product.</p>
-        </div>
-    </section>        
 
-    <footer>
-        Copyright &copy 2018 CouponIt
-    </footer>
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="docs/javascript/slick.min.js"></script>
-    <script src="docs/javascript/index.js"></script>
+    <!-- Added padding -->
+    <section class="app-content sizedBox"></section>
+
+    <!--
+        SECTION CONTENT
+      -- ───  ───────────────────────────────────────────────────────────────────────────
+      -->
+
+    <section class="app-content container-fluid d-flex padding-lg" id="ourApp">
+        <div class="row d-flex justify-content-around align-content-between">
+
+            <div class="col-xs-4 col-lg-6 d-flex container-fluid">
+                <div class="welcome_description" data-aos="fade-right" data-aos-easing="ease-in-out" data-aos-duration="2000">
+                    <h1 class="display-1">Our App.</h1>
+                    <ul>
+                        <li>
+                            user friendly.
+                        </li>
+                        <li>
+                            perfect to find gifts.
+
+                        </li>
+                        <li>
+                            enjoy with your friends.
+                        </li>
+                    </ul>
+
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae ab excepturi sequi numquam quasi
+                        quae unde? Quae sed explicabo expedita quam, labore, cum minus laboriosam tenetur dolorem
+                        saepe, magnam fugiat.
+                    </p>
+                </div>
+            </div>
+            <div class="col-xs-4 col-lg-6  d-flex justify-content-center" data-aos="fade-left" data-aos-easing="ease-in-out"
+                data-aos-duration="2000">
+                <div>
+                    <img src="assets/images/welcome.gif" class="img-fluid" alt="" srcset="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="app-content container-fluid d-flex padding-lg" id="share">
+        <div class="row l d-flex justify-content-around align-content-between">
+            <div class="col-lg-6 d-flex justify-content-center" data-aos="fade-down-left" data-aos-easing="ease-in-out"
+                data-aos-duration="2000">
+                <div>
+                    <img src="assets/images/share.gif" class="img-fluid" alt="" srcset="">
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-6">
+                <div class="welcome_description" data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+                    data-aos-easing="ease-in-out" data-aos-duration="2000">
+                    <h1 class="display-1">Share what you find with friends.</h1>
+                    <ul>
+                        <li>
+                            browse through a large collection of deals.
+                        </li>
+                        <li>
+                            favorite anything you like.
+
+                        </li>
+                        <li>
+                            tell everyone about it.
+                        </li>
+                    </ul>
+
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae ab excepturi sequi numquam quasi
+                        quae unde? Quae sed explicabo expedita quam, labore, cum minus laboriosam tenetur dolorem
+                        saepe, magnam fugiat.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section class="app-content container-fluid d-flex " id="about">
+        <div class="row  d-flex justify-content-around align-content-between">
+
+            <div class="col-lg-6 col-sm-6">
+                <div class="welcome_description" data-aos="fade-right" data-aos-duration="2000">
+                    <h1 class="display-1">We are better than Groupon.</h1>
+                    <ul>
+                        <li>
+                            search for things around your area
+                        </li>
+                        <li>
+                            favorite anything you like.
+
+                        </li>
+                        <li>
+                            tell everyone about it.
+                        </li>
+                    </ul>
+
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae ab excepturi sequi numquam quasi
+                        quae unde? Quae sed explicabo expedita quam, labore, cum minus laboriosam tenetur dolorem
+                        saepe, magnam fugiat.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-6 d-flex justify-content-center" data-aos="fade-up-right" data-aos-easing="ease-in-out"
+                data-aos-duration="2000">
+                <div>
+                    <img src="assets/images/local_deal.gif" class="img-fluid" alt="" srcset="">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+    <!--
+       SECTION Header
+     -- ───  ───────────────────────────────────────────────────────────────────────────
+     -->
+
+    <section id="main-header" class=" d-flex  justify-content-center align-items-center">
+
+        <div class="header content text-white">
+            <div class="overlay"></div>
+            <div class="header_content align-items-lg-center">
+                <h1 class="display-1">
+                    <strong> &ldquo;Find. Share. Save.&rdquo; </strong>
+                </h1>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <!--
+        SECTION FEATURES
+      -- ───  ───────────────────────────────────────────────────────────────────────────
+      -->
+
+    <section id="feature-section">
+        <div class="container container-fluid d-flex flex-column  padding-md">
+            <div class="row justify-content-center align-items-center margin-bottom-sm">
+
+                <!-- Price Check -->
+                <div class="col-lg-4">
+                    <div class="card  padding-md border-left-red">
+                        <img class="card-img-top" src="assets/icons/money.svg" width="75" height="75" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title">Item Price Check.</h4>
+                            <p class="card-text">Check what other websites are selling that item. You might find a
+                                cheaper price :)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Barcode Scan -->
+                <div class="col-lg-4">
+                    <div class="card padding-md border-left-red2">
+                        <img class="card-img-top" src="assets/icons/barcode.svg" width="75" height="75" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title">Scan For Deals.</h4>
+                            <p class="card-text">Ever wonder if there are coupons on a particular item? Just scan it!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Read Articles -->
+                <div class="col-lg-4">
+                    <div class="card padding-md border-left-red3">
+                        <img class="card-img-top" src="assets/icons/voucher.svg" width="75" height="75" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title">Read Articles.</h4>
+                            <p class="card-text">See whats going on in the discount world with articles from a variety
+                                of sites.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row justify-content-center align-items-center ">
+
+                <!-- Search -->
+                <div class="col-lg-4">
+                    <div class="card padding-md border-left-green">
+                        <img class="card-img-top" src="assets/icons/loupe.svg" width="75" height="75" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title">Search.</h4>
+                            <p class="card-text">What to find something in particular? You can also use our search
+                                implementation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Share -->
+                <div class="col-lg-4">
+                    <div class="card padding-md border-left-purple">
+                        <img class="card-img-top" src="assets/icons/networking.svg" width="75" height="75" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title">Share.</h4>
+                            <p class="card-text">Give your friends a heads up on deals you think they may like! Get
+                                recommendations. ^.^</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post-->
+                <div class="col-lg-4">
+                    <div class="card padding-md border-left-pink">
+                        <img class="card-img-top" src="assets/icons/post-it.svg" width="75" height="75" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title">Post.</h4>
+                            <p class="card-text">Let everyone know what you find or just plan a shopping hang out.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+       
+    </div> 
+
+    <!--
+        SECTION TEAM PROFILE 
+      -- ───  
+      ───────────────────────────────────────────────────────────────────────────
+      -->
+    <section id="team-section">
+        <div class="container-fluid full-height ">
+            <h1 class="display-1 text-center margin-bottom-lg">Meet the team.</h1>
+            <div class="row margin-bottom-sm d-flex justify-content-center">
+                <!-- Timmy -->
+                <div class="col-lg-4 container-fluid d-flex justify-content-center align-content-center">
+                    <div class="card d-flex justify-content-center align-items-center padding-sm flex-lg-row border-bottom-red3 ">
+                        <img class="rounded-circle image-fix margin-sm" src="assets/images/members/timmy2.jpg" width="90"
+                            height="90" alt="">
+                        <div class="card-body border-left">
+                            <h4 class="card-title">Timmy Nguyen</h4>
+                            <p class="card-text">UI | UX Developer</p>
+                            <small><cite>
+                                    <a href="https://github.com/Nguyen17">github.com/nguyen17</a>
+                                </cite></small>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row ">
+
+                <!-- Josh -->
+                <div class="col-lg-4 margin-bottom-sm container-fluid d-flex justify-content-center align-content-center">
+                    <div class="card d-flex justify-content-center align-items-center padding-sm flex-lg-row border-bottom-red ">
+                        <img class="rounded-circle image-fix margin-sm" src="assets/images/members/Joshua.jpg" width="90"
+                            height="90" alt="">
+                        <div class="card-body border-left ">
+                            <h4 class="card-title">Joshua Ramos</h4>
+                            <p class="card-text">Developer</p>
+                            <small><cite>
+                                    <a href="https://github.com/Krevalz">
+                                        github.com/krevalz
+                                    </a>
+                                </cite></small>
+                        </div>
+                    </div>
+                </div>
+                <!-- Jennifer -->
+                <div class="col-lg-4 margin-bottom-sm container-fluid d-flex justify-content-center align-content-center">
+                    <div class="card d-flex justify-content-center align-items-center padding-sm flex-lg-row border-bottom-red2 ">
+                        <img class="rounded-circle image-fix margin-sm" src="assets/images/members/jennifer.jpg" width="90"
+                            height="90" alt="">
+                        <div class="card-body border-left">
+                            <h4 class="card-title">Jennifer Lee</h4>
+                            <p class="card-text">Project Manager</p>
+                            <small><cite>
+                                    <a href="https://github.com/jennniml">github.com/jennniml</a>
+                                </cite></small>
+                        </div>
+                    </div>
+                </div>
+                <!-- Jeeno -->
+                <div class="col-lg-4 margin-bottom-sm container-fluid d-flex justify-content-center align-content-center">
+                    <div class="card d-flex justify-content-center align-items-center padding-sm flex-lg-row border-bottom-green ">
+                        <img class="rounded-circle image-fix margin-sm" src="assets/images/members/Jeeno.jpg" width="90"
+                            height="90" alt="">
+                        <div class="card-body border-left">
+                            <h4 class="card-title">Jeeno Doria</h4>
+                            <p class="card-text">Developer</p>
+                            <small><cite>
+                                    <a href="https://github.com/xjeebo">github.com/xjeebo</a>
+                                </cite></small>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row ">
+
+                <!-- Jeffrey -->
+                <div class="col-lg-4 margin-bottom-sm container-fluid d-flex justify-content-center align-content-center">
+                    <div class="card d-flex justify-content-center align-items-center padding-sm flex-lg-row border-bottom-purple ">
+                        <img class="rounded-circle image-fix margin-sm" src="assets/images/members/jeffrey.jpg" width="90"
+                            height="90" alt="">
+                        <div class="card-body border-left">
+                            <h4 class="card-title">Jeffrey Razon</h4>
+                            <p class="card-text">Developer</p>
+                            <small><cite>
+                                    <a href="https://github.com/JeffinVegas">
+                                        github.com/jeffinvegas
+                                    </a>
+                                </cite></small>
+                        </div>
+                    </div>
+                </div>
+                <!-- Michael -->
+                <div class="col-lg-4 margin-bottom-sm container-fluid d-flex justify-content-center align-content-center">
+                    <div class="card d-flex justify-content-center align-items-center padding-sm flex-lg-row border-bottom-pink ">
+                        <img class="rounded-circle image-fix margin-sm" src="assets/images/members/michael.jpg" width="90"
+                            height="90" alt="">
+                        <div class="card-body border-left">
+                            <h4 class="card-title">Michael Miranda</h4>
+                            <p class="card-text">Developer</p>
+                            <small><cite><a href="https://github.com/miranm1">github.com/miranm1</a></cite></small>
+                        </div>
+                    </div>
+                </div>
+                <!-- Richie -->
+                <div class="col-lg-4 margin-bottom-sm container-fluid d-flex justify-content-center align-content-center">
+                    <div class="card d-flex justify-content-center align-items-center padding-sm flex-lg-row border-bottom-orange ">
+                        <img class="rounded-circle image-fix margin-sm" src="assets/images/members/Richie.jpg" width="90"
+                            height="90" alt="">
+                        <div class="card-body border-left">
+                            <h4 class="card-title">Richie Abenoja</h4>
+                            <p class="card-text">Developer</p>
+                            <small><cite><a href="https://github.com/Reeechi" class="text-">github.com/reeechi</a></cite></small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+
+                </div>
+
+            </div><!-- end of second row -->
+
+        </div>
+        </div>
+    </section>
+
+    <!--
+        SECTION FEATURES
+      -- ───  ───────────────────────────────────────────────────────────────────────────
+      -->
+
+    <section id="feature-section">
+
+        <div class="container-fluid px-0">
+            <div class="row">
+
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- SCRIPTS -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="scripts/script.js"></script>
+
 </body>
+
 </html>
