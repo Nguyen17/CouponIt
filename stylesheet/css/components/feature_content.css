@@ -1,0 +1,15 @@
+#feature-section .card {
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+  font-family: "Noto Sans SC";
+  box-sizing: border-box; }
+  #feature-section .card .card-body h4 {
+    text-align: left; }
+  #feature-section .card .card-body p {
+    text-align: left;
+    opacity: 0.6; }
+
+@media (max-width: 768px) {
+  #feature-section .card {
+    margin-bottom: 10px; } }
+
+/*# sourceMappingURL=feature_content.css.map */

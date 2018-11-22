@@ -1,6 +1,6 @@
 /*
 Error: Undefined variable: "$nav-title-color".
-        on line 14 of C:\Users\Tim\Desktop\CS472\app\couponit_design_assets\website\stylesheet\sass\components\navigation.scss
+        on line 14 of C:\Users\Tim\Desktop\CS472\app\CouponIt\stylesheet\sass\components\navigation.scss
 
 9:     width: 100%;
 10:     z-index: 1000;
@@ -15,7 +15,7 @@ Error: Undefined variable: "$nav-title-color".
 19:         font-family: "Cookie";
 
 Backtrace:
-C:\Users\Tim\Desktop\CS472\app\couponit_design_assets\website\stylesheet\sass\components\navigation.scss:14
+C:\Users\Tim\Desktop\CS472\app\CouponIt\stylesheet\sass\components\navigation.scss:14
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/variable.rb:49:in `_perform'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/node.rb:50:in `perform'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
@@ -73,4 +73,4 @@ C:/Program Files (x86)/Koala/bin/sass:22:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$nav-title-color\".\A         on line 14 of C:\Users\Tim\Desktop\CS472\app\couponit_design_assets\website\stylesheet\sass\components\navigation.scss\A \A 9:     width: 100%;\A 10:     z-index: 1000;\A 11: \A 12:     h3 {\A 13:         font-family: \"Cookie\";\A 14:         color:  $nav-title-color;\A 15:         transition: 0.3s;\A 16:         // font-size: 44px;\A 17:     }\A 18:     h4{\A 19:         font-family: \"Cookie\";"; }
+  content: "Error: Undefined variable: \"$nav-title-color\".\A         on line 14 of C:\Users\Tim\Desktop\CS472\app\CouponIt\stylesheet\sass\components\navigation.scss\A \A 9:     width: 100%;\A 10:     z-index: 1000;\A 11: \A 12:     h3 {\A 13:         font-family: \"Cookie\";\A 14:         color:  $nav-title-color;\A 15:         transition: 0.3s;\A 16:         // font-size: 44px;\A 17:     }\A 18:     h4{\A 19:         font-family: \"Cookie\";"; }
