@@ -12,22 +12,18 @@ SSSSSsSS;:' SSSSSsSSSSS SSSSSsSSSSS SSSSS SSSSS    SSSSS      SSSSSsSSSSS SSSSSs
 
 /// Title: Login Using Email/Password
 /// Actors: Users
-/// Use Story: 
-///  - When the user accesses the login screen, they must enter the email address and password 
-///  - they used to create their account to access their account. 
-///  - The user also have the choice to login through Facebook and Google. 
-///  - If they fail to enter their email and/or password, they will be prompted to make another entry. 
+/// Use Story:
+///  - When the user accesses the login screen, they must enter the email address and password
+///  - they used to create their account to access their account.
+///  - The user also have the choice to login through Facebook and Google.
+///  - If they fail to enter their email and/or password, they will be prompted to make another entry.
 ///  - Once they successfully login, the first screen they will be directed to will be the home interface, on the local deals tab.
-
-
-
-
-
 
 import 'package:flutter/material.dart';
 import 'profile_screen.dart';
 import 'app_screen.dart';
 import 'sign_up_email_screen.dart';
+import 'login_screen_demo.dart';
 /**
  * Importing HTTP Packages
  */
@@ -37,6 +33,7 @@ import 'dart:async';
  * Importing UI LIBRARIES
  */
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 /**
  * Importing Firebase Authentification
@@ -106,7 +103,10 @@ class _LoginScreenState extends State<LoginScreen>
                     backgroundColor: Color.fromRGBO(218, 71, 223, 1.0),
                     child: Icon(Icons.person_add),
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUpEmail()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LoginScreenDemo()));
                     }),
                 backgroundColor: Colors.transparent,
                 /**
@@ -163,7 +163,7 @@ class _LoginScreenState extends State<LoginScreen>
                                 color: Colors.white)),
                       ],
                     ),
-                    SizedBox(height: 30.0),
+                    SizedBox(height: 50.0),
 
                     // INSERT APP SVG / PNG IMAGE
                     Container(
@@ -172,7 +172,7 @@ class _LoginScreenState extends State<LoginScreen>
                       decoration: BoxDecoration(
                           image: DecorationImage(
                               fit: BoxFit.contain,
-                              image: AssetImage("assets/images/friends3.png"))),
+                              image: AssetImage("assets/images/image5.png"))),
                     ),
                     SizedBox(height: 40.0),
 
@@ -379,7 +379,7 @@ class _LoginScreenState extends State<LoginScreen>
 
                                   child: Row(
                                     mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
+                                        MainAxisAlignment.spaceEvenly,
                                     children: <Widget>[
                                       IconButton(
                                           iconSize: 34.0,
@@ -418,7 +418,8 @@ class _LoginScreenState extends State<LoginScreen>
                                                           AppScreen()));
                                             }
 
-                                            //  Navigator.pushNamed(context, '/home');
+                                            Navigator.pushNamed(
+                                                context, '/home');
                                           },
                                           icon: Icon(FontAwesomeIcons
                                               .googlePlusSquare))
@@ -442,7 +443,8 @@ class _LoginScreenState extends State<LoginScreen>
                             ))),
 
                     // SIGN UP
-                    SizedBox(height: 20.0),
+                    SizedBox(height: 40.0),
+
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -454,7 +456,8 @@ class _LoginScreenState extends State<LoginScreen>
                       ],
                     ),
 
-                    // SizedBox(height: 5.0),
+                    SizedBox(height: 10.0),
+
                     Container(
                         width: 252.0,
                         padding: EdgeInsets.all(0.0),
