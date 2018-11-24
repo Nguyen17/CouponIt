@@ -47,6 +47,7 @@ import 'feed_screen.dart';
 import 'posts_screen.dart';
 import 'price_track_screen.dart';
 import 'profile_screen.dart';
+import 'notification_screen.dart';
 
 
 final GoogleSignIn _googleSignIn = GoogleSignIn();
@@ -133,7 +134,8 @@ class _AppScreenState extends State<AppScreen> {
                         FlatButton(
                           child: Text("post"),
                           onPressed: () {
-                            postController(textpost_controller.text);
+                            // postController(textpost_controller.text);
+                            print(textpost_controller.text);
                             Navigator.push(context, MaterialPageRoute(builder: (context)=>AppScreen()));
                           },
                         )
@@ -195,7 +197,16 @@ class _AppScreenState extends State<AppScreen> {
                       ),
 
                       actions: <Widget>[
-                        Icon(FontAwesomeIcons.bell),
+                        IconButton(
+                          onPressed: (){
+                            Navigator.push(context,
+                            MaterialPageRoute(
+                              builder: (context) => NotificationScreen()
+                            ));
+                          },
+                         icon: Icon(Icons.notifications)
+                          
+                          ),
                         SizedBox(width: 30.0)
                       ],
                       title: Container(
