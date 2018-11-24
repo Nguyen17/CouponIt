@@ -39,6 +39,8 @@ dependencies:
   image_picker: ^0.4.10
   intro_views_flutter: ^2.3.0
   flutter_custom_tabs: any
+  flutter_signin_button: ^0.2.1
+  flutter_auth_buttons: ^0.3.1
 
 
   # FONT AWESOME ICONS
@@ -59,6 +61,9 @@ dependencies:
   firebase_core: any
   firebase_database: ^1.0.4
   firebase_auth: ^0.5.20
+
+  # Push Notifications
+  onesignal: ^1.0.0
   
 
 
