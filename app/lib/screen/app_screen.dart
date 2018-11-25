@@ -4,6 +4,8 @@ import 'login_screen.dart';
 import 'coupon_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'dart:async';
+import 'dart:convert';
 
 // /**
 //  * Importing icons from Font Awesome
@@ -16,6 +18,8 @@ import 'package:unicorndial/unicorndial.dart';
 //  * Importing Modules for Firebase
 //  */
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 // /**
 //  * Importing Google Modules
@@ -48,11 +52,16 @@ import 'posts_screen.dart';
 import 'price_track_screen.dart';
 import 'profile_screen.dart';
 import 'notification_screen.dart';
+import '../models/postActivity.dart';
 
+/* Firebase Info */
+final currentUser = FirebaseAuth.instance.currentUser();
+// final DatabaseReference database = FirebaseDatabase.instance.reference();
 
 final GoogleSignIn _googleSignIn = GoogleSignIn();
 final username_controller = TextEditingController();
 final textpost_controller = TextEditingController();
+final textTitle_controller = TextEditingController();
 final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
     new GlobalKey<RefreshIndicatorState>();
 // /**
@@ -78,12 +87,52 @@ class AppScreen extends StatefulWidget {
 
 class _AppScreenState extends State<AppScreen> {
   // This is a variables that holds the return value of the Scan method
-  String barcode = '';
+  String barcode;
+
+  /// Setting up current user info.
+  String userUID;
+  String userDisplayName;
 
   @override
   initState() {
     super.initState();
     checkSignIn();
+    initFirebaseUser();
+    retrievePost();
+  }
+
+  retrievePost() {
+    postActivity = [];
+    DatabaseReference database =
+        FirebaseDatabase.instance.reference().child('post');
+    database.once().then((DataSnapshot snapshot) {
+      Map<dynamic, dynamic> post = snapshot.value;
+      var encoded = json.encode(post);
+      // print(post);
+      print(encoded);
+      post.forEach((
+        key,
+        val,
+      ) {
+        // print("$key : $val");
+
+        var encodedVal = json.encode(val);
+        print(encodedVal);
+        postActivity.add(encodedVal);
+      });
+    });
+  }
+
+  /// Storing the information of current user being logged in
+  initFirebaseUser() async {
+    FirebaseUser user = await FirebaseAuth.instance.currentUser();
+    final DatabaseReference database = FirebaseDatabase.instance.reference();
+
+    userUID = user.uid;
+    database.reference().child(user.uid).once().then((DataSnapshot snapshot) {
+      Map<dynamic, dynamic> info = snapshot.value;
+      userDisplayName =  info["displayName"];
+    });
   }
 
   checkSignIn() {
@@ -104,8 +153,11 @@ class _AppScreenState extends State<AppScreen> {
 
   @override
   Widget build(BuildContext context) {
+    /// Initialize post action buttons
+    /// - text, photo, and link
     var _postButtonItems = List<UnicornButton>();
 
+    /// Text Post Action
     _postButtonItems.add(UnicornButton(
         hasLabel: true,
         labelText: "text",
@@ -118,8 +170,15 @@ class _AppScreenState extends State<AppScreen> {
             showDialog(
                 context: (context),
                 child: SimpleDialog(
-                  title: Text("Text Post"),
+                  title: Text("Write your feelings."),
                   children: <Widget>[
+                    //         TextField(
+                    //   controller: textTitle_controller,
+
+                    //   decoration: InputDecoration(
+                    //     hintText: "(optional)",
+                    //       filled: true, labelText: "title"),
+                    // ),
                     TextField(
                       controller: textpost_controller,
                       decoration: InputDecoration(
@@ -129,13 +188,24 @@ class _AppScreenState extends State<AppScreen> {
                       children: <Widget>[
                         FlatButton(
                           child: Text("clear"),
-                          onPressed: () {},
+                          onPressed: () {
+                            textpost_controller.clear();
+                            textTitle_controller.clear();
+                          },
                         ),
                         FlatButton(
                           child: Text("post"),
                           onPressed: () {
                             // postController(textpost_controller.text);
                             print(textpost_controller.text);
+                            print(currentUser);
+                            print(userUID);
+                            print(userDisplayName);
+
+                            createPost(userUID, userDisplayName,
+                                textpost_controller.text);
+                                // Navigator.pop(context);
+
                             Navigator.push(context, MaterialPageRoute(builder: (context)=>AppScreen()));
                           },
                         )
@@ -146,6 +216,7 @@ class _AppScreenState extends State<AppScreen> {
           },
         )));
 
+    /// Photo Post Action
     _postButtonItems.add(UnicornButton(
         hasLabel: true,
         labelText: "photo",
@@ -156,6 +227,7 @@ class _AppScreenState extends State<AppScreen> {
             mini: true,
             child: Icon(FontAwesomeIcons.image))));
 
+    /// Link Post Action
     _postButtonItems.add(UnicornButton(
         hasLabel: true,
         labelText: "link",
@@ -178,7 +250,8 @@ class _AppScreenState extends State<AppScreen> {
                         backgroundColor: Colors.transparent,
                         parentButtonBackground: pinkColorScheme,
                         orientation: UnicornOrientation.VERTICAL,
-                        parentButton: Icon(CommunityMaterialIcons.message_draw, size: 15.0),
+                        parentButton: Icon(CommunityMaterialIcons.message_draw,
+                            size: 15.0),
                         childButtons: _postButtonItems),
                     appBar: AppBar(
                       toolbarOpacity: 0.9,
@@ -198,15 +271,14 @@ class _AppScreenState extends State<AppScreen> {
 
                       actions: <Widget>[
                         IconButton(
-                          onPressed: (){
-                            Navigator.push(context,
-                            MaterialPageRoute(
-                              builder: (context) => NotificationScreen()
-                            ));
-                          },
-                         icon: Icon(Icons.notifications)
-                          
-                          ),
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          NotificationScreen()));
+                            },
+                            icon: Icon(Icons.notifications)),
                         SizedBox(width: 30.0)
                       ],
                       title: Container(
@@ -325,6 +397,22 @@ class _AppScreenState extends State<AppScreen> {
                     ])))));
   }
 
+  /// Create Post Method
+  /// - update firebase with a post from the user
+  createPost(uid, displayName, body) {
+    Map<String, dynamic> postData = {
+      'uid': uid,
+      'author': (displayName == null) ? "Guest" : displayName ,
+      'content': body
+    };
+
+    /// Create a new post with uid
+    /// reference that uid and update it with post data
+    final DatabaseReference database = FirebaseDatabase.instance.reference();
+    var postUID = database.reference().child('post').push().key;
+    return database.reference().child('post').child(postUID).update(postData);
+  }
+
 // /**
 //  * Scan METHOD
 //  * @This is a method of AppScreen class Widget
@@ -357,8 +445,8 @@ class _AppScreenState extends State<AppScreen> {
   }
 } // End of AppScreen CLASS
 
-_launchURL(urlTest, context) async {
-  var url = urlTest;
+_launchURL(urlLink, context) async {
+  var url = urlLink;
   if (await canLaunch(url)) {
     await launch(url);
   } else {
