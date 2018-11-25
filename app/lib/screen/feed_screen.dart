@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'components/color.dart';
+import '../models/postActivity.dart';
+import 'dart:convert';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:auto_size_text/auto_size_text.dart';
    DatabaseReference database =
       FirebaseDatabase.instance.reference().child('post');
 
@@ -18,18 +22,98 @@ database.once().then((DataSnapshot snapshot){
       postVals = postVals+"\n"+(values["text"]);
     });
  });
+}
 
-
+class FeedScreen extends StatefulWidget {
+  @override
+  _FeedScreenState createState() => _FeedScreenState();
 }
 
 
-class FeedScreen extends StatelessWidget {
+class _FeedScreenState extends State<FeedScreen>{
+
+void initState() { 
+  super.initState();
+
+  // retrievePost();
   
+}
+
+
+
+   
   @override
   Widget build(BuildContext context) {
     return Container(
+
+      // child: Center(
+      //   child: FlatButton(
+      //     child: Icon(Icons.add_comment),
+      //     onPressed: (){
+      //       // Map postMap = json.decode(postActivity[0]);
+      //       // print(postMap.runtimeType.toString());
+      //       // print(postMap["content"]);
+      //       print(postActivity.length);
+      //     },
+      //   )
+      // )
       
-      child: Text(postVals),
+     
+      child: ListView.builder(
+        itemCount: postActivity.length,
+        itemBuilder: (BuildContext context,int index){
+           Map postMap = json.decode(postActivity[index]);
+        return Card(
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border(
+                left: BorderSide(
+                  color: pinkColorScheme,
+                  width: 1.0,
+                  style: BorderStyle.solid
+                )
+              )
+            ),
+            padding: EdgeInsets.all(10.0),
+            child: Column(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  Text(postMap["author"],
+                  style: TextStyle(
+                    color: (postMap["author"] == "Guest") ? Colors.grey : Colors.pinkAccent,
+                    fontFamily: "SFProText",
+                    fontSize: 11.0
+                  ),),
+                  SizedBox(width: 20.0,),
+                  // Text("wrote",
+                  // style: TextStyle(
+                  //   fontFamily: "SFProText",
+                  //   fontSize: 11.0
+                  // ))
+                ],
+              ),
+              SizedBox(height: 20.0),
+              Row(
+                children: <Widget>[
+                   AutoSizeText(postMap["content"],
+                  softWrap: true,
+                   minFontSize: 14.0,
+                   maxFontSize: 21.0,
+                   maxLines: 2,
+                 
+                   style: TextStyle(
+                    fontFamily: "SFProText",
+                  
+                  ))
+                ],
+              )
+            ],
+          ),
+          )
+        );
+        },
+      )
       
     );
   }
