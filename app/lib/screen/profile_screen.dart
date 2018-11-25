@@ -155,9 +155,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: new Scaffold(
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-        ),
+        // Debug purpose
+        // floatingActionButton: FloatingActionButton(
+        //   onPressed: () {},
+        // ),
         appBar: new AppBar(
           title: new Text("$displayName's Profile"),
           backgroundColor: Color.fromRGBO(184, 52, 122, 1.0),
