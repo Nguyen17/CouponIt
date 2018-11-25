@@ -48,8 +48,11 @@ fetchUser().then((retrievedUser) {
 displayPosts();
 
 }
-
-class PostsScreen extends StatelessWidget {
+class PostsScreen extends StatefulWidget {
+  @override
+  _PostsScreenState createState() => _PostsScreenState();
+}
+class _PostsScreenState extends State<PostsScreen> {
 
 
   @override
