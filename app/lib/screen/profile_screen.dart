@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:community_material_icon/community_material_icon.dart';
 import 'account_settings_screen.dart';
 import 'login_screen.dart';
 // /**
@@ -162,7 +163,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           backgroundColor: Color.fromRGBO(184, 52, 122, 1.0),
           actions: <Widget>[
             IconButton(
-              icon: new Icon(Icons.input),
+              icon: new Icon(CommunityMaterialIcons.settings),
               onPressed: () {
                 if (currentUser == null) {
                   // Signout
