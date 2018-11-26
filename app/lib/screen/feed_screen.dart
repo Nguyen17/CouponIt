@@ -13,6 +13,7 @@ String postVals = "";
 String postKey;
 
 // will set postvals and post keys, which is the userinfo(key) and their inputs(values)
+// ** DEPRECATED **
 displayPosts() {
   database.once().then((DataSnapshot snapshot) {
     Map<dynamic, dynamic> values = snapshot.value;
