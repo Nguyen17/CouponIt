@@ -12,7 +12,7 @@ $(document).scroll(function(event){
             $(".navbar a").css({"color":"#ac1886"});
             $("fa fa-navicon").css({"color":"#ac1886"});
         }
-        if(scrollPos < 2520){
+        if(scrollPos < 2318){
             $(".navbar h3").css({"color":"white"});
             $(".navbar a").css({"color":"white"});
             $("fa fa-navicon").css({"color":"white"});
