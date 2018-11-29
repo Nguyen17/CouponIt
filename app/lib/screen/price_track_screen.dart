@@ -5,6 +5,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:barcode_scan/barcode_scan.dart';
 import 'dart:async';
 import 'package:flutter/services.dart';
+import 'package:community_material_icon/community_material_icon.dart';
 
 import 'price_screen.dart';
 
@@ -37,9 +38,9 @@ class _PriceTrackerState extends State<PriceTracker> {
                   Navigator.pop(context);
                 }),
             title: Image.asset("assets/images/ic_couponitlogo_2.png"),
-            actions: <Widget>[
-              IconButton(onPressed: () {}, icon: Icon(Icons.search))
-            ],
+            // actions: <Widget>[
+            //   IconButton(onPressed: () {}, icon: Icon(Icons.search))
+            // ],
           ),
           body: Center(
             child: Column(
@@ -48,6 +49,8 @@ class _PriceTrackerState extends State<PriceTracker> {
               children: <Widget>[
                 Image.asset("assets/images/loading.png",
                     width: 300.0, height: 300.0),
+                // Icon(Icons.search,
+                // size: 150.0),
                 SizedBox(height: 20.0),
                 AutoSizeText(
                   "Search for a price.",

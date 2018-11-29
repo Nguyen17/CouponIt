@@ -179,14 +179,17 @@ class _PriceScreenState extends State<PriceScreen> {
 }
 
 Widget loadingIcon() {
-  return Container(
+  return MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: Scaffold(
+      body:Container(
       color: Colors.white,
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Image.asset("assets/images/world.png",
+            Image.asset("assets/images/money.png",
                 width: 250.0, height: 250.0),
             SizedBox(height: 40.0),
             Text("Getting the prices right now!",
@@ -204,5 +207,7 @@ Widget loadingIcon() {
             )
           ],
         ),
-      ));
+      ))
+    )
+  );
 }

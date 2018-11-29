@@ -273,7 +273,7 @@ Widget loadingIcon() {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        Image.asset("assets/images/sadface.png", width: 250.0, height: 250.0),
+        Image.asset("assets/images/loading_icon.png", width: 250.0, height: 250.0),
         SizedBox(height: 40.0),
         SpinKitThreeBounce(
           color: pinkColorScheme,
