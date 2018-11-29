@@ -6,12 +6,16 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:share/share.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
+
 /**
  * Importing UI packages
  */
 // import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_custom_tabs/flutter_custom_tabs.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+
+///Importing UI Components
+import 'components/ui/heart_widget.dart';
 
 /**
  * Importing modules for Http requests 
@@ -170,8 +174,11 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                       fontFamily: "SFProText"),
                                 )),
                             SizedBox(width: 20.0),
-                            Icon(Icons.favorite_border,
-                                color: Color.fromRGBO(211, 101, 160, 1.0)),
+
+                            // Create heart like button
+                            // Icon(Icons.favorite_border,
+                            //     color: Color.fromRGBO(211, 101, 160, 1.0)),
+                            HeartButton(),
                             SizedBox(width: 10.0),
                             IconButton(
                               splashColor: Color.fromRGBO(217, 121, 172, 1.0),
@@ -179,13 +186,19 @@ class _ExploreScreenState extends State<ExploreScreen> {
                               icon: Icon(CommunityMaterialIcons.share_variant,
                                   color: Color.fromRGBO(100, 159, 211, 0.7)),
                               onPressed: () {
-                                Share.share(articles[index]['url']);
+                                Share.share(
+                                  "Sent from Coupon It!\n" +
+                                  articles[index]['url'] +
+                                  "\n" + "Download Coupon It app at: https://nguyen17.github.io/CouponIt"
+                                  
+                          
+                                  );
                               },
                             ),
                             SizedBox(width: 10.0),
                             Container(
                               alignment: Alignment.center,
-                              width: 150.0,
+                              width: 130.0,
                               child: AutoSizeText(
                                 articles[index]["source"]["name"] == null
                                     ? "unknown source"
