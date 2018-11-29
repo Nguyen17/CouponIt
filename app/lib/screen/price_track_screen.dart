@@ -6,6 +6,7 @@ import 'package:barcode_scan/barcode_scan.dart';
 import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:community_material_icon/community_material_icon.dart';
+import 'package:shimmer/shimmer.dart';
 
 import 'price_screen.dart';
 
@@ -60,11 +61,15 @@ class _PriceTrackerState extends State<PriceTracker> {
                       fontWeight: FontWeight.w600),
                 ),
                 SizedBox(height: 20.0),
-                AutoSizeText("Tap on button below.",
+                Shimmer.fromColors(
+                  baseColor: Colors.blueGrey,
+                  highlightColor: Colors.pinkAccent,
+                  child:  AutoSizeText("Tap on button below.",
                     style: TextStyle(
                         fontFamily: "SFProText",
                         fontSize: 11.0,
                         color: Colors.black45)),
+                ),
                 SizedBox(height: 10.0),
                 Icon(
                   Icons.arrow_downward,
