@@ -7,6 +7,9 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter_page_indicator/flutter_page_indicator.dart';
 
+/// Importing Screens for Navigation
+import 'coupon_qr_screen.dart';
+import '../models/coupon_store.dart';
 String couponVal;
 
 void scannedValueCoupon(x) {
@@ -48,6 +51,11 @@ class _CouponScreenState extends State<CouponScreen> {
             itemCount: productModel["073854008089"][0]["coupons"].length,
             itemBuilder: (BuildContext context, int index) {
               return Card(
+
+                /// Render a list 
+                /// - coupon discount rate / desc
+                /// - coupon title
+                /// - coupon code
                 child: ListTile(
                   contentPadding: EdgeInsets.all(20.0),
                   leading: AutoSizeText(
@@ -75,7 +83,19 @@ class _CouponScreenState extends State<CouponScreen> {
                         color: Colors.blueAccent,
                         borderRadius: BorderRadius.circular(10.0)),
                     child: MaterialButton(
-                      onPressed: () {},
+                      onPressed: () {
+                      
+                        couponDescription =productModel["073854008089"][0]["coupons"][index]
+                          ["couponTitle"];
+                        couponLink=productModel["073854008089"][0]["coupons"][index]
+                              ["couponSrcUrl"];
+                        couponCode = productModel["073854008089"][0]["coupons"][index]
+                              ["couponCode"];
+                        couponImageLink = productModel["073854008089"][0]["itemImgUrl"];
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => CouponQR()
+                        ));
+                      },
                       child: AutoSizeText(
                           productModel["073854008089"][0]["coupons"][index]
                               ["couponCode"],
