@@ -4,9 +4,6 @@ import 'login_screen.dart';
 import 'coupon_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'dart:async';
-import 'dart:convert';
-
 // /**
 //  * Importing icons from Font Awesome
 //  */
@@ -40,6 +37,7 @@ import 'package:flutter/services.dart';
 //  *    - also needs to store http requests and responses
 //  */
 import 'dart:async';
+import 'dart:convert';
 
 // /**
 //  * Importing Any necessary screens
@@ -53,6 +51,7 @@ import 'price_track_screen.dart';
 import 'profile_screen.dart';
 import 'notification_screen.dart';
 import '../models/postActivity.dart';
+
 
 /* Firebase Info */
 final currentUser = FirebaseAuth.instance.currentUser();
@@ -170,7 +169,7 @@ class _AppScreenState extends State<AppScreen> {
             showDialog(
                 context: (context),
                 child: SimpleDialog(
-                  title: Text("Write your feelings."),
+                  title: Text("Write a post."),
                   children: <Widget>[
                     //         TextField(
                     //   controller: textTitle_controller,
@@ -182,7 +181,7 @@ class _AppScreenState extends State<AppScreen> {
                     TextField(
                       controller: textpost_controller,
                       decoration: InputDecoration(
-                          filled: true, labelText: "comment your post here"),
+                          filled: true, labelText: "type here."),
                     ),
                     Row(
                       children: <Widget>[
