@@ -1,1 +1,3 @@
  List postActivity = [];
+
+ String couponCode= "";
