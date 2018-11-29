@@ -48,6 +48,9 @@ dependencies:
   font_awesome_flutter: ^8.0.1
   community_material_icon: any
 
+  # QR Code Generator
+  qr_flutter: any
+
   # URL LAUNCHER
   # - dependencies for url links to work
   url_launcher: any
@@ -128,6 +131,8 @@ flutter:
    - assets/images/friends3.png
    - assets/images/world.png
    - assets/images/loading.png
+   - assets/images/loading_icon.png
+   - assets/images/money.png
    - assets/images/slide1.jpg
    - assets/images/slide2.jpg
    - assets/images/slide3.jpg
