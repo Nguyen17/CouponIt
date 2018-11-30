@@ -34,7 +34,7 @@ class _CouponScreenState extends State<CouponScreen> {
   @override
   Widget build(BuildContext context) {
 
-    return (!productModel[couponVal] ) ?  errorDisplay() :
+    return 
      MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
