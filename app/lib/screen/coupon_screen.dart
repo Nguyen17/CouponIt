@@ -33,7 +33,9 @@ class _CouponScreenState extends State<CouponScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+
+    return (!productModel[couponVal] ) ?  errorDisplay() :
+     MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           // Container(
@@ -48,7 +50,7 @@ class _CouponScreenState extends State<CouponScreen> {
           body: ListView.builder(
             scrollDirection: Axis.vertical,
             shrinkWrap: true,
-            itemCount: productModel["073854008089"][0]["coupons"].length,
+            itemCount: productModel[couponVal][0]["coupons"].length,
             itemBuilder: (BuildContext context, int index) {
               return Card(
 
@@ -59,7 +61,7 @@ class _CouponScreenState extends State<CouponScreen> {
                 child: ListTile(
                   contentPadding: EdgeInsets.all(20.0),
                   leading: AutoSizeText(
-                    productModel["073854008089"][0]["coupons"][index]
+                    productModel[couponVal][0]["coupons"][index]
                         ["couponType"],
                     softWrap: true,
                     maxLines: 3,
@@ -70,7 +72,7 @@ class _CouponScreenState extends State<CouponScreen> {
                         fontWeight: FontWeight.w700),
                   ),
                   title: AutoSizeText(
-                      productModel["073854008089"][0]["coupons"][index]
+                      productModel[couponVal][0]["coupons"][index]
                           ["couponTitle"],
                       maxLines: 3,
                       style: TextStyle(
@@ -85,19 +87,19 @@ class _CouponScreenState extends State<CouponScreen> {
                     child: MaterialButton(
                       onPressed: () {
                       
-                        couponDescription =productModel["073854008089"][0]["coupons"][index]
+                        couponDescription =productModel[couponVal][0]["coupons"][index]
                           ["couponTitle"];
-                        couponLink=productModel["073854008089"][0]["coupons"][index]
+                        couponLink=productModel[couponVal][0]["coupons"][index]
                               ["couponSrcUrl"];
-                        couponCode = productModel["073854008089"][0]["coupons"][index]
+                        couponCode = productModel[couponVal][0]["coupons"][index]
                               ["couponCode"];
-                        couponImageLink = productModel["073854008089"][0]["itemImgUrl"];
+                        couponImageLink = productModel[couponVal][0]["itemImgUrl"];
                         Navigator.push(context, MaterialPageRoute(
                           builder: (context) => CouponQR()
                         ));
                       },
                       child: AutoSizeText(
-                          productModel["073854008089"][0]["coupons"][index]
+                          productModel[couponVal][0]["coupons"][index]
                               ["couponCode"],
                           maxLines: 3,
                           style: TextStyle(
@@ -122,8 +124,20 @@ class _CouponScreenState extends State<CouponScreen> {
     productModel = products;
 
     print(productModel);
-    print(productModel["073854008089"][0]["coupons"][0]["couponType"]);
-    print(productModel["073854008089"][0]["coupons"][0]["couponTitle"]);
-    print(productModel["073854008089"][0]["coupons"][0]["couponCode"]);
+    print(productModel[couponVal][0]["coupons"][0]["couponType"]);
+    print(productModel[couponVal][0]["coupons"][0]["couponTitle"]);
+    print(productModel[couponVal][0]["coupons"][0]["couponCode"]);
+  }
+
+
+  Widget errorDisplay(){
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Center(
+          child: Text("Sorry, No discount found :c"),
+        )
+      )
+    );
   }
 }
