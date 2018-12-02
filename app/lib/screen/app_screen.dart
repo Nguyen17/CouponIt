@@ -47,12 +47,11 @@ import 'local_deal_screen.dart';
 import 'map_screen.dart';
 // import 'friends_screen.dart';
 import 'feed_screen.dart';
-import 'posts_screen.dart';
 import 'price_track_screen.dart';
 import 'profile_screen.dart';
 import 'notification_screen.dart';
 import '../models/postActivity.dart';
-import 'package:flushbar/flushbar.dart';
+
 
 
 /* Firebase Info */
