@@ -7,6 +7,16 @@
 ## Screenshots
 ![](assets/images/welcome.gif) ![](assets/images/share.gif) ![](assets/images/local_deal.gif)
 
+## Features
+[x] barcode scanner to retrieve coupons from a server / api.
+[x] share option to social media network.
+[x] local deals
+[x] map of nearby coupons around a user.
+[x] price check an item across various websites.
+[x] message post.
+[x] push notifications to recieved marketing campaign.
+[x] browse coupon related news utilizing News api
+
 ## Installation
 Since this is a flutter application. Please make sure you have flutter installed.
 Link to installation guide: [Flutter Installation](https://flutter.io/get-started/install/)
