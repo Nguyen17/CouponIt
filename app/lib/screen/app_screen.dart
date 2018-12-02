@@ -44,6 +44,7 @@ import 'dart:convert';
 //  */
 import 'explore_screen.dart';
 import 'local_deal_screen.dart';
+import 'map_screen.dart';
 // import 'friends_screen.dart';
 import 'feed_screen.dart';
 import 'posts_screen.dart';
@@ -51,6 +52,7 @@ import 'price_track_screen.dart';
 import 'profile_screen.dart';
 import 'notification_screen.dart';
 import '../models/postActivity.dart';
+import 'package:flushbar/flushbar.dart';
 
 
 /* Firebase Info */
@@ -247,7 +249,8 @@ class _AppScreenState extends State<AppScreen> {
                     floatingActionButton: UnicornDialer(
                         // backgroundColor:  Color.fromRGBO(224, 41, 97, 0.1),
                         backgroundColor: Colors.transparent,
-                        parentButtonBackground: pinkColorScheme,
+                        // parentButtonBackground: Color.fromRGBO(202,32,124, 0.9),
+                        parentButtonBackground: Colors.pink[600],
                         orientation: UnicornOrientation.VERTICAL,
                         parentButton: Icon(CommunityMaterialIcons.message_draw,
                             size: 15.0),
@@ -306,7 +309,8 @@ class _AppScreenState extends State<AppScreen> {
                           )),
                       backgroundColor: pinkColorScheme,
                       bottom: TabBar(
-                          indicatorColor: Color.fromRGBO(250, 241, 246, 1.0),
+                          // indicatorColor: Color.fromRGBO(250, 241, 246, 1.0),
+                          indicatorColor: Colors.white,
                           indicatorWeight: 6.0,
                           tabs: [
                             Tab(text: "local deals"),
@@ -333,8 +337,11 @@ class _AppScreenState extends State<AppScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: <Widget>[
                             IconButton(
-                                color: Colors.black45,
-                                icon: Icon(Icons.home),
+                              highlightColor: pinkColorScheme,
+                              tooltip: "home",
+                                color: Colors.black26,
+                                icon: Icon(Icons.home,
+                                semanticLabel: "home",),
                                 onPressed: () {
                                   Navigator.push(
                                       context,
@@ -342,8 +349,10 @@ class _AppScreenState extends State<AppScreen> {
                                           builder: (context) => AppScreen()));
                                 }),
                             IconButton(
-                                color: Colors.black45,
-                                icon: Icon(Icons.store),
+                                color: Colors.black26,
+                                      tooltip: "price checker",
+                                icon: Icon(Icons.store,
+                                semanticLabel: "price checker",),
                                 onPressed: () {
                                   Navigator.push(
                                       context,
@@ -354,26 +363,38 @@ class _AppScreenState extends State<AppScreen> {
 
                             // SCAN BUTTON
                             RaisedButton(
-                              color: pinkColorScheme,
+                              color: Color.fromRGBO(214,18,132, 1.0),
                               shape: new RoundedRectangleBorder(
                                   borderRadius:
                                       new BorderRadius.circular(10.0)),
                               child: Icon(CommunityMaterialIcons.barcode,
-                                  size: 32.0, color: Colors.white),
+                                  size: 32.0, color: Colors.white, semanticLabel: "barcode scanner",),
                               onPressed: () {
                                 scan();
+                          
                               },
                             ),
                             IconButton(
-                                color: Colors.black45,
+                                    tooltip: "coupon map",
+                                color: Colors.black26,
                                 icon: Icon(
-                                  FontAwesomeIcons.wallet,
+                                  FontAwesomeIcons.map,
+                                  semanticLabel: "coupon map",
                                   size: 20.0,
                                 ),
-                                onPressed: () {}),
+                                onPressed: () {
+
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (context) => MapScreen()
+                                    )
+                                  );
+                                }),
                             IconButton(
-                                color: Colors.black45,
-                                icon: Icon(Icons.account_box),
+                                color: Colors.black26,
+                                tooltip: "profile",
+                                icon: Icon(Icons.account_box,
+                                semanticLabel: "profile",),
                                 onPressed: () {
                                   Navigator.of(context).push(MaterialPageRoute(
                                       builder: (context) => ProfileScreen()));
