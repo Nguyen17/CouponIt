@@ -4,6 +4,9 @@
 <strong style="color: #b6f686;">Coupon It </strong> is a <a href="https://flutter.io/"> flutter</a> mobile e-commerce application to bring together consumers and businesses. We aim to create a friendly interface for users when looking for coupon deals on commodities. Our goal is to turn Coupon It into a social network rather than a platform exclusively for advertisements.
 </p>
 
+## Screenshots
+![](assets/images/welcome.gif) ![](assets/images/share.gif) ![](assets/images/local_deal.gif)
+
 ## Installation
 Since this is a flutter application. Please make sure you have flutter installed.
 Link to installation guide: [Flutter Installation](https://flutter.io/get-started/install/)
@@ -13,15 +16,12 @@ Link to installation guide: [Flutter Installation](https://flutter.io/get-starte
    
 ` git clone https://github.com/Nguyen17/CouponIt.git `
 
-<p> Notes: There will be 2 folders, <em>demo</em> and <em>app</em> .</p>
+- Make sure to cd into the 'app' folder of the repo. Then get the required dependencies. Run the command:
 
- - After you clone the repo, **MAKE SURE TO DO THIS:**
- 
-   
- `flutter create demo` or `flutter create app` 
+`flutter packages get`
 
-- To run the app, go to root directory of either folder and type: 
-
+- Now run the application on an emulator of your choice
+  
  `flutter run` 
 
 ## Git Fundamentals
@@ -47,6 +47,7 @@ Before contributing to the rep it is recommended to be familiarize with the flut
 
 ## Important Concepts to Learn
 ![couponit_wordcloud](https://user-images.githubusercontent.com/17789092/46177146-a1b13c80-c266-11e8-9020-f10c0fb03b69.png)
+
 
 
 ## Contribution Guide
