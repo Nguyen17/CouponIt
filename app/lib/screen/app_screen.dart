@@ -52,8 +52,6 @@ import 'profile_screen.dart';
 import 'notification_screen.dart';
 import '../models/postActivity.dart';
 
-
-
 /* Firebase Info */
 final currentUser = FirebaseAuth.instance.currentUser();
 // final DatabaseReference database = FirebaseDatabase.instance.reference();
@@ -131,7 +129,7 @@ class _AppScreenState extends State<AppScreen> {
     userUID = user.uid;
     database.reference().child(user.uid).once().then((DataSnapshot snapshot) {
       Map<dynamic, dynamic> info = snapshot.value;
-      userDisplayName =  info["displayName"];
+      userDisplayName = info["displayName"];
     });
   }
 
@@ -204,9 +202,12 @@ class _AppScreenState extends State<AppScreen> {
 
                             createPost(userUID, userDisplayName,
                                 textpost_controller.text);
-                                // Navigator.pop(context);
+                            // Navigator.pop(context);
 
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>AppScreen()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => AppScreen()));
                           },
                         )
                       ],
@@ -266,6 +267,8 @@ class _AppScreenState extends State<AppScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           SizedBox(width: 20.0),
+
+                          // Navigation Menu
                           Icon(FontAwesomeIcons.bars)
                         ],
                       ),
@@ -370,7 +373,7 @@ class _AppScreenState extends State<AppScreen> {
                                   size: 32.0, color: Colors.white, semanticLabel: "barcode scanner",),
                               onPressed: () {
                                 scan();
-                          
+
                               },
                             ),
                             IconButton(
@@ -401,6 +404,89 @@ class _AppScreenState extends State<AppScreen> {
                           ],
                         )),
 
+                    // bottomNavigationBar: BottomNavigationBar(items: [
+                    //   /// Home Button
+                    //   BottomNavigationBarItem(
+                    //     title: Text("home",style:TextStyle(color:Colors.black)),
+                    //       icon: IconButton(
+                    //           highlightColor: pinkColorScheme,
+                    //           tooltip: "home",
+                    //           color: Colors.black26,
+                    //           icon: Icon(
+                    //             Icons.home,
+                    //             semanticLabel: "home",
+                    //           ),
+                    //           onPressed: () {
+                    //             Navigator.push(
+                    //                 context,
+                    //                 MaterialPageRoute(
+                    //                     builder: (context) => AppScreen()));
+                    //           })),
+
+                    //   /// Price Checker
+                    //   BottomNavigationBarItem(
+                    //      title: Text("price checker",style:TextStyle(color:Colors.black)),
+                    //       icon: IconButton(
+                    //           color: Colors.black26,
+                    //           tooltip: "price checker",
+                    //           icon: Icon(
+                    //             Icons.store,
+                    //             semanticLabel: "price checker",
+                    //           ),
+                    //           onPressed: () {
+                    //             Navigator.push(
+                    //                 context,
+                    //                 MaterialPageRoute(
+                    //                     builder: (context) => PriceTracker()));
+                    //           })),
+
+                    //   /// Scan Button
+                    //   BottomNavigationBarItem(
+                    //         title: Text("scan"),
+                    //       icon: IconButton(
+                    //           color: pinkColorScheme,
+                    //           tooltip: "scan",
+                    //           icon: Icon(
+                    //             CommunityMaterialIcons.barcode,
+                    //             size: 32.0,
+                    //             semanticLabel: "scan",
+                    //           ),
+                    //           onPressed: () {
+                    //             scan();
+                    //           })),
+
+                    //   /// Map Screen
+                    //   BottomNavigationBarItem(
+                    //         title: Text("coupon map"),
+                    //       icon: IconButton(
+                            
+                    //           tooltip: "coupon map",
+                    //           color: Colors.black26,
+                    //           icon: Icon(
+                    //             FontAwesomeIcons.map,
+                    //             semanticLabel: "coupon map",
+                    //             size: 20.0,
+                    //           ),
+                    //           onPressed: () {
+                    //             Navigator.of(context).push(MaterialPageRoute(
+                    //                 builder: (context) => MapScreen()));
+                    //           })),
+                    //   /// Profile Screen
+                    //   BottomNavigationBarItem(
+                    //          title: Text("profile"),
+                    //       icon: IconButton(
+                    //           color: Colors.black26,
+                    //           tooltip: "profile",
+                    //           icon: Icon(
+                    //             Icons.account_box,
+                    //             semanticLabel: "profile",
+                    //           ),
+                    //           onPressed: () {
+                    //             Navigator.of(context).push(MaterialPageRoute(
+                    //                 builder: (context) => ProfileScreen()));
+                    //           })),
+                    // ]),
+
                     /**
            * BODY CONTENT
            * * This is where the content from the tab should appear
@@ -421,7 +507,7 @@ class _AppScreenState extends State<AppScreen> {
   createPost(uid, displayName, body) {
     Map<String, dynamic> postData = {
       'uid': uid,
-      'author': (displayName == null) ? "Guest" : displayName ,
+      'author': (displayName == null) ? "Guest" : displayName,
       'content': body
     };
 
