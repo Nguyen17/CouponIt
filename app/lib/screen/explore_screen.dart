@@ -229,7 +229,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
   //  */
   Future fetchData() async {
     final String url =
-        "https://newsapi.org/v2/everything?q=${searchVal} coupons&from=2018-11-01&sortBy=publishedAt&apiKey=1e6a7dc83456418ca0c38623de7f761b";
+        "https://newsapi.org/v2/everything?q=${searchVal} coupons&from=2018-12-01&sortBy=publishedAt&apiKey=1e6a7dc83456418ca0c38623de7f761b";
 
     var res = await get(url);
     //debugPrint(res.body);

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+
+import '../models/deals_model.dart';
 import 'components/color.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:shimmer/shimmer.dart';
 // import 'package:url_launcher/url_launcher.dart';
 
 /**
@@ -47,10 +50,11 @@ class _LocalDealsScreenState extends State<LocalDealsScreen> {
   @override
   Widget build(BuildContext context) {
     return (_isloading == true)
-        ? SpinKitFoldingCube(
-            color: pinkColorScheme,
-            size: 45.0,
-          )
+        // ? SpinKitFoldingCube(
+        //     color: pinkColorScheme,
+        //     size: 45.0,
+        //   )
+        ? loadingPlaceHolder()
         : StaggeredGridView.countBuilder(
             crossAxisCount: 4,
             itemCount: dealList.length,
@@ -128,6 +132,8 @@ class _LocalDealsScreenState extends State<LocalDealsScreen> {
     dealModel = json.decode(res.body);
     setState(() {
       dealList = dealModel["deals"];
+      localDealsList = dealList;
+      
       // print(dealList);
     });
     //print(articleModel);
@@ -153,3 +159,57 @@ class _LocalDealsScreenState extends State<LocalDealsScreen> {
 //     );
 //   },
 // );
+
+Widget loadingPlaceHolder(){
+  return StaggeredGridView.countBuilder(
+            crossAxisCount: 4,
+            itemCount: 10,
+            itemBuilder: (context, index) {
+              return new GestureDetector(
+                onTap: () {
+                 
+                },
+                child: Container(
+                  child: new Stack(
+                    children: <Widget>[
+                     Shimmer.fromColors(
+                        baseColor: Colors.grey[100],
+                         highlightColor: Colors.white,
+                         direction: ShimmerDirection.ltr,
+                       child:  Container(
+                        
+                        width: 250.0,
+                        height: 300.0,
+                        color: Colors.grey[100],
+                      ),
+                     ),
+                      new Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Shimmer.fromColors(
+                            baseColor: Colors.grey[200],
+                            highlightColor: Colors.white12,
+                            child: new Container(
+                            padding: EdgeInsets.all(6.0),
+                            color: Colors.grey[200],
+                            child: Column(children: [
+                              Container(width: 100.0, height: 20.0)
+                            ]),
+                          ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+            staggeredTileBuilder: (index) {
+              return new StaggeredTile.count(
+                  2, index % 5 == 1 || index % 5 == 4 ? 3 : 2);
+            },
+            mainAxisSpacing: 8.0,
+            crossAxisSpacing: 8.0,
+          );
+}

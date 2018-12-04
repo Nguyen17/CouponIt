@@ -99,9 +99,12 @@ class _CouponQRState extends State<CouponQR> {
                                   couponImageLink +
                                   "\n" +
                                   couponDescription +
-                                  "\n" +
+                                  "\n\n" +
                                   "coupon code: " +
-                                  couponCode);
+                                  couponCode +
+                                  "\n\n" +
+                                  "Download Coupon It. app: https://nguyen17.github.io/CouponIt"
+                                  );
                             },
                             icon: Icon(CommunityMaterialIcons.telegram,
                                 color: Colors.white),

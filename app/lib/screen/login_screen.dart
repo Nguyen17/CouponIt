@@ -99,15 +99,15 @@ class _LoginScreenState extends State<LoginScreen>
         debugShowCheckedModeBanner: false,
         home: SafeArea(
             child: Scaffold(
-                floatingActionButton: FloatingActionButton(
-                    backgroundColor: Color.fromRGBO(218, 71, 223, 1.0),
-                    child: Icon(Icons.person_add),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => LoginScreenDemo()));
-                    }),
+                // floatingActionButton: FloatingActionButton(
+                //     backgroundColor: Color.fromRGBO(218, 71, 223, 1.0),
+                //     child: Icon(Icons.person_add),
+                //     onPressed: () {
+                //       Navigator.push(
+                //           context,
+                //           MaterialPageRoute(
+                //               builder: (context) => LoginScreenDemo()));
+                //     }),
                 backgroundColor: Colors.transparent,
                 /**
                  * Insert Content Wrapper Here
