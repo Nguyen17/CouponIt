@@ -339,50 +339,123 @@ class _AppScreenState extends State<AppScreen> {
                     // ),
                     // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
                     drawer: new Drawer(
+                      elevation: 14.0,
                       child: ListView(
                         // Important: Remove any padding from the ListView.
-                        padding: EdgeInsets.zero,
+                        padding: EdgeInsets.all(2.0),
                         children: <Widget>[
                           DrawerHeader(
+                            padding: EdgeInsets.all(0),
                             child: new Center(
                               child: new Text(
                                 "CouponIt!",
                                 style: new TextStyle(
                                   color: Colors.white,
-                                  fontSize: 50.0,
-                                  fontWeight: FontWeight.bold,
-                                  fontStyle: FontStyle.italic,
+                                  fontSize: 32.0,
+                                  fontFamily: "Cookie",
+                                  fontWeight: FontWeight.w500,
                                 ),
                               ),
                             ),
                             decoration: BoxDecoration(
-                              color: purpleColorScheme,
+                              color: pinkMono1,
                             ),
                           ),
-                          ListTile(
-                            title: Text('CouponIt Website',),
-                            onTap: () async {
-                              const url =
-                                  'https://nguyen17.github.io/CouponIt/';
-                              if (await canLaunch(url)) {
-                                await launch(url);
-                              } else {
-                                throw 'Could not launch $url';
-                              }
-                            },
+                          Container(
+                            margin: EdgeInsets.all(10.0),
+                            decoration: BoxDecoration(
+                                border: Border(
+                                    bottom: BorderSide(
+                                        color: purpleColorScheme,
+                                        width: 2.0,
+                                        style: BorderStyle.solid))),
+                            child: ListTile(
+                                 leading:Icon( CommunityMaterialIcons.web,
+                                color:pinkColorScheme),
+                              title: Text(
+                                '@CouponIt Website',
+                                style: TextStyle(
+                                    fontFamily: "SFProText",
+                                    fontSize: 11.0,
+                                    color: Colors.black87),
+                              ),
+                              onTap: () async {
+                                const url =
+                                    'https://nguyen17.github.io/CouponIt/';
+                                if (await canLaunch(url)) {
+                                  await launch(url);
+                                } else {
+                                  throw 'Could not launch $url';
+                                }
+                              },
+                            ),
                           ),
-                          ListTile(
-                            title: new Text("Github Repository"),
-                            onTap: () async {
-                              const url =
-                                  'https://github.com/Nguyen17/CouponIt';
-                              if (await canLaunch(url)) {
-                                await launch(url);
-                              } else {
-                                throw 'Could not launch $url';
-                              }
-                            },
-                          ),
+                          Container(
+                            margin: EdgeInsets.all(10.0),
+                              decoration: BoxDecoration(
+                                  border: Border(
+                                      bottom: BorderSide(
+                                          color: purpleColorScheme,
+                                          width: 1.0,
+                                          style: BorderStyle.solid))),
+                              child: ListTile(
+                                leading:Icon( CommunityMaterialIcons.github_face,
+                                color:pinkColorScheme),
+                                title: new Text(
+                                  "@Github Repository",
+                                  style: TextStyle(
+                                      fontFamily: "SFProText",
+                                      fontSize: 11.0,
+                                      color: Colors.black87),
+                                ),
+                                onTap: () async {
+                                  const url =
+                                      'https://github.com/Nguyen17/CouponIt';
+                                  if (await canLaunch(url)) {
+                                    await launch(url);
+                                  } else {
+                                    throw 'Could not launch $url';
+                                  }
+                                },
+                              )),
+
+                              SizedBox(height: 20.0),
+
+                              Flex(
+                                direction: Axis.horizontal,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text("Sponsored Ads",
+                                  style: TextStyle(
+                                    fontFamily: "SFProText",
+                                    fontSize: 17.0,
+                                    fontWeight: FontWeight.w500
+                                  ),)
+                          
+                                ],
+                              ),
+                              SizedBox(
+                                height: 30.0
+                              ),
+
+                         Flex(
+                           direction: Axis.vertical,
+                           mainAxisAlignment: MainAxisAlignment.center,
+                           children: <Widget>[
+                                  Container(
+                                    margin: EdgeInsets.fromLTRB(0, 0, 0, 10.0),
+                                    color: Colors.grey[300],
+                                width: 250.0,
+                                height:250.0
+                              ),
+                                       Container(
+                                    margin: EdgeInsets.fromLTRB(0, 0, 0, 10.0),
+                                    color: Colors.grey[300],
+                                width: 250.0,
+                                height:250.0
+                              )
+                           ],
+                         )
                         ],
                       ),
                     ),
@@ -517,7 +590,7 @@ class _AppScreenState extends State<AppScreen> {
                     //   BottomNavigationBarItem(
                     //         title: Text("coupon map"),
                     //       icon: IconButton(
-                            
+
                     //           tooltip: "coupon map",
                     //           color: Colors.black26,
                     //           icon: Icon(
