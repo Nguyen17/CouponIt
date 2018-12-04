@@ -344,15 +344,26 @@ class _AppScreenState extends State<AppScreen> {
                         padding: EdgeInsets.zero,
                         children: <Widget>[
                           DrawerHeader(
-                            child: Text('CouponIT!'),
+                            child: new Center(
+                              child: new Text(
+                                "CouponIt!",
+                                style: new TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 50.0,
+                                  fontWeight: FontWeight.bold,
+                                  fontStyle: FontStyle.italic,
+                                ),
+                              ),
+                            ),
                             decoration: BoxDecoration(
                               color: purpleColorScheme,
                             ),
                           ),
                           ListTile(
-                            title: Text('CouponIt Website'),
+                            title: Text('CouponIt Website',),
                             onTap: () async {
-                              const url = 'https://nguyen17.github.io/CouponIt/';
+                              const url =
+                                  'https://nguyen17.github.io/CouponIt/';
                               if (await canLaunch(url)) {
                                 await launch(url);
                               } else {
@@ -361,9 +372,10 @@ class _AppScreenState extends State<AppScreen> {
                             },
                           ),
                           ListTile(
-                            title: Text('Github'),
+                            title: new Text("Github Repository"),
                             onTap: () async {
-                              const url = 'https://github.com/Nguyen17/CouponIt';
+                              const url =
+                                  'https://github.com/Nguyen17/CouponIt';
                               if (await canLaunch(url)) {
                                 await launch(url);
                               } else {
