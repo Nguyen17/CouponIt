@@ -123,7 +123,7 @@ final products = {
   ],
 
   //PRODUCT 3
-  "492714001068": [
+  "01210806": [
     {
       "itemName": "Aquafina Purified Drinking Water",
       "itemImgUrl":
@@ -140,6 +140,18 @@ final products = {
           "couponSrcUrl": "http://www.aquafina.com/en-US/",
           "couponType": "25% OFF",
           "couponCode": "ZNU39134"
+        },
+        {
+          "couponTitle": "Save up to \$2 off Aquafina 16.9 oz 24 Pack",
+          "couponSrcUrl": "http://www.aquafina.com/en-US/",
+          "couponType": "\$2 OFF",
+          "couponCode": "UUo9813"
+        },
+        {
+          "couponTitle": "Save up to \$3 off Aquafina 16.9 oz 32 Pack",
+          "couponSrcUrl": "http://www.aquafina.com/en-US/",
+          "couponType": "\$3 OFF",
+          "couponCode": "UUo9813"
         }
       ]
     }
@@ -153,10 +165,28 @@ final products = {
           "https://azcdn.galileo.pgsitecore.com/en-us/-/media/Tide/Images/Products/Listing/Pods/new/80310481_91527484_List.png?h=300&la=en-US&w=300&v=1-201801191033",
       "coupons": [
         {
+          "couponTitle": "\$2 Off Tide Pods 12ct Or Larger",
+          "couponSrcUrl": "https://tide.com/en-us/shop/type/laundry-pods",
+          "couponType": "\$2 OFF",
+          "couponCode": "WPF1039"
+        },
+        {
           "couponTitle": "10% off Tide Pod purchases",
           "couponSrcUrl": "https://tide.com/en-us/shop/type/laundry-pods",
           "couponType": "10% OFF",
           "couponCode": "AVZ649"
+        },
+        {
+          "couponTitle": "Tide Coupons, 15% off Coupons",
+          "couponSrcUrl": "https://tide.com/en-us/shop/type/laundry-pods",
+          "couponType": "15% OFF",
+          "couponCode": "GHT8913"
+        },
+        {
+          "couponTitle": "HOT \$3/1 Tide Coupons = Tide Pods",
+          "couponSrcUrl": "https://tide.com/en-us/shop/type/laundry-pods",
+          "couponType": "\$3 OFF",
+          "couponCode": "JUF0934"
         }
       ]
     }
@@ -170,10 +200,22 @@ final products = {
           "https://images-na.ssl-images-amazon.com/images/I/71e4yRE8HTL._SL1500_.jpg",
       "coupons": [
         {
-          "couponTitle": "Special 30% off Pantene Pro-V",
+          "couponTitle": "Save \$1.00 on one Pantene product",
+          "couponSrcUrl": "https://pantene.com/en-us/product/daily-moisture-renewal-conditioner",
+          "couponType": "\$1 OFF",
+          "couponCode": "DSP6098"
+        },
+        {
+          "couponTitle": "Special Up to 30% off Pantene Pro-V",
           "couponSrcUrl": "https://pantene.com/en-us/product/daily-moisture-renewal-conditioner",
           "couponType": "30% OFF",
           "couponCode": "POJ9350"
+        },
+        {
+          "couponTitle": "Save \$5.00 on Pantene.",
+          "couponSrcUrl": "https://pantene.com/en-us/product/daily-moisture-renewal-conditioner",
+          "couponType": "\$5 OFF",
+          "couponCode": "AUY2483"
         },
         {
           "couponTitle": "Both Pro-V Shampoo & Conditioner for Price of ONe",
@@ -203,24 +245,117 @@ final products = {
           "couponSrcUrl": "https://www.suavecito.com/",
           "couponType": "15% OFF",
           "couponCode": "YRQ119"
+        },
+        {
+          "couponTitle": "Up to 33% Off On Beauty Products",
+          "couponSrcUrl": "https://www.suavecito.com/",
+          "couponType": "33% OFF",
+          "couponCode": "ELS9134"
+        },
+        {
+          "couponTitle": "Up to 33% Off On Beauty Products",
+          "couponSrcUrl": "https://www.suavecito.com/",
+          "couponType": "33% OFF",
+          "couponCode": "ELS9134"
+        },
+        {
+          "couponTitle": "Enjoy 20% off Suavecito",
+          "couponSrcUrl": "https://www.suavecito.com/",
+          "couponType": "20% OFF",
+          "couponCode": "ONW8023"
         }
       ]
     }
   ],
-
 
   //PRODUCT 7
   "8802035116785": [
     {
       "itemName": "Rilakkuma Pencil Pouch",
       "itemImgUrl":
-          "https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/05/03/15/ok-hand.jpg?w968h681",
+          "https://cdn.shopify.com/s/files/1/0770/2163/products/facepouches.jpg?v=1497049788",
       "coupons": [
         {
-          "couponTitle": "Buy 1 Get 1 FREE",
+          "couponTitle": "Save \$5 on Rilakkuma Products",
           "couponSrcUrl": "https://www.bicyclecards.com/",
-          "couponType": "100% OFF",
+          "couponType": "\$5 OFF",
           "couponCode": "GBO054"
+        },
+        {
+          "couponTitle": "Save \$3 on Rilakkuma Products",
+          "couponSrcUrl": "https://www.bicyclecards.com/",
+          "couponType": "\$3 OFF",
+          "couponCode": "YIo145"
+        }
+      ]
+    }
+  ],
+
+  //PRODUCT 8
+  "038100141804": [
+    {
+      "itemName": "Purina Beggin' Strips",
+      "itemImgUrl":
+          "https://img.chewy.com/is/image/catalog/92057_MAIN._AC_SL1500_V1533825135_.jpg",
+      "coupons": [
+        {
+          "couponTitle": "\$2 off Beggin' Strips",
+          "couponSrcUrl": "https://www.purinatreats.com/dog-treats/beggin",
+          "couponType": "\$2 OFF",
+          "couponCode": "SITDOWN"
+        },
+        {
+          "couponTitle": "December Special: 10% off Purina Products",
+          "couponSrcUrl": "https://www.purinatreats.com/dog-treats/beggin",
+          "couponType": "10% OFF",
+          "couponCode": "SHAKE"
+        },
+        {
+          "couponTitle": "5% off Purina Beggin' Strips",
+          "couponSrcUrl": "https://www.purinatreats.com/dog-treats/beggin",
+          "couponType": "5% OFF",
+          "couponCode": "SITDOWN"
+        },
+        {
+          "couponTitle": "Purina Beggin' Strips, Save \$1.50 on 2.5 lb bag",
+          "couponSrcUrl": "https://www.purinatreats.com/dog-treats/beggin",
+          "couponType": "\$1.50 OFF",
+          "couponCode": "SPIN"
+        }
+      ],
+      
+    }
+  ],
+
+  //PRODUCT 9
+  "028400012553": [
+    {
+      "itemName": "Miss Vickie's Kettle Cooked Potato Chips",
+      "itemImgUrl":
+          "https://i.ebayimg.com/images/g/hSUAAOSwiZZbkEXQ/s-l300.png",
+      "coupons": [
+        {
+          "couponTitle": "\$2 off Miss Vickie's Chips",
+          "couponSrcUrl": "https://www.missvickies.com/",
+          "couponType": "\$2 OFF",
+          "couponCode": "NVO094"
+        }
+      ]
+    }
+  ]
+
+  //PRODUCT 10
+  "082666722007": [
+    {
+      "itemName": "Popchips Popped Snack Chips",
+      "itemImgUrl":
+          "https://00aedab98cf5f64df2f5-b1fe34f25669ea3ec7fe8fe4c1201c10.ssl.cf2.rackcdn.com/static/popchips-og-image.jpg",
+      "coupons": [
+        {
+          "couponTitle": "\$2 off Pop Chips",
+          "couponSrcUrl": "https://www.popchips.com/products",
+          "couponType": "\$2 OFF",
+          "couponCode": "INR4360"
         }
       ]
     }
