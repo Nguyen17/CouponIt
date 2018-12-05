@@ -299,43 +299,167 @@ final products = {
           "couponTitle": "\$2 off Beggin' Strips",
           "couponSrcUrl": "https://www.purinatreats.com/dog-treats/beggin",
           "couponType": "\$2 OFF",
-          "couponCode": "SITDOWN"
+          "couponCode": "JDF2093"
         },
         {
           "couponTitle": "December Special: 10% off Purina Products",
           "couponSrcUrl": "https://www.purinatreats.com/dog-treats/beggin",
           "couponType": "10% OFF",
-          "couponCode": "SHAKE"
+          "couponCode": "WIH3527"
         },
         {
           "couponTitle": "5% off Purina Beggin' Strips",
           "couponSrcUrl": "https://www.purinatreats.com/dog-treats/beggin",
           "couponType": "5% OFF",
-          "couponCode": "SITDOWN"
+          "couponCode": "NOJ8094"
         },
         {
           "couponTitle": "Purina Beggin' Strips, Save \$1.50 on 2.5 lb bag",
           "couponSrcUrl": "https://www.purinatreats.com/dog-treats/beggin",
           "couponType": "\$1.50 OFF",
-          "couponCode": "SPIN"
+          "couponCode": "QPJ0289"
         }
       ],
       
     }
   ],
 
-  //PRODUCT 9
-  "028400012553": [
+  //PRODUCT 9a
+  "028400012546": [
     {
-      "itemName": "Miss Vickie's Kettle Cooked Potato Chips",
+      "itemName": "Miss Vickie's Kettle Cooked Potato Chips, Sea Salt & Vinegar",
       "itemImgUrl":
           "https://i.ebayimg.com/images/g/hSUAAOSwiZZbkEXQ/s-l300.png",
       "coupons": [
         {
-          "couponTitle": "\$2 off Miss Vickie's Chips",
+          "couponTitle": "Save \$2.00 off Miss Vickie's",
           "couponSrcUrl": "https://www.missvickies.com/",
           "couponType": "\$2 OFF",
           "couponCode": "NVO094"
+        },
+        {
+          "couponTitle": "Save \$1 on Miss Vickie's potato chips",
+          "couponSrcUrl": "https://www.missvickies.com/",
+          "couponType": "\$1 OFF",
+          "couponCode": "ANm320"
+        },
+        {
+          "couponTitle": "Miss Vickie's Chips \$2 coupon",
+          "couponSrcUrl": "https://www.missvickies.com/",
+          "couponType": "\$2 OFF",
+          "couponCode": "JIP054"
+        },
+        {
+          "couponTitle": "Extra 25% Off Miss Vickie's Potato Chips",
+          "couponSrcUrl": "https://www.missvickies.com/",
+          "couponType": "25% OFF",
+          "couponCode": "ONG098"
+        },
+        {
+          "couponTitle": "Up to 9% Off",
+          "couponSrcUrl": "https://www.missvickies.com/",
+          "couponType": "9% OFF",
+          "couponCode": "WBQ042"
+        },
+        {
+          "couponTitle": "Up to 50% off + Free Shipping",
+          "couponSrcUrl": "https://www.missvickies.com/",
+          "couponType": "50% OFF",
+          "couponCode": "TNV157"
+        }
+      ]
+    }
+  ],
+
+  //PRODUCT 9b
+  "028400012553": [
+    {
+      "itemName": "Miss Vickie's Kettle Cooked Potato Chips, Jalapeno",
+      "itemImgUrl":
+          "https://i.ebayimg.com/images/g/hSUAAOSwiZZbkEXQ/s-l300.png",
+      "coupons": [
+        {
+          "couponTitle": "Save \$2.00 off Miss Vickie's",
+          "couponSrcUrl": "https://www.missvickies.com/",
+          "couponType": "\$2 OFF",
+          "couponCode": "NVO094"
+        },
+        {
+          "couponTitle": "Save \$1 on Miss Vickie's potato chips",
+          "couponSrcUrl": "https://www.missvickies.com/",
+          "couponType": "\$1 OFF",
+          "couponCode": "ANm320"
+        },
+        {
+          "couponTitle": "Miss Vickie's Chips \$2 coupon",
+          "couponSrcUrl": "https://www.missvickies.com/",
+          "couponType": "\$2 OFF",
+          "couponCode": "JIP054"
+        },
+        {
+          "couponTitle": "Extra 25% Off Miss Vickie's Potato Chips",
+          "couponSrcUrl": "https://www.missvickies.com/",
+          "couponType": "25% OFF",
+          "couponCode": "ONG098"
+        },
+        {
+          "couponTitle": "Up to 9% Off",
+          "couponSrcUrl": "https://www.missvickies.com/",
+          "couponType": "9% OFF",
+          "couponCode": "WBQ042"
+        },
+        {
+          "couponTitle": "Up to 50% off + Free Shipping",
+          "couponSrcUrl": "https://www.missvickies.com/",
+          "couponType": "50% OFF",
+          "couponCode": "TNV157"
+        }
+      ]
+    }
+  ],
+
+  //PRODUCT 9c
+  "028400009973": [
+    {
+      "itemName": "Miss Vickie's Kettle Cooked Potato Chips, BBQ",
+      "itemImgUrl":
+          "https://i.ebayimg.com/images/g/hSUAAOSwiZZbkEXQ/s-l300.png",
+      "coupons": [
+        {
+          "couponTitle": "Save \$2.00 off Miss Vickie's",
+          "couponSrcUrl": "https://www.missvickies.com/",
+          "couponType": "\$2 OFF",
+          "couponCode": "NVO094"
+        },
+        {
+          "couponTitle": "Save \$1 on Miss Vickie's potato chips",
+          "couponSrcUrl": "https://www.missvickies.com/",
+          "couponType": "\$1 OFF",
+          "couponCode": "ANm320"
+        },
+        {
+          "couponTitle": "Miss Vickie's Chips \$2 coupon",
+          "couponSrcUrl": "https://www.missvickies.com/",
+          "couponType": "\$2 OFF",
+          "couponCode": "JIP054"
+        },
+        {
+          "couponTitle": "Extra 25% Off Miss Vickie's Potato Chips",
+          "couponSrcUrl": "https://www.missvickies.com/",
+          "couponType": "25% OFF",
+          "couponCode": "ONG098"
+        },
+        {
+          "couponTitle": "Up to 9% Off",
+          "couponSrcUrl": "https://www.missvickies.com/",
+          "couponType": "9% OFF",
+          "couponCode": "WBQ042"
+        },
+        {
+          "couponTitle": "Up to 50% off + Free Shipping",
+          "couponSrcUrl": "https://www.missvickies.com/",
+          "couponType": "50% OFF",
+          "couponCode": "TNV157"
         }
       ]
     }
@@ -349,10 +473,81 @@ final products = {
           "https://00aedab98cf5f64df2f5-b1fe34f25669ea3ec7fe8fe4c1201c10.ssl.cf2.rackcdn.com/static/popchips-og-image.jpg",
       "coupons": [
         {
-          "couponTitle": "\$2 off Pop Chips",
+          "couponTitle": "Get up to 10% Off popchips Items",
           "couponSrcUrl": "https://www.popchips.com/products",
-          "couponType": "\$2 OFF",
+          "couponType": "10% OFF",
           "couponCode": "INR4360"
+        },
+        {
+          "couponTitle": "\$1.00 Off Any Two (2) Bags of Pop Chips",
+          "couponSrcUrl": "https://www.popchips.com/products",
+          "couponType": "\$1 OFF",
+          "couponCode": "OQB5782"
+        }
+      ]
+    }
+  ],
+
+  //PRODUCT 11
+  "01264904": [
+    {
+      "itemName": "Starbucks Mocha Frappuccino",
+      "itemImgUrl":
+          "https://i5.walmartimages.com/asr/1b998cb6-45e2-42e7-921e-773e4a12ff1d_1.20108b49d9c72ec4e2b8f74725f3d314.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF",
+      "coupons": [
+        {
+          "couponTitle": "Up to 8% Off Total Purchase",
+          "couponSrcUrl": "https://www.starbucks.com/",
+          "couponType": "8% OFF",
+          "couponCode": "OFN5443"
+        },
+        {
+          "couponTitle": "Up to 20% Off At Starbucks",
+          "couponSrcUrl": "https://www.starbucks.com/",
+          "couponType": "8% OFF",
+          "couponCode": "RDe2890"
+        },
+        {
+          "couponTitle": "Up to \$3 Off At Starbucks",
+          "couponSrcUrl": "https://www.starbucks.com/",
+          "couponType": "\$3 OFF",
+          "couponCode": "RDe2890"
+        },
+        {
+          "couponTitle": "10% Off Coupon",
+          "couponSrcUrl": "https://www.starbucks.com/",
+          "couponType": "10% OFF",
+          "couponCode": "DOu3480"
+        },
+        {
+          "couponTitle": "10% Off Coupon",
+          "couponSrcUrl": "https://www.starbucks.com/",
+          "couponType": "10% OFF",
+          "couponCode": "DOu3480"
+        },
+        {
+          "couponTitle": "5% Off Frappucino Coupon",
+          "couponSrcUrl": "https://www.starbucks.com/",
+          "couponType": "5% OFF",
+          "couponCode": "EOB0242"
+        },
+        {
+          "couponTitle": "\$2 Off Coupon",
+          "couponSrcUrl": "https://www.starbucks.com/",
+          "couponType": "\$2 OFF",
+          "couponCode": "HNO0238"
+        },
+        {
+          "couponTitle": "FRAPPUCCINO COUPON, 10% OFF",
+          "couponSrcUrl": "https://www.starbucks.com/",
+          "couponType": "10% OFF",
+          "couponCode": "NWO134"
+        },
+        {
+          "couponTitle": "Free Drink With Email Signup and Survey",
+          "couponSrcUrl": "https://www.starbucks.com/",
+          "couponType": "100% OFF",
+          "couponCode": "N/A"
         }
       ]
     }
@@ -373,7 +568,7 @@ final products = {
         }
       ]
     }
-  ],
+  ]
 
 
   
