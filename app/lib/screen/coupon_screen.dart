@@ -201,6 +201,12 @@ class _CouponScreenState extends State<CouponScreen> {
   retrieveData() {
     productModel = products;
 
+  if(productModel[couponVal]== null ){
+    // if the coupon value doesnt exist, then couponvalue is set default to an error code "fuckthis"
+    couponVal = "fuckthis";
+  }
+
+
     print(productModel);
     print(productModel[couponVal][0]["coupons"][0]["couponType"]);
     print(productModel[couponVal][0]["coupons"][0]["couponTitle"]);

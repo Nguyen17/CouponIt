@@ -1,4 +1,5 @@
 final products = {
+
   //PRODUCT 1
   "073854008089": [
     {
@@ -117,7 +118,9 @@ final products = {
           "couponSrcUrl": "https://www.bicyclecards.com/",
           "couponType": "50% OFF",
           "couponCode": "ITg788"
-        }
+        },
+        
+        
       ]
     }
   ],
@@ -359,5 +362,25 @@ final products = {
         }
       ]
     }
-  ]
+  ],
+
+    //PRODUCT 7
+  "fuckthis": [
+    {
+      "itemName": "fuckman",
+      "itemImgUrl":
+          "https://google.com",
+      "coupons": [
+        {
+          "couponTitle": " ",
+          "couponSrcUrl": "https://www.google.com/",
+          "couponType": "Coupon Not Found",
+          "couponCode": ":("
+        }
+      ]
+    }
+  ],
+
+
+  
 };
