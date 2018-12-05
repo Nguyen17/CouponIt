@@ -87,6 +87,9 @@ class _AppScreenState extends State<AppScreen> {
   // This is a variables that holds the return value of the Scan method
   String barcode;
 
+   // Used to target the scaffold that holds the drawer
+  GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey();
+
   /// Setting up current user info.
   String userUID;
   String userDisplayName;
@@ -239,8 +242,7 @@ class _AppScreenState extends State<AppScreen> {
             mini: true,
             child: Icon(FontAwesomeIcons.link))));
 
-    // Used to target the scaffold that holds the drawer
-    GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey();
+   
 
     return SafeArea(
         minimum: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
