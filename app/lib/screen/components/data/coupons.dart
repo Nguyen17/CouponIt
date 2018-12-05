@@ -256,12 +256,6 @@ final products = {
           "couponCode": "ELS9134"
         },
         {
-          "couponTitle": "Up to 33% Off On Beauty Products",
-          "couponSrcUrl": "https://www.suavecito.com/",
-          "couponType": "33% OFF",
-          "couponCode": "ELS9134"
-        },
-        {
           "couponTitle": "Enjoy 20% off Suavecito",
           "couponSrcUrl": "https://www.suavecito.com/",
           "couponType": "20% OFF",
@@ -364,7 +358,7 @@ final products = {
     }
   ],
 
-    //PRODUCT 7
+  //PRODUCT NULL
   "fuckthis": [
     {
       "itemName": "fuckman",
