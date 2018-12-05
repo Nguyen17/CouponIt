@@ -289,7 +289,7 @@ final products = {
   ],
 
   //PRODUCT 8
-  "038100141804": [
+  "038100176684": [
     {
       "itemName": "Purina Beggin' Strips",
       "itemImgUrl":
@@ -339,7 +339,7 @@ final products = {
         }
       ]
     }
-  ]
+  ],
 
   //PRODUCT 10
   "082666722007": [
