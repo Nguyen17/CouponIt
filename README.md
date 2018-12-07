@@ -34,6 +34,11 @@ Link to installation guide: [Flutter Installation](https://flutter.io/get-starte
   
  `flutter run` 
 
+ ## Firebase Installation
+ This repo uses Firebase as the backend. Make sure to set up google-services.json for this project. FOLLOW the instructions from the link below to set up.
+
+ [Firebase Installation](https://firebase.google.com/docs/flutter/setup)
+
 ## Git Fundamentals
  Git is vital to make changes to the codebase. If you don't know git yet, refer to the following links :penguin:
  - [Learn Git Branching](https://learngitbranching.js.org/) 
